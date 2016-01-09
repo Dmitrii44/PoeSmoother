@@ -1,12 +1,12 @@
 rain particles -> rainsparse = "Metadata\\Particles\\rainsparse.pet";
 rain particles -> rain_1_3_9 = "Metadata\\Particles\\enviro_effects\\rain\\rain_1_3_9.pet";
 
-golems sounds -> ChaosElemental = "Metadata\\Monsters\\ChaosElemental\\ChaosElemental.aoc";
-golems sounds -> ChaosElementalSummoned = "Metadata\\Monsters\\ChaosElemental\\ChaosElementalSummoned.aoc";
-golems sounds -> FireElemental = "Metadata\\Monsters\\FireElemental\\FireElemental.aoc";
-golems sounds -> FireElementalSummoned = "Metadata\\Monsters\\FireElemental\\FireElementalSummoned.aoc";
-golems sounds -> IceElemental = "Metadata\\Monsters\\IceElemental\\IceElemental.aoc";
-golems sounds -> IceElementalSummoned = "Metadata\\Monsters\\IceElemental\\IceElementalSummoned.aoc";
+golem sounds -> ChaosElemental = "Metadata\\Monsters\\ChaosElemental\\ChaosElemental.aoc";
+golem sounds -> ChaosElementalSummoned = "Metadata\\Monsters\\ChaosElemental\\ChaosElementalSummoned.aoc";
+golem sounds -> FireElemental = "Metadata\\Monsters\\FireElemental\\FireElemental.aoc";
+golem sounds -> FireElementalSummoned = "Metadata\\Monsters\\FireElemental\\FireElementalSummoned.aoc";
+golem sounds -> IceElemental = "Metadata\\Monsters\\IceElemental\\IceElemental.aoc";
+golem sounds -> IceElementalSummoned = "Metadata\\Monsters\\IceElemental\\IceElementalSummoned.aoc";
 
 spectre sounds -> Revenant = "Metadata\\Monsters\\Revenant\\RevenantBoss.aoc";
 spectre sounds -> RevenantBoss = "Metadata\\Monsters\\Revenant\\RevenantBoss.aoc";

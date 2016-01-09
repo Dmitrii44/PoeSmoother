@@ -3,7 +3,6 @@ using LibGGPK;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,7 +11,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using Color = System.Windows.Media.Color;
 using Point = System.Windows.Point;
 
 namespace VisualGGPK
@@ -611,9 +609,14 @@ namespace VisualGGPK
             PortalSounds();
         }
 
-        private void SkillEffects(object sender, RoutedEventArgs e)
+        private void HeraldOfIce(object sender, RoutedEventArgs e)
         {
-            SkillEffects();
+            HeraldOfIce();
+        }
+
+        private void Discharge(object sender, RoutedEventArgs e)
+        {
+            Discharge();
         }
         private void RainParticles()
         {
@@ -944,7 +947,7 @@ namespace VisualGGPK
             }
         }
 
-        private void SkillEffects()
+        private void HeraldOfIce()
         {
             if (content.IsReadOnly)
             {
@@ -954,7 +957,7 @@ namespace VisualGGPK
 
             try
             {
-                switch (skillEffects.IsChecked)
+                switch (heraldOfIce.IsChecked)
                 {
                     case true:
                         {
@@ -999,6 +1002,160 @@ namespace VisualGGPK
             }
         }
 
+        private void Discharge()
+        {
+            if (content.IsReadOnly)
+            {
+                MessageBox.Show(Settings.Strings["ReplaceItem_Readonly"], Settings.Strings["ReplaceItem_ReadonlyCaption"]);
+                return;
+            }
+
+            try
+            {
+                switch (discharge.IsChecked)
+                {
+                    case true:
+                        {
+                            const string disable_fire_actual_line = "config/skillEffects/discharge/fire/disable_actual_line.pet";
+                            const string fire_actual_line = "Metadata\\Particles\\discharge\\fire\\actual_line.pet";
+                            RecordsByPath[fire_actual_line].ReplaceContents(ggpkPath, disable_fire_actual_line, content.FreeRoot);
+
+                            const string disable_botexplode = "config/skillEffects/discharge/fire/disable_botexplode.pet";
+                            const string botexplode = "Metadata\\Particles\\discharge\\fire\\botexplode.pet";
+                            RecordsByPath[botexplode].ReplaceContents(ggpkPath, disable_botexplode, content.FreeRoot);
+
+                            const string disable_cyl = "config/skillEffects/discharge/fire/disable_cyl.pet";
+                            const string cyl = "Metadata\\Particles\\discharge\\fire\\cyl.pet";
+                            RecordsByPath[cyl].ReplaceContents(ggpkPath, disable_cyl, content.FreeRoot);
+
+                            const string disable_line = "config/skillEffects/discharge/fire/disable_line.pet";
+                            const string line = "Metadata\\Particles\\discharge\\fire\\line.pet";
+                            RecordsByPath[line].ReplaceContents(ggpkPath, disable_line, content.FreeRoot);
+
+
+
+
+                            const string disable_ice_botexplode = "config/skillEffects/discharge/ice/disable_botexplode.pet";
+                            const string ice_botexplode = "Metadata\\Particles\\discharge\\ice\\botexplode.pet";
+                            RecordsByPath[ice_botexplode].ReplaceContents(ggpkPath, disable_ice_botexplode, content.FreeRoot);
+
+                            const string disable_ice_botmist = "config/skillEffects/discharge/ice/disable_botmist.pet";
+                            const string ice_botmist = "Metadata\\Particles\\discharge\\ice\\botmist.pet";
+                            RecordsByPath[ice_botmist].ReplaceContents(ggpkPath, disable_ice_botmist, content.FreeRoot);
+
+                            const string disable_ice_line = "config/skillEffects/discharge/ice/disable_line.pet";
+                            const string ice_line = "Metadata\\Particles\\discharge\\ice\\line.pet";
+                            RecordsByPath[ice_line].ReplaceContents(ggpkPath, disable_ice_line, content.FreeRoot);
+
+                            const string disable_ice_lineactual = "config/skillEffects/discharge/ice/disable_lineactual.pet";
+                            const string ice_lineactual = "Metadata\\Particles\\discharge\\ice\\lineactual.pet";
+                            RecordsByPath[ice_lineactual].ReplaceContents(ggpkPath, disable_ice_lineactual, content.FreeRoot);
+                            
+
+
+
+                            const string disable_light_bot_linger = "config/skillEffects/discharge/light/disable_bot_linger.pet";
+                            const string light_bot_linger = "Metadata\\Particles\\discharge\\light\\bot_linger.pet";
+                            RecordsByPath[light_bot_linger].ReplaceContents(ggpkPath, disable_light_bot_linger, content.FreeRoot);
+
+                            const string disable_light_botexplode = "config/skillEffects/discharge/light/disable_botexplode.pet";
+                            const string light_botexplode = "Metadata\\Particles\\discharge\\light\\botexplode.pet";
+                            RecordsByPath[light_botexplode].ReplaceContents(ggpkPath, disable_light_botexplode, content.FreeRoot);
+
+                            const string disable_light_circle_big = "config/skillEffects/discharge/light/disable_circle_big.pet";
+                            const string light_circle_big = "Metadata\\Particles\\discharge\\light\\circle_big.pet";
+                            RecordsByPath[light_circle_big].ReplaceContents(ggpkPath, disable_light_circle_big, content.FreeRoot);
+
+                            const string disable_light_cyl = "config/skillEffects/discharge/light/disable_cyl.pet";
+                            const string light_cyl = "Metadata\\Particles\\discharge\\light\\cyl.pet";
+                            RecordsByPath[light_cyl].ReplaceContents(ggpkPath, disable_light_cyl, content.FreeRoot);
+
+                            const string disable_light_light_linger = "config/skillEffects/discharge/light/disable_light_linger.pet";
+                            const string light_light_linger = "Metadata\\Particles\\discharge\\light\\light_linger.pet";
+                            RecordsByPath[light_light_linger].ReplaceContents(ggpkPath, disable_light_light_linger, content.FreeRoot);
+
+                            const string disable_light_line = "config/skillEffects/discharge/light/disable_line.pet";
+                            const string light_line = "Metadata\\Particles\\discharge\\light\\line.pet";
+                            RecordsByPath[light_line].ReplaceContents(ggpkPath, disable_light_line, content.FreeRoot);
+
+                            
+
+                            UpdateDisplayPanel();
+                        }
+                        break;
+
+                    case false:
+                        {
+                            const string enable_fire_actual_line = "config/skillEffects/discharge/fire/enable_actual_line.pet";
+                            const string fire_actual_line = "Metadata\\Particles\\discharge\\fire\\actual_line.pet";
+                            RecordsByPath[fire_actual_line].ReplaceContents(ggpkPath, enable_fire_actual_line, content.FreeRoot);
+
+                            const string enable_fire_botexplode = "config/skillEffects/discharge/fire/enable_botexplode.pet";
+                            const string fire_botexplode = "Metadata\\Particles\\discharge\\fire\\botexplode.pet";
+                            RecordsByPath[fire_botexplode].ReplaceContents(ggpkPath, enable_fire_botexplode, content.FreeRoot);
+
+                            const string enable_fire_cyl = "config/skillEffects/discharge/fire/enable_cyl.pet";
+                            const string fire_cyl = "Metadata\\Particles\\discharge\\fire\\cyl.pet";
+                            RecordsByPath[fire_cyl].ReplaceContents(ggpkPath, enable_fire_cyl, content.FreeRoot);
+
+                            const string enable_fire_line = "config/skillEffects/discharge/fire/enable_line.pet";
+                            const string fire_line = "Metadata\\Particles\\discharge\\fire\\line.pet";
+                            RecordsByPath[fire_line].ReplaceContents(ggpkPath, enable_fire_line, content.FreeRoot);
+
+
+
+                            const string enable_ice_botexplode = "config/skillEffects/discharge/ice/enable_botexplode.pet";
+                            const string ice_botexplode = "Metadata\\Particles\\discharge\\ice\\botexplode.pet";
+                            RecordsByPath[ice_botexplode].ReplaceContents(ggpkPath, enable_ice_botexplode, content.FreeRoot);
+
+                            const string enable_ice_botmist = "config/skillEffects/discharge/ice/enable_botmist.pet";
+                            const string ice_botmist = "Metadata\\Particles\\discharge\\ice\\botmist.pet";
+                            RecordsByPath[ice_botmist].ReplaceContents(ggpkPath, enable_ice_botmist, content.FreeRoot);
+
+                            const string enable_ice_line = "config/skillEffects/discharge/ice/enable_line.pet";
+                            const string ice_line = "Metadata\\Particles\\discharge\\ice\\line.pet";
+                            RecordsByPath[ice_line].ReplaceContents(ggpkPath, enable_ice_line, content.FreeRoot);
+
+                            const string enable_ice_lineactual = "config/skillEffects/discharge/ice/enable_lineactual.pet";
+                            const string ice_lineactual = "Metadata\\Particles\\discharge\\ice\\lineactual.pet";
+                            RecordsByPath[ice_lineactual].ReplaceContents(ggpkPath, enable_ice_lineactual, content.FreeRoot);
+
+
+
+                            const string enable_light_bot_linger = "config/skillEffects/discharge/light/enable_bot_linger.pet";
+                            const string light_bot_linger = "Metadata\\Particles\\discharge\\light\\bot_linger.pet";
+                            RecordsByPath[light_bot_linger].ReplaceContents(ggpkPath, enable_light_bot_linger, content.FreeRoot);
+
+                            const string enable_light_botexplode = "config/skillEffects/discharge/light/enable_botexplode.pet";
+                            const string light_botexplode = "Metadata\\Particles\\discharge\\light\\botexplode.pet";
+                            RecordsByPath[light_botexplode].ReplaceContents(ggpkPath, enable_light_botexplode, content.FreeRoot);
+
+                            const string enable_light_circle_big = "config/skillEffects/discharge/light/enable_circle_big.pet";
+                            const string light_circle_big = "Metadata\\Particles\\discharge\\light\\circle_big.pet";
+                            RecordsByPath[light_circle_big].ReplaceContents(ggpkPath, enable_light_circle_big, content.FreeRoot);
+
+                            const string enable_light_cyl = "config/skillEffects/discharge/light/enable_cyl.pet";
+                            const string light_cyl = "Metadata\\Particles\\discharge\\light\\cyl.pet";
+                            RecordsByPath[light_cyl].ReplaceContents(ggpkPath, enable_light_cyl, content.FreeRoot);
+
+                            const string enable_light_light_linger = "config/skillEffects/discharge/light/enable_light_linger.pet";
+                            const string light_light_linger = "Metadata\\Particles\\discharge\\light\\light_linger.pet";
+                            RecordsByPath[light_light_linger].ReplaceContents(ggpkPath, enable_light_light_linger, content.FreeRoot);
+
+                            const string enable_light_line = "config/skillEffects/discharge/light/enable_line.pet";
+                            const string light_line = "Metadata\\Particles\\discharge\\light\\line.pet";
+                            RecordsByPath[light_line].ReplaceContents(ggpkPath, enable_light_line, content.FreeRoot);
+
+                            UpdateDisplayPanel();
+                        }
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format(Settings.Strings["ReplaceItem_Failed"], ex.Message), Settings.Strings["Error_Caption"], MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
         private void treeView1_MouseDoubleClick_1(object sender, MouseButtonEventArgs e)
         {
             TreeView source = sender as TreeView;

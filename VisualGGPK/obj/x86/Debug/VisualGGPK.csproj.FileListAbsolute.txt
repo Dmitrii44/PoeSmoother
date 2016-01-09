@@ -1,1 +1,2 @@
 C:\Users\me\Documents\GitHub\poeSmooth\VisualGGPK\bin\Debug\VisualGGPK.exe.config
+C:\Users\me\Documents\GitHub\PoeSmoother\VisualGGPK\bin\Debug\VisualGGPK.exe.config
