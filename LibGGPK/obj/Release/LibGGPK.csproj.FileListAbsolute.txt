@@ -1,0 +1,16 @@
+C:\Users\me\Documents\GitHub\libggpk\LibGGPK\bin\Release\LibGGPK.dll
+C:\Users\me\Documents\GitHub\libggpk\LibGGPK\bin\Release\LibGGPK.pdb
+C:\Users\me\Documents\GitHub\libggpk\LibGGPK\obj\Release\LibGGPK.dll
+C:\Users\me\Documents\GitHub\libggpk\LibGGPK\obj\Release\LibGGPK.pdb
+C:\Users\me\Documents\GitHub\toaster\LibGGPK\bin\Release\LibGGPK.dll
+C:\Users\me\Documents\GitHub\toaster\LibGGPK\bin\Release\LibGGPK.pdb
+C:\Users\me\Documents\GitHub\toaster\LibGGPK\obj\Release\LibGGPK.dll
+C:\Users\me\Documents\GitHub\toaster\LibGGPK\obj\Release\LibGGPK.pdb
+C:\Users\me\Documents\GitHub\poeSmooth\LibGGPK\bin\Release\LibGGPK.dll
+C:\Users\me\Documents\GitHub\poeSmooth\LibGGPK\bin\Release\LibGGPK.pdb
+C:\Users\me\Documents\GitHub\poeSmooth\LibGGPK\obj\Release\LibGGPK.dll
+C:\Users\me\Documents\GitHub\poeSmooth\LibGGPK\obj\Release\LibGGPK.pdb
+C:\Users\me\Documents\GitHub\PoeSmoother\LibGGPK\bin\Release\LibGGPK.dll
+C:\Users\me\Documents\GitHub\PoeSmoother\LibGGPK\bin\Release\LibGGPK.pdb
+C:\Users\me\Documents\GitHub\PoeSmoother\LibGGPK\obj\Release\LibGGPK.dll
+C:\Users\me\Documents\GitHub\PoeSmoother\LibGGPK\obj\Release\LibGGPK.pdb

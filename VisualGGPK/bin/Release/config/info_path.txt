@@ -1,0 +1,32 @@
+rain particles -> rainsparse = "Metadata\\Particles\\rainsparse.pet";
+rain particles -> rain_1_3_9 = "Metadata\\Particles\\enviro_effects\\rain\\rain_1_3_9.pet";
+
+golems sounds -> ChaosElemental = "Metadata\\Monsters\\ChaosElemental\\ChaosElemental.aoc";
+golems sounds -> ChaosElementalSummoned = "Metadata\\Monsters\\ChaosElemental\\ChaosElementalSummoned.aoc";
+golems sounds -> FireElemental = "Metadata\\Monsters\\FireElemental\\FireElemental.aoc";
+golems sounds -> FireElementalSummoned = "Metadata\\Monsters\\FireElemental\\FireElementalSummoned.aoc";
+golems sounds -> IceElemental = "Metadata\\Monsters\\IceElemental\\IceElemental.aoc";
+golems sounds -> IceElementalSummoned = "Metadata\\Monsters\\IceElemental\\IceElementalSummoned.aoc";
+
+spectre sounds -> Revenant = "Metadata\\Monsters\\Revenant\\RevenantBoss.aoc";
+spectre sounds -> RevenantBoss = "Metadata\\Monsters\\Revenant\\RevenantBoss.aoc";
+
+ranger vocal sounds -> Dex = "Metadata\\Characters\\Dex\\Dex.aoc";
+shadow vocal sounds -> DexInt = "Metadata\\Characters\\DexInt\\DexInt.aoc";
+witch vocal sounds -> Int = "Metadata\\Characters\\Int\\Int.aoc";
+marauder vocal sounds -> Str = "Metadata\\Characters\\Str\\Str.aoc";
+duelist vocal sounds -> StrDex = "Metadata\\Characters\\StrDex\\StrDex.aoc";
+scion vocal sounds -> StrDexInt = "Metadata\\Characters\\StrDexInt\\StrDexInt.aoc";
+templar vocal sounds -> StrInt = "Metadata\\Characters\\StrInt\\StrInt.aoc";
+
+power charge sounds -> rig_charge = "Metadata\\Effects\\Spells\\orbs\\rig_charge.aoc";
+endurance charge sounds -> rig_endurance = "Metadata\\Effects\\Spells\\orbs\\rig_endurance.aoc";
+frenzy charge sounds -> rig_frenzy = "Metadata\\Effects\\Spells\\orbs\\rig_frenzy.aoc";
+
+portals sounds -> rig = "Metadata\\Effects\\Environment\\act3\\gem_lady_portal\\rig.aoc";
+
+waypoint sounds -> waypoint_idle = "Metadata\\Effects\\Environment\\waypoint\\new\\waypoint_idle.aoc";
+
+herald of ice explode effects -> circle = "Metadata\\Particles\\herald\\ice\\explode\\circle.pet";
+herald of ice explode effects -> cyl = "Metadata\\Particles\\herald\\ice\\explode\\cyl.pet";
+herald of ice explode effects -> mid = "Metadata\\Particles\\herald\\ice\\explode\\mid.pet";
