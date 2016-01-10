@@ -2,6 +2,26 @@ rain particles -> rainsparse = "Metadata\\Particles\\rainsparse.pet";
 rain particles -> rain_1_3_9 = "Metadata\\Particles\\enviro_effects\\rain\\rain_1_3_9.pet";
 rain particles -> boat_rain = "Metadata\\Particles\\cargohold\\boat_rain.pet";
 
+groung effects -> evil_new_cyl = "Metadata\\Particles\\ground_effects\\evil\\new\\cyl.pet";
+groung effects -> evil_cyl = "Metadata\\Particles\\ground_effects\\evil\\cyl.pet";
+groung effects -> line = "Metadata\\Particles\\ground_effects\\evil\\line.pet";
+groung effects -> fire_cyl = "Metadata\\Particles\\ground_effects\\fire\\cyl.pet";
+groung effects -> ice_cyl = "Metadata\\Particles\\ground_effects\\ice\\cyl.pet";
+groung effects -> lightning_cyl = "Metadata\\Particles\\ground_effects\\lightning\\lightning_cyl.pet";
+groung effects -> cloud_large = "Metadata\\Particles\\ground_effects\\poison\\cloud_large.pet";
+groung effects -> cloud_mid = "Metadata\\Particles\\ground_effects\\poison\\cloud_mid.pet";
+groung effects -> cloud_small = "Metadata\\Particles\\ground_effects\\poison\\cloud_small.pet";
+groung effects -> tar_cyl = "Metadata\\Particles\\ground_effects\\tar\\cyl.pet";
+
+corrupted area -> air_particles = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\air_particles.pet";
+corrupted area -> directionalfog = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\directionalfog.pet";
+corrupted area -> fog_circle = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\fog_circle.pet";
+corrupted area -> fog_cyl = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\fog_cyl.pet";
+corrupted area -> ground_fog = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\ground_fog.pet";
+corrupted area -> smoke_back_filler = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\smoke_back_filler.pet";
+corrupted area -> smoke_rollout = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\smoke_rollout.pet";
+corrupted area -> smoke_rollout_bigbox = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\smoke_rollout_bigbox.pet";
+
 golem sounds -> ChaosElemental = "Metadata\\Monsters\\ChaosElemental\\ChaosElemental.aoc";
 golem sounds -> ChaosElementalSummoned = "Metadata\\Monsters\\ChaosElemental\\ChaosElementalSummoned.aoc";
 golem sounds -> FireElemental = "Metadata\\Monsters\\FireElemental\\FireElemental.aoc";
