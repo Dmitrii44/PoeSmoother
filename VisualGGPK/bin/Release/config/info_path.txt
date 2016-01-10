@@ -1,5 +1,6 @@
 rain particles -> rainsparse = "Metadata\\Particles\\rainsparse.pet";
 rain particles -> rain_1_3_9 = "Metadata\\Particles\\enviro_effects\\rain\\rain_1_3_9.pet";
+rain particles -> boat_rain = "Metadata\\Particles\\cargohold\\boat_rain.pet";
 
 golem sounds -> ChaosElemental = "Metadata\\Monsters\\ChaosElemental\\ChaosElemental.aoc";
 golem sounds -> ChaosElementalSummoned = "Metadata\\Monsters\\ChaosElemental\\ChaosElementalSummoned.aoc";

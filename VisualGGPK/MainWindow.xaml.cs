@@ -639,6 +639,11 @@ namespace VisualGGPK
                             const string disable_rain_1_3_9 = "config/rainParticles/disable_rain_1_3_9.pet";
                             const string rain_1_3_9 = "Metadata\\Particles\\enviro_effects\\rain\\rain_1_3_9.pet";
                             RecordsByPath[rain_1_3_9].ReplaceContents(ggpkPath, disable_rain_1_3_9, content.FreeRoot);
+
+                            const string disable_boat_rain = "config/rainParticles/disable_boat_rain.pet";
+                            const string boat_rain = "Metadata\\Particles\\cargohold\\boat_rain.pet";
+                            RecordsByPath[boat_rain].ReplaceContents(ggpkPath, disable_boat_rain, content.FreeRoot);
+
                             UpdateDisplayPanel();
                         }
                         break;
@@ -652,6 +657,11 @@ namespace VisualGGPK
                             const string enable_rain_1_3_9 = "config/rainParticles/enable_rain_1_3_9.pet";
                             const string rain_1_3_9 = "Metadata\\Particles\\enviro_effects\\rain\\rain_1_3_9.pet";
                             RecordsByPath[rain_1_3_9].ReplaceContents(ggpkPath, enable_rain_1_3_9, content.FreeRoot);
+
+                            const string enable_boat_rain = "config/rainParticles/enable_boat_rain.pet";
+                            const string boat_rain = "Metadata\\Particles\\cargohold\\boat_rain.pet";
+                            RecordsByPath[boat_rain].ReplaceContents(ggpkPath, enable_boat_rain, content.FreeRoot);
+
                             UpdateDisplayPanel();
                         }
                         break;
