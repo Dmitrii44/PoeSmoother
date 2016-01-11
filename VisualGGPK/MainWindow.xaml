@@ -46,11 +46,12 @@
             <CheckBox x:Name="groundEffects" Content=" - disable ground effects" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Checked="GroundEffects" Unchecked="GroundEffects" IsChecked="False" />
             <CheckBox x:Name="corruptedArea" Content=" - disable corrupted area" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Checked="CorruptedArea" Unchecked="CorruptedArea" IsChecked="False" />
             <CheckBox x:Name="heraldOfIce" Content=" - disable herald of ice" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Checked="HeraldOfIce" Unchecked="HeraldOfIce" IsChecked="False" />
-            <CheckBox x:Name="discharge" Content=" - discharge (NotDoneYet)" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Checked="Discharge" Unchecked="Discharge" IsChecked="False" />
-            <CheckBox x:Name="monsterSounds" Content=" - disable monsters sound" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Checked="MonsterSounds" Unchecked="MonsterSounds" IsChecked="False" />
-            <CheckBox x:Name="charSounds" Content=" - disable chars sound" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Checked="CharSounds" Unchecked="CharSounds" IsChecked="False" />
-            <CheckBox x:Name="portalSounds" Content=" - disable portals sound" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" Checked="PortalSounds" Unchecked="PortalSounds" IsChecked="False" />
-            <CheckBox x:Name="chargeSounds" Content=" - disable charges sound" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top" Checked="ChargeSounds" Unchecked="ChargeSounds" IsChecked="False" />
+            <CheckBox x:Name="monsterSounds" Content=" - disable monsters sound" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Checked="MonsterSounds" Unchecked="MonsterSounds" IsChecked="False" />
+            <CheckBox x:Name="charSounds" Content=" - disable chars sound" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Checked="CharSounds" Unchecked="CharSounds" IsChecked="False" />
+            <CheckBox x:Name="portalSounds" Content=" - disable portals sound" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Checked="PortalSounds" Unchecked="PortalSounds" IsChecked="False" />
+            <CheckBox x:Name="chargeSounds" Content=" - disable charges sound" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" Checked="ChargeSounds" Unchecked="ChargeSounds" IsChecked="False" />
+            <CheckBox x:Name="dischargeDisabled" Content=" - * discharge 0 effects" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Checked="DischargeDisabled" Unchecked="DischargeDisabled" IsChecked="False" />
+            <CheckBox x:Name="dischargeImproved" Content=" - ** discharge improved" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top" Checked="DischargeImproved" Unchecked="DischargeImproved" IsChecked="False" />
             </Grid>
     </Grid>
 </Window>
