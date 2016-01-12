@@ -120,7 +120,7 @@ namespace VisualGGPK
         /// <param name="parentControl">TreeViewItem to add children to</param>
         private void AddDirectoryTreeToControl(DirectoryTreeNode directoryTreeNode, TreeViewItem parentControl)
         {
-            TreeViewItem rootItem = new TreeViewItem {Header = directoryTreeNode};
+            TreeViewItem rootItem = new TreeViewItem { Header = directoryTreeNode };
             if ((directoryTreeNode.ToString() == "ROOT") || (directoryTreeNode.ToString() == "")) rootItem.IsExpanded = true;
 
             if (parentControl == null)
@@ -171,7 +171,7 @@ namespace VisualGGPK
             var item = treeView1.SelectedItem as TreeViewItem;
             if (item?.Header is DirectoryTreeNode)
             {
-                DirectoryTreeNode selectedDirectory = (DirectoryTreeNode) item.Header;
+                DirectoryTreeNode selectedDirectory = (DirectoryTreeNode)item.Header;
                 if (selectedDirectory.Record == null)
                     return;
             }
@@ -271,7 +271,6 @@ namespace VisualGGPK
                 MessageBox.Show(string.Format(Settings.Strings["ExportSelectedItem_Failed"], ex.Message), Settings.Strings["Error_Caption"], MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
 
         /// <summary>
         /// Exports entire DirectoryTreeNode to disk, preserving directory structure
@@ -613,10 +612,12 @@ namespace VisualGGPK
         {
             HeraldOfIce();
         }
+
         private void DischargeImproved(object sender, RoutedEventArgs e)
         {
             DischargeImproved();
         }
+
         private void DischargeDisabled(object sender, RoutedEventArgs e)
         {
             DischargeDisabled();
@@ -631,6 +632,7 @@ namespace VisualGGPK
         {
             CorruptedArea();
         }
+
         private void RainParticles()
         {
             if (content.IsReadOnly)
@@ -645,17 +647,17 @@ namespace VisualGGPK
                 {
                     case true:
                         {
-                            const string disable_rainsparse = "config/rainParticles/disable_rainsparse.pet";
-                            const string rainsparse = "Metadata\\Particles\\rainsparse.pet";
-                            RecordsByPath[rainsparse].ReplaceContents(ggpkPath, disable_rainsparse, content.FreeRoot);
-
-                            const string disable_rain_1_3_9 = "config/rainParticles/disable_rain_1_3_9.pet";
-                            const string rain_1_3_9 = "Metadata\\Particles\\enviro_effects\\rain\\rain_1_3_9.pet";
-                            RecordsByPath[rain_1_3_9].ReplaceContents(ggpkPath, disable_rain_1_3_9, content.FreeRoot);
-
                             const string disable_boat_rain = "config/rainParticles/disable_boat_rain.pet";
+                            const string disable_rain_1_3_9 = "config/rainParticles/disable_rain_1_3_9.pet";
+                            const string disable_rainsparse = "config/rainParticles/disable_rainsparse.pet";
+
                             const string boat_rain = "Metadata\\Particles\\cargohold\\boat_rain.pet";
+                            const string rain_1_3_9 = "Metadata\\Particles\\enviro_effects\\rain\\rain_1_3_9.pet";
+                            const string rainsparse = "Metadata\\Particles\\rainsparse.pet";
+
+                            RecordsByPath[rain_1_3_9].ReplaceContents(ggpkPath, disable_rain_1_3_9, content.FreeRoot);
                             RecordsByPath[boat_rain].ReplaceContents(ggpkPath, disable_boat_rain, content.FreeRoot);
+                            RecordsByPath[rainsparse].ReplaceContents(ggpkPath, disable_rainsparse, content.FreeRoot);
 
                             UpdateDisplayPanel();
                         }
@@ -663,17 +665,17 @@ namespace VisualGGPK
 
                     case false:
                         {
-                            const string enable_rainsparse = "config/rainParticles/enable_rainsparse.pet";
-                            const string rainsparse = "Metadata\\Particles\\rainsparse.pet";
-                            RecordsByPath[rainsparse].ReplaceContents(ggpkPath, enable_rainsparse, content.FreeRoot);
-
-                            const string enable_rain_1_3_9 = "config/rainParticles/enable_rain_1_3_9.pet";
-                            const string rain_1_3_9 = "Metadata\\Particles\\enviro_effects\\rain\\rain_1_3_9.pet";
-                            RecordsByPath[rain_1_3_9].ReplaceContents(ggpkPath, enable_rain_1_3_9, content.FreeRoot);
-
                             const string enable_boat_rain = "config/rainParticles/enable_boat_rain.pet";
+                            const string enable_rain_1_3_9 = "config/rainParticles/enable_rain_1_3_9.pet";
+                            const string enable_rainsparse = "config/rainParticles/enable_rainsparse.pet";
+
                             const string boat_rain = "Metadata\\Particles\\cargohold\\boat_rain.pet";
+                            const string rain_1_3_9 = "Metadata\\Particles\\enviro_effects\\rain\\rain_1_3_9.pet";
+                            const string rainsparse = "Metadata\\Particles\\rainsparse.pet";
+
+                            RecordsByPath[rain_1_3_9].ReplaceContents(ggpkPath, enable_rain_1_3_9, content.FreeRoot);
                             RecordsByPath[boat_rain].ReplaceContents(ggpkPath, enable_boat_rain, content.FreeRoot);
+                            RecordsByPath[rainsparse].ReplaceContents(ggpkPath, enable_rainsparse, content.FreeRoot);
 
                             UpdateDisplayPanel();
                         }
@@ -701,39 +703,36 @@ namespace VisualGGPK
                     case true:
                         {
                             const string disable_evil_new_cyl = "config/groundEffects/evil/new/disable_cyl.pet";
-                            const string evil_new_cyl = "Metadata\\Particles\\ground_effects\\evil\\new\\cyl.pet";
-                            RecordsByPath[evil_new_cyl].ReplaceContents(ggpkPath, disable_evil_new_cyl, content.FreeRoot);
                             const string disable_evil_cyl = "config/groundEffects/evil/disable_cyl.pet";
-                            const string evil_cyl = "Metadata\\Particles\\ground_effects\\evil\\cyl.pet";
-                            RecordsByPath[evil_cyl].ReplaceContents(ggpkPath, disable_evil_cyl, content.FreeRoot);
-                            const string disable_line= "config/groundEffects/evil/disable_line.pet";
-                            const string line = "Metadata\\Particles\\ground_effects\\evil\\line.pet";
-                            RecordsByPath[line].ReplaceContents(ggpkPath, disable_line, content.FreeRoot);
-
+                            const string disable_line = "config/groundEffects/evil/disable_line.pet";
                             const string disable_fire_cyl = "config/groundEffects/fire/disable_cyl.pet";
-                            const string fire_cyl = "Metadata\\Particles\\ground_effects\\fire\\cyl.pet";
-                            RecordsByPath[fire_cyl].ReplaceContents(ggpkPath, disable_fire_cyl, content.FreeRoot);
-
                             const string disable_ice_cyl = "config/groundEffects/ice/disable_cyl.pet";
-                            const string ice_cyl = "Metadata\\Particles\\ground_effects\\ice\\cyl.pet";
-                            RecordsByPath[ice_cyl].ReplaceContents(ggpkPath, disable_ice_cyl, content.FreeRoot);
-
                             const string disable_lightning_cyl = "config/groundEffects/lightning/disable_lightning_cyl.pet";
-                            const string lightning_cyl = "Metadata\\Particles\\ground_effects\\lightning\\lightning_cyl.pet";
-                            RecordsByPath[lightning_cyl].ReplaceContents(ggpkPath, disable_lightning_cyl, content.FreeRoot);
-
                             const string disable_cloud_large = "config/groundEffects/poison/disable_cloud_large.pet";
-                            const string cloud_large = "Metadata\\Particles\\ground_effects\\poison\\cloud_large.pet";
-                            RecordsByPath[cloud_large].ReplaceContents(ggpkPath, disable_cloud_large, content.FreeRoot);
                             const string disable_cloud_mid = "config/groundEffects/poison/disable_cloud_mid.pet";
-                            const string cloud_mid = "Metadata\\Particles\\ground_effects\\poison\\cloud_mid.pet";
-                            RecordsByPath[cloud_mid].ReplaceContents(ggpkPath, disable_cloud_mid, content.FreeRoot);
                             const string disable_cloud_small = "config/groundEffects/poison/disable_cloud_small.pet";
-                            const string cloud_small = "Metadata\\Particles\\ground_effects\\poison\\cloud_small.pet";
-                            RecordsByPath[cloud_small].ReplaceContents(ggpkPath, disable_cloud_small, content.FreeRoot);
 
                             const string disable_tar_cyl = "config/groundEffects/tar/disable_cyl.pet";
+                            const string evil_new_cyl = "Metadata\\Particles\\ground_effects\\evil\\new\\cyl.pet";
+                            const string evil_cyl = "Metadata\\Particles\\ground_effects\\evil\\cyl.pet";
+                            const string line = "Metadata\\Particles\\ground_effects\\evil\\line.pet";
+                            const string fire_cyl = "Metadata\\Particles\\ground_effects\\fire\\cyl.pet";
+                            const string ice_cyl = "Metadata\\Particles\\ground_effects\\ice\\cyl.pet";
+                            const string lightning_cyl = "Metadata\\Particles\\ground_effects\\lightning\\lightning_cyl.pet";
+                            const string cloud_large = "Metadata\\Particles\\ground_effects\\poison\\cloud_large.pet";
+                            const string cloud_mid = "Metadata\\Particles\\ground_effects\\poison\\cloud_mid.pet";
+                            const string cloud_small = "Metadata\\Particles\\ground_effects\\poison\\cloud_small.pet";
                             const string tar_cyl = "Metadata\\Particles\\ground_effects\\tar\\cyl.pet";
+
+                            RecordsByPath[evil_new_cyl].ReplaceContents(ggpkPath, disable_evil_new_cyl, content.FreeRoot);
+                            RecordsByPath[evil_cyl].ReplaceContents(ggpkPath, disable_evil_cyl, content.FreeRoot);
+                            RecordsByPath[line].ReplaceContents(ggpkPath, disable_line, content.FreeRoot);
+                            RecordsByPath[fire_cyl].ReplaceContents(ggpkPath, disable_fire_cyl, content.FreeRoot);
+                            RecordsByPath[ice_cyl].ReplaceContents(ggpkPath, disable_ice_cyl, content.FreeRoot);
+                            RecordsByPath[lightning_cyl].ReplaceContents(ggpkPath, disable_lightning_cyl, content.FreeRoot);
+                            RecordsByPath[cloud_large].ReplaceContents(ggpkPath, disable_cloud_large, content.FreeRoot);
+                            RecordsByPath[cloud_mid].ReplaceContents(ggpkPath, disable_cloud_mid, content.FreeRoot);
+                            RecordsByPath[cloud_small].ReplaceContents(ggpkPath, disable_cloud_small, content.FreeRoot);
                             RecordsByPath[tar_cyl].ReplaceContents(ggpkPath, disable_tar_cyl, content.FreeRoot);
 
                             UpdateDisplayPanel();
@@ -743,39 +742,36 @@ namespace VisualGGPK
                     case false:
                         {
                             const string enable_evil_new_cyl = "config/groundEffects/evil/new/enable_cyl.pet";
-                            const string evil_new_cyl = "Metadata\\Particles\\ground_effects\\evil\\new\\cyl.pet";
-                            RecordsByPath[evil_new_cyl].ReplaceContents(ggpkPath, enable_evil_new_cyl, content.FreeRoot);
                             const string enable_evil_cyl = "config/groundEffects/evil/enable_cyl.pet";
-                            const string evil_cyl = "Metadata\\Particles\\ground_effects\\evil\\cyl.pet";
-                            RecordsByPath[evil_cyl].ReplaceContents(ggpkPath, enable_evil_cyl, content.FreeRoot);
                             const string enable_line = "config/groundEffects/evil/enable_line.pet";
-                            const string line = "Metadata\\Particles\\ground_effects\\evil\\line.pet";
-                            RecordsByPath[line].ReplaceContents(ggpkPath, enable_line, content.FreeRoot);
-                            
                             const string enable_fire_cyl = "config/groundEffects/fire/enable_cyl.pet";
-                            const string fire_cyl = "Metadata\\Particles\\ground_effects\\fire\\cyl.pet";
-                            RecordsByPath[fire_cyl].ReplaceContents(ggpkPath, enable_fire_cyl, content.FreeRoot);
-
                             const string enable_ice_cyl = "config/groundEffects/ice/enable_cyl.pet";
-                            const string ice_cyl = "Metadata\\Particles\\ground_effects\\ice\\cyl.pet";
-                            RecordsByPath[ice_cyl].ReplaceContents(ggpkPath, enable_ice_cyl, content.FreeRoot);
-
                             const string enable_lightning_cyl = "config/groundEffects/lightning/enable_lightning_cyl.pet";
-                            const string lightning_cyl = "Metadata\\Particles\\ground_effects\\lightning\\lightning_cyl.pet";
-                            RecordsByPath[lightning_cyl].ReplaceContents(ggpkPath, enable_lightning_cyl, content.FreeRoot);
-
                             const string enable_cloud_large = "config/groundEffects/poison/enable_cloud_large.pet";
-                            const string cloud_large = "Metadata\\Particles\\ground_effects\\poison\\cloud_large.pet";
-                            RecordsByPath[cloud_large].ReplaceContents(ggpkPath, enable_cloud_large, content.FreeRoot);
                             const string enable_cloud_mid = "config/groundEffects/poison/enable_cloud_mid.pet";
-                            const string cloud_mid = "Metadata\\Particles\\ground_effects\\poison\\cloud_mid.pet";
-                            RecordsByPath[cloud_mid].ReplaceContents(ggpkPath, enable_cloud_mid, content.FreeRoot);
                             const string enable_cloud_small = "config/groundEffects/poison/enable_cloud_small.pet";
-                            const string cloud_small = "Metadata\\Particles\\ground_effects\\poison\\cloud_small.pet";
-                            RecordsByPath[cloud_small].ReplaceContents(ggpkPath, enable_cloud_small, content.FreeRoot);
-
                             const string enable_tar_cyl = "config/groundEffects/tar/enable_cyl.pet";
+
+                            const string evil_new_cyl = "Metadata\\Particles\\ground_effects\\evil\\new\\cyl.pet";
+                            const string evil_cyl = "Metadata\\Particles\\ground_effects\\evil\\cyl.pet";
+                            const string line = "Metadata\\Particles\\ground_effects\\evil\\line.pet";
+                            const string fire_cyl = "Metadata\\Particles\\ground_effects\\fire\\cyl.pet";
+                            const string ice_cyl = "Metadata\\Particles\\ground_effects\\ice\\cyl.pet";
+                            const string lightning_cyl = "Metadata\\Particles\\ground_effects\\lightning\\lightning_cyl.pet";
+                            const string cloud_large = "Metadata\\Particles\\ground_effects\\poison\\cloud_large.pet";
+                            const string cloud_mid = "Metadata\\Particles\\ground_effects\\poison\\cloud_mid.pet";
+                            const string cloud_small = "Metadata\\Particles\\ground_effects\\poison\\cloud_small.pet";
                             const string tar_cyl = "Metadata\\Particles\\ground_effects\\tar\\cyl.pet";
+
+                            RecordsByPath[evil_new_cyl].ReplaceContents(ggpkPath, enable_evil_new_cyl, content.FreeRoot);
+                            RecordsByPath[evil_cyl].ReplaceContents(ggpkPath, enable_evil_cyl, content.FreeRoot);
+                            RecordsByPath[line].ReplaceContents(ggpkPath, enable_line, content.FreeRoot);
+                            RecordsByPath[fire_cyl].ReplaceContents(ggpkPath, enable_fire_cyl, content.FreeRoot);
+                            RecordsByPath[ice_cyl].ReplaceContents(ggpkPath, enable_ice_cyl, content.FreeRoot);
+                            RecordsByPath[lightning_cyl].ReplaceContents(ggpkPath, enable_lightning_cyl, content.FreeRoot);
+                            RecordsByPath[cloud_large].ReplaceContents(ggpkPath, enable_cloud_large, content.FreeRoot);
+                            RecordsByPath[cloud_mid].ReplaceContents(ggpkPath, enable_cloud_mid, content.FreeRoot);
+                            RecordsByPath[cloud_small].ReplaceContents(ggpkPath, enable_cloud_small, content.FreeRoot);
                             RecordsByPath[tar_cyl].ReplaceContents(ggpkPath, enable_tar_cyl, content.FreeRoot);
 
                             UpdateDisplayPanel();
@@ -804,35 +800,30 @@ namespace VisualGGPK
                     case true:
                         {
                             const string disable_air_particles = "config/corruptedArea/disable_air_particles.pet";
-                            const string air_particles = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\air_particles.pet";
-                            RecordsByPath[air_particles].ReplaceContents(ggpkPath, disable_air_particles, content.FreeRoot);
-
                             const string disable_directionalfog = "config/corruptedArea/disable_directionalfog.pet";
-                            const string directionalfog = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\directionalfog.pet";
-                            RecordsByPath[directionalfog].ReplaceContents(ggpkPath, disable_directionalfog, content.FreeRoot);
-
                             const string disable_fog_circle = "config/corruptedArea/disable_fog_circle.pet";
-                            const string fog_circle = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\fog_circle.pet";
-                            RecordsByPath[fog_circle].ReplaceContents(ggpkPath, disable_fog_circle, content.FreeRoot);
-
                             const string disable_fog_cyl = "config/corruptedArea/disable_fog_cyl.pet";
-                            const string fog_cyl = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\fog_cyl.pet";
-                            RecordsByPath[fog_cyl].ReplaceContents(ggpkPath, disable_fog_cyl, content.FreeRoot);
-
                             const string disable_ground_fog = "config/corruptedArea/disable_ground_fog.pet";
-                            const string ground_fog = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\ground_fog.pet";
-                            RecordsByPath[ground_fog].ReplaceContents(ggpkPath, disable_ground_fog, content.FreeRoot);
-
                             const string disable_smoke_back_filler = "config/corruptedArea/disable_smoke_back_filler.pet";
-                            const string smoke_back_filler = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\smoke_back_filler.pet";
-                            RecordsByPath[smoke_back_filler].ReplaceContents(ggpkPath, disable_smoke_back_filler, content.FreeRoot);
-
                             const string disable_smoke_rollout = "config/corruptedArea/disable_smoke_rollout.pet";
-                            const string smoke_rollout = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\smoke_rollout.pet";
-                            RecordsByPath[smoke_rollout].ReplaceContents(ggpkPath, disable_smoke_rollout, content.FreeRoot);
-
                             const string disable_smoke_rollout_bigbox = "config/corruptedArea/disable_smoke_rollout_bigbox.pet";
+
+                            const string air_particles = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\air_particles.pet";
+                            const string directionalfog = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\directionalfog.pet";
+                            const string fog_circle = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\fog_circle.pet";
+                            const string fog_cyl = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\fog_cyl.pet";
+                            const string ground_fog = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\ground_fog.pet";
+                            const string smoke_back_filler = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\smoke_back_filler.pet";
+                            const string smoke_rollout = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\smoke_rollout.pet";
                             const string smoke_rollout_bigbox = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\smoke_rollout_bigbox.pet";
+
+                            RecordsByPath[air_particles].ReplaceContents(ggpkPath, disable_air_particles, content.FreeRoot);
+                            RecordsByPath[directionalfog].ReplaceContents(ggpkPath, disable_directionalfog, content.FreeRoot);
+                            RecordsByPath[fog_circle].ReplaceContents(ggpkPath, disable_fog_circle, content.FreeRoot);
+                            RecordsByPath[fog_cyl].ReplaceContents(ggpkPath, disable_fog_cyl, content.FreeRoot);
+                            RecordsByPath[ground_fog].ReplaceContents(ggpkPath, disable_ground_fog, content.FreeRoot);
+                            RecordsByPath[smoke_back_filler].ReplaceContents(ggpkPath, disable_smoke_back_filler, content.FreeRoot);
+                            RecordsByPath[smoke_rollout].ReplaceContents(ggpkPath, disable_smoke_rollout, content.FreeRoot);
                             RecordsByPath[smoke_rollout_bigbox].ReplaceContents(ggpkPath, disable_smoke_rollout_bigbox, content.FreeRoot);
 
                             UpdateDisplayPanel();
@@ -842,35 +833,30 @@ namespace VisualGGPK
                     case false:
                         {
                             const string enable_air_particles = "config/corruptedArea/enable_air_particles.pet";
-                            const string air_particles = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\air_particles.pet";
-                            RecordsByPath[air_particles].ReplaceContents(ggpkPath, enable_air_particles, content.FreeRoot);
-
                             const string enable_directionalfog = "config/corruptedArea/enable_directionalfog.pet";
-                            const string directionalfog = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\directionalfog.pet";
-                            RecordsByPath[directionalfog].ReplaceContents(ggpkPath, enable_directionalfog, content.FreeRoot);
-
                             const string enable_fog_circle = "config/corruptedArea/enable_fog_circle.pet";
-                            const string fog_circle = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\fog_circle.pet";
-                            RecordsByPath[fog_circle].ReplaceContents(ggpkPath, enable_fog_circle, content.FreeRoot);
-
                             const string enable_fog_cyl = "config/corruptedArea/enable_fog_cyl.pet";
-                            const string fog_cyl = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\fog_cyl.pet";
-                            RecordsByPath[fog_cyl].ReplaceContents(ggpkPath, enable_fog_cyl, content.FreeRoot);
-
                             const string enable_ground_fog = "config/corruptedArea/enable_ground_fog.pet";
-                            const string ground_fog = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\ground_fog.pet";
-                            RecordsByPath[ground_fog].ReplaceContents(ggpkPath, enable_ground_fog, content.FreeRoot);
-
                             const string enable_smoke_back_filler = "config/corruptedArea/enable_smoke_back_filler.pet";
-                            const string smoke_back_filler = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\smoke_back_filler.pet";
-                            RecordsByPath[smoke_back_filler].ReplaceContents(ggpkPath, enable_smoke_back_filler, content.FreeRoot);
-
                             const string enable_smoke_rollout = "config/corruptedArea/enable_smoke_rollout.pet";
-                            const string smoke_rollout = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\smoke_rollout.pet";
-                            RecordsByPath[smoke_rollout].ReplaceContents(ggpkPath, enable_smoke_rollout, content.FreeRoot);
 
                             const string enable_smoke_rollout_bigbox = "config/corruptedArea/enable_smoke_rollout_bigbox.pet";
+                            const string air_particles = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\air_particles.pet";
+                            const string directionalfog = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\directionalfog.pet";
+                            const string fog_circle = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\fog_circle.pet";
+                            const string fog_cyl = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\fog_cyl.pet";
+                            const string ground_fog = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\ground_fog.pet";
+                            const string smoke_back_filler = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\smoke_back_filler.pet";
+                            const string smoke_rollout = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\smoke_rollout.pet";
                             const string smoke_rollout_bigbox = "Metadata\\Particles\\enviro_effects\\vaal_sidearea_effects\\smoke_rollout_bigbox.pet";
+
+                            RecordsByPath[air_particles].ReplaceContents(ggpkPath, enable_air_particles, content.FreeRoot);
+                            RecordsByPath[directionalfog].ReplaceContents(ggpkPath, enable_directionalfog, content.FreeRoot);
+                            RecordsByPath[fog_circle].ReplaceContents(ggpkPath, enable_fog_circle, content.FreeRoot);
+                            RecordsByPath[fog_cyl].ReplaceContents(ggpkPath, enable_fog_cyl, content.FreeRoot);
+                            RecordsByPath[ground_fog].ReplaceContents(ggpkPath, enable_ground_fog, content.FreeRoot);
+                            RecordsByPath[smoke_back_filler].ReplaceContents(ggpkPath, enable_smoke_back_filler, content.FreeRoot);
+                            RecordsByPath[smoke_rollout].ReplaceContents(ggpkPath, enable_smoke_rollout, content.FreeRoot);
                             RecordsByPath[smoke_rollout_bigbox].ReplaceContents(ggpkPath, enable_smoke_rollout_bigbox, content.FreeRoot);
 
                             UpdateDisplayPanel();
@@ -883,6 +869,7 @@ namespace VisualGGPK
                 MessageBox.Show(string.Format(Settings.Strings["ReplaceItem_Failed"], ex.Message), Settings.Strings["Error_Caption"], MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
         private void MonsterSounds()
         {
             if (content.IsReadOnly)
@@ -898,35 +885,30 @@ namespace VisualGGPK
                     case true:
                         {
                             const string disable_ChaosElemental = "config/monsterSounds/disable_ChaosElemental.aoc";
-                            const string ChaosElemental = "Metadata\\Monsters\\ChaosElemental\\ChaosElemental.aoc";
-                            RecordsByPath[ChaosElemental].ReplaceContents(ggpkPath, disable_ChaosElemental, content.FreeRoot);
-
                             const string disable_ChaosElementalSummoned = "config/monsterSounds/disable_ChaosElementalSummoned.aoc";
-                            const string ChaosElementalSummoned = "Metadata\\Monsters\\ChaosElemental\\ChaosElementalSummoned.aoc";
-                            RecordsByPath[ChaosElementalSummoned].ReplaceContents(ggpkPath, disable_ChaosElementalSummoned, content.FreeRoot);
-
                             const string disable_FireElemental = "config/monsterSounds/disable_FireElemental.aoc";
-                            const string FireElemental = "Metadata\\Monsters\\FireElemental\\FireElemental.aoc";
-                            RecordsByPath[FireElemental].ReplaceContents(ggpkPath, disable_FireElemental, content.FreeRoot);
-
                             const string disable_FireElementalSummoned = "config/monsterSounds/disable_FireElementalSummoned.aoc";
-                            const string FireElementalSummoned = "Metadata\\Monsters\\FireElemental\\FireElementalSummoned.aoc";
-                            RecordsByPath[FireElementalSummoned].ReplaceContents(ggpkPath, disable_FireElementalSummoned, content.FreeRoot);
-
                             const string disable_IceElemental = "config/monsterSounds/disable_IceElemental.aoc";
-                            const string IceElemental = "Metadata\\Monsters\\IceElemental\\IceElemental.aoc";
-                            RecordsByPath[IceElemental].ReplaceContents(ggpkPath, disable_IceElemental, content.FreeRoot);
-
                             const string disable_IceElementalSummoned = "config/monsterSounds/disable_IceElementalSummoned.aoc";
-                            const string IceElementalSummoned = "Metadata\\Monsters\\IceElemental\\IceElementalSummoned.aoc";
-                            RecordsByPath[IceElementalSummoned].ReplaceContents(ggpkPath, disable_IceElementalSummoned, content.FreeRoot);
-
                             const string disable_Revenant = "config/monsterSounds/disable_Revenant.aoc";
-                            const string Revenant = "Metadata\\Monsters\\Revenant\\RevenantBoss.aoc";
-                            RecordsByPath[Revenant].ReplaceContents(ggpkPath, disable_Revenant, content.FreeRoot);
-
                             const string disable_RevenantBoss = "config/monsterSounds/disable_RevenantBoss.aoc";
+
+                            const string ChaosElemental = "Metadata\\Monsters\\ChaosElemental\\ChaosElemental.aoc";
+                            const string ChaosElementalSummoned = "Metadata\\Monsters\\ChaosElemental\\ChaosElementalSummoned.aoc";
+                            const string FireElemental = "Metadata\\Monsters\\FireElemental\\FireElemental.aoc";
+                            const string FireElementalSummoned = "Metadata\\Monsters\\FireElemental\\FireElementalSummoned.aoc";
+                            const string IceElemental = "Metadata\\Monsters\\IceElemental\\IceElemental.aoc";
+                            const string IceElementalSummoned = "Metadata\\Monsters\\IceElemental\\IceElementalSummoned.aoc";
+                            const string Revenant = "Metadata\\Monsters\\Revenant\\RevenantBoss.aoc";
                             const string RevenantBoss = "Metadata\\Monsters\\Revenant\\RevenantBoss.aoc";
+
+                            RecordsByPath[ChaosElemental].ReplaceContents(ggpkPath, disable_ChaosElemental, content.FreeRoot);
+                            RecordsByPath[ChaosElementalSummoned].ReplaceContents(ggpkPath, disable_ChaosElementalSummoned, content.FreeRoot);
+                            RecordsByPath[FireElemental].ReplaceContents(ggpkPath, disable_FireElemental, content.FreeRoot);
+                            RecordsByPath[FireElementalSummoned].ReplaceContents(ggpkPath, disable_FireElementalSummoned, content.FreeRoot);
+                            RecordsByPath[IceElemental].ReplaceContents(ggpkPath, disable_IceElemental, content.FreeRoot);
+                            RecordsByPath[IceElementalSummoned].ReplaceContents(ggpkPath, disable_IceElementalSummoned, content.FreeRoot);
+                            RecordsByPath[Revenant].ReplaceContents(ggpkPath, disable_Revenant, content.FreeRoot);
                             RecordsByPath[RevenantBoss].ReplaceContents(ggpkPath, disable_RevenantBoss, content.FreeRoot);
 
                             UpdateDisplayPanel();
@@ -936,35 +918,30 @@ namespace VisualGGPK
                     case false:
                         {
                             const string enable_ChaosElemental = "config/monsterSounds/enable_ChaosElemental.aoc";
-                            const string ChaosElemental = "Metadata\\Monsters\\ChaosElemental\\ChaosElemental.aoc";
-                            RecordsByPath[ChaosElemental].ReplaceContents(ggpkPath, enable_ChaosElemental, content.FreeRoot);
-
                             const string enable_ChaosElementalSummoned = "config/monsterSounds/enable_ChaosElementalSummoned.aoc";
-                            const string ChaosElementalSummoned = "Metadata\\Monsters\\ChaosElemental\\ChaosElementalSummoned.aoc";
-                            RecordsByPath[ChaosElementalSummoned].ReplaceContents(ggpkPath, enable_ChaosElementalSummoned, content.FreeRoot);
-
                             const string enable_FireElemental = "config/monsterSounds/enable_FireElemental.aoc";
-                            const string FireElemental = "Metadata\\Monsters\\FireElemental\\FireElemental.aoc";
-                            RecordsByPath[FireElemental].ReplaceContents(ggpkPath, enable_FireElemental, content.FreeRoot);
-
                             const string enable_FireElementalSummoned = "config/monsterSounds/enable_FireElementalSummoned.aoc";
-                            const string FireElementalSummoned = "Metadata\\Monsters\\FireElemental\\FireElementalSummoned.aoc";
-                            RecordsByPath[FireElementalSummoned].ReplaceContents(ggpkPath, enable_FireElementalSummoned, content.FreeRoot);
-
                             const string enable_IceElemental = "config/monsterSounds/enable_IceElemental.aoc";
-                            const string IceElemental = "Metadata\\Monsters\\IceElemental\\IceElemental.aoc";
-                            RecordsByPath[IceElemental].ReplaceContents(ggpkPath, enable_IceElemental, content.FreeRoot);
-
                             const string enable_IceElementalSummoned = "config/monsterSounds/enable_IceElementalSummoned.aoc";
-                            const string IceElementalSummoned = "Metadata\\Monsters\\IceElemental\\IceElementalSummoned.aoc";
-                            RecordsByPath[IceElementalSummoned].ReplaceContents(ggpkPath, enable_IceElementalSummoned, content.FreeRoot);
-
                             const string enable_Revenant = "config/monsterSounds/enable_Revenant.aoc";
-                            const string Revenant = "Metadata\\Monsters\\Revenant\\RevenantBoss.aoc";
-                            RecordsByPath[Revenant].ReplaceContents(ggpkPath, enable_Revenant, content.FreeRoot);
-
                             const string enable_RevenantBoss = "config/monsterSounds/enable_RevenantBoss.aoc";
+
+                            const string ChaosElemental = "Metadata\\Monsters\\ChaosElemental\\ChaosElemental.aoc";
+                            const string ChaosElementalSummoned = "Metadata\\Monsters\\ChaosElemental\\ChaosElementalSummoned.aoc";
+                            const string FireElemental = "Metadata\\Monsters\\FireElemental\\FireElemental.aoc";
+                            const string FireElementalSummoned = "Metadata\\Monsters\\FireElemental\\FireElementalSummoned.aoc";
+                            const string IceElemental = "Metadata\\Monsters\\IceElemental\\IceElemental.aoc";
+                            const string IceElementalSummoned = "Metadata\\Monsters\\IceElemental\\IceElementalSummoned.aoc";
+                            const string Revenant = "Metadata\\Monsters\\Revenant\\RevenantBoss.aoc";
                             const string RevenantBoss = "Metadata\\Monsters\\Revenant\\RevenantBoss.aoc";
+
+                            RecordsByPath[ChaosElemental].ReplaceContents(ggpkPath, enable_ChaosElemental, content.FreeRoot);
+                            RecordsByPath[ChaosElementalSummoned].ReplaceContents(ggpkPath, enable_ChaosElementalSummoned, content.FreeRoot);
+                            RecordsByPath[FireElemental].ReplaceContents(ggpkPath, enable_FireElemental, content.FreeRoot);
+                            RecordsByPath[FireElementalSummoned].ReplaceContents(ggpkPath, enable_FireElementalSummoned, content.FreeRoot);
+                            RecordsByPath[IceElemental].ReplaceContents(ggpkPath, enable_IceElemental, content.FreeRoot);
+                            RecordsByPath[IceElementalSummoned].ReplaceContents(ggpkPath, enable_IceElementalSummoned, content.FreeRoot);
+                            RecordsByPath[Revenant].ReplaceContents(ggpkPath, enable_Revenant, content.FreeRoot);
                             RecordsByPath[RevenantBoss].ReplaceContents(ggpkPath, enable_RevenantBoss, content.FreeRoot);
 
                             UpdateDisplayPanel();
@@ -993,31 +970,27 @@ namespace VisualGGPK
                     case true:
                         {
                             const string disable_Dex = "config/charSounds/disable_Dex.aoc";
-                            const string Dex = "Metadata\\Characters\\Dex\\Dex.aoc";
-                            RecordsByPath[Dex].ReplaceContents(ggpkPath, disable_Dex, content.FreeRoot);
-
                             const string disable_DexInt = "config/charSounds/disable_DexInt.aoc";
-                            const string DexInt = "Metadata\\Characters\\DexInt\\DexInt.aoc";
-                            RecordsByPath[DexInt].ReplaceContents(ggpkPath, disable_DexInt, content.FreeRoot);
-
                             const string disable_Int = "config/charSounds/disable_Int.aoc";
-                            const string Int = "Metadata\\Characters\\Int\\Int.aoc";
-                            RecordsByPath[Int].ReplaceContents(ggpkPath, disable_Int, content.FreeRoot);
-
                             const string disable_Str = "config/charSounds/disable_Str.aoc";
-                            const string Str = "Metadata\\Characters\\Str\\Str.aoc";
-                            RecordsByPath[Str].ReplaceContents(ggpkPath, disable_Str, content.FreeRoot);
-
                             const string disable_StrDex = "config/charSounds/disable_StrDex.aoc";
-                            const string StrDex = "Metadata\\Characters\\StrDex\\StrDex.aoc";
-                            RecordsByPath[StrDex].ReplaceContents(ggpkPath, disable_StrDex, content.FreeRoot);
-
                             const string disable_StrDexInt = "config/charSounds/disable_StrDexInt.aoc";
-                            const string StrDexInt = "Metadata\\Characters\\StrDexInt\\StrDexInt.aoc";
-                            RecordsByPath[StrDexInt].ReplaceContents(ggpkPath, disable_StrDexInt, content.FreeRoot);
-
                             const string disable_StrInt = "config/charSounds/disable_StrInt.aoc";
+
+                            const string Dex = "Metadata\\Characters\\Dex\\Dex.aoc";
+                            const string DexInt = "Metadata\\Characters\\DexInt\\DexInt.aoc";
+                            const string Int = "Metadata\\Characters\\Int\\Int.aoc";
+                            const string Str = "Metadata\\Characters\\Str\\Str.aoc";
+                            const string StrDex = "Metadata\\Characters\\StrDex\\StrDex.aoc";
+                            const string StrDexInt = "Metadata\\Characters\\StrDexInt\\StrDexInt.aoc";
                             const string StrInt = "Metadata\\Characters\\StrInt\\StrInt.aoc";
+
+                            RecordsByPath[Dex].ReplaceContents(ggpkPath, disable_Dex, content.FreeRoot);
+                            RecordsByPath[DexInt].ReplaceContents(ggpkPath, disable_DexInt, content.FreeRoot);
+                            RecordsByPath[Int].ReplaceContents(ggpkPath, disable_Int, content.FreeRoot);
+                            RecordsByPath[Str].ReplaceContents(ggpkPath, disable_Str, content.FreeRoot);
+                            RecordsByPath[StrDex].ReplaceContents(ggpkPath, disable_StrDex, content.FreeRoot);
+                            RecordsByPath[StrDexInt].ReplaceContents(ggpkPath, disable_StrDexInt, content.FreeRoot);
                             RecordsByPath[StrInt].ReplaceContents(ggpkPath, disable_StrInt, content.FreeRoot);
 
                             UpdateDisplayPanel();
@@ -1027,31 +1000,27 @@ namespace VisualGGPK
                     case false:
                         {
                             const string enable_Dex = "config/charSounds/enable_Dex.aoc";
-                            const string Dex = "Metadata\\Characters\\Dex\\Dex.aoc";
-                            RecordsByPath[Dex].ReplaceContents(ggpkPath, enable_Dex, content.FreeRoot);
-
                             const string enable_DexInt = "config/charSounds/enable_DexInt.aoc";
-                            const string DexInt = "Metadata\\Characters\\DexInt\\DexInt.aoc";
-                            RecordsByPath[DexInt].ReplaceContents(ggpkPath, enable_DexInt, content.FreeRoot);
-
                             const string enable_Int = "config/charSounds/enable_Int.aoc";
-                            const string Int = "Metadata\\Characters\\Int\\Int.aoc";
-                            RecordsByPath[Int].ReplaceContents(ggpkPath, enable_Int, content.FreeRoot);
-
                             const string enable_Str = "config/charSounds/enable_Str.aoc";
-                            const string Str = "Metadata\\Characters\\Str\\Str.aoc";
-                            RecordsByPath[Str].ReplaceContents(ggpkPath, enable_Str, content.FreeRoot);
-
                             const string enable_StrDex = "config/charSounds/enable_StrDex.aoc";
-                            const string StrDex = "Metadata\\Characters\\StrDex\\StrDex.aoc";
-                            RecordsByPath[StrDex].ReplaceContents(ggpkPath, enable_StrDex, content.FreeRoot);
-
                             const string enable_StrDexInt = "config/charSounds/enable_StrDexInt.aoc";
-                            const string StrDexInt = "Metadata\\Characters\\StrDexInt\\StrDexInt.aoc";
-                            RecordsByPath[StrDexInt].ReplaceContents(ggpkPath, enable_StrDexInt, content.FreeRoot);
-
                             const string enable_StrInt = "config/charSounds/enable_StrInt.aoc";
+
+                            const string Dex = "Metadata\\Characters\\Dex\\Dex.aoc";
+                            const string DexInt = "Metadata\\Characters\\DexInt\\DexInt.aoc";
+                            const string Int = "Metadata\\Characters\\Int\\Int.aoc";
+                            const string Str = "Metadata\\Characters\\Str\\Str.aoc";
+                            const string StrDex = "Metadata\\Characters\\StrDex\\StrDex.aoc";
+                            const string StrDexInt = "Metadata\\Characters\\StrDexInt\\StrDexInt.aoc";
                             const string StrInt = "Metadata\\Characters\\StrInt\\StrInt.aoc";
+
+                            RecordsByPath[Dex].ReplaceContents(ggpkPath, enable_Dex, content.FreeRoot);
+                            RecordsByPath[DexInt].ReplaceContents(ggpkPath, enable_DexInt, content.FreeRoot);
+                            RecordsByPath[Int].ReplaceContents(ggpkPath, enable_Int, content.FreeRoot);
+                            RecordsByPath[Str].ReplaceContents(ggpkPath, enable_Str, content.FreeRoot);
+                            RecordsByPath[StrDex].ReplaceContents(ggpkPath, enable_StrDex, content.FreeRoot);
+                            RecordsByPath[StrDexInt].ReplaceContents(ggpkPath, enable_StrDexInt, content.FreeRoot);
                             RecordsByPath[StrInt].ReplaceContents(ggpkPath, enable_StrInt, content.FreeRoot);
 
                             UpdateDisplayPanel();
@@ -1080,15 +1049,15 @@ namespace VisualGGPK
                     case true:
                         {
                             const string disable_rig_charge = "config/chargeSounds/disable_rig_charge.aoc";
-                            const string rig_charge = "Metadata\\Effects\\Spells\\orbs\\rig_charge.aoc";
-                            RecordsByPath[rig_charge].ReplaceContents(ggpkPath, disable_rig_charge, content.FreeRoot);
-
                             const string disable_rig_endurance = "config/chargeSounds/disable_rig_endurance.aoc";
-                            const string rig_endurance = "Metadata\\Effects\\Spells\\orbs\\rig_endurance.aoc";
-                            RecordsByPath[rig_endurance].ReplaceContents(ggpkPath, disable_rig_endurance, content.FreeRoot);
-
                             const string disable_rig_frenzy = "config/chargeSounds/disable_rig_frenzy.aoc";
+
+                            const string rig_charge = "Metadata\\Effects\\Spells\\orbs\\rig_charge.aoc";
+                            const string rig_endurance = "Metadata\\Effects\\Spells\\orbs\\rig_endurance.aoc";
                             const string rig_frenzy = "Metadata\\Effects\\Spells\\orbs\\rig_frenzy.aoc";
+
+                            RecordsByPath[rig_charge].ReplaceContents(ggpkPath, disable_rig_charge, content.FreeRoot);
+                            RecordsByPath[rig_endurance].ReplaceContents(ggpkPath, disable_rig_endurance, content.FreeRoot);
                             RecordsByPath[rig_frenzy].ReplaceContents(ggpkPath, disable_rig_frenzy, content.FreeRoot);
 
                             UpdateDisplayPanel();
@@ -1098,15 +1067,15 @@ namespace VisualGGPK
                     case false:
                         {
                             const string enable_rig_charge = "config/chargeSounds/enable_rig_charge.aoc";
-                            const string rig_charge = "Metadata\\Effects\\Spells\\orbs\\rig_charge.aoc";
-                            RecordsByPath[rig_charge].ReplaceContents(ggpkPath, enable_rig_charge, content.FreeRoot);
-
                             const string enable_rig_endurance = "config/chargeSounds/enable_rig_endurance.aoc";
-                            const string rig_endurance = "Metadata\\Effects\\Spells\\orbs\\rig_endurance.aoc";
-                            RecordsByPath[rig_endurance].ReplaceContents(ggpkPath, enable_rig_endurance, content.FreeRoot);
-
                             const string enable_rig_frenzy = "config/chargeSounds/enable_rig_frenzy.aoc";
+
+                            const string rig_charge = "Metadata\\Effects\\Spells\\orbs\\rig_charge.aoc";
+                            const string rig_endurance = "Metadata\\Effects\\Spells\\orbs\\rig_endurance.aoc";
                             const string rig_frenzy = "Metadata\\Effects\\Spells\\orbs\\rig_frenzy.aoc";
+
+                            RecordsByPath[rig_charge].ReplaceContents(ggpkPath, enable_rig_charge, content.FreeRoot);
+                            RecordsByPath[rig_endurance].ReplaceContents(ggpkPath, enable_rig_endurance, content.FreeRoot);
                             RecordsByPath[rig_frenzy].ReplaceContents(ggpkPath, enable_rig_frenzy, content.FreeRoot);
 
                             UpdateDisplayPanel();
@@ -1135,11 +1104,12 @@ namespace VisualGGPK
                     case true:
                         {
                             const string disable_rig = "config/portalSounds/disable_rig.aoc";
-                            const string rig = "Metadata\\Effects\\Environment\\act3\\gem_lady_portal\\rig.aoc";
-                            RecordsByPath[rig].ReplaceContents(ggpkPath, disable_rig, content.FreeRoot);
-
                             const string disable_waypoint_idle = "config/portalSounds/disable_waypoint_idle.aoc";
+
+                            const string rig = "Metadata\\Effects\\Environment\\act3\\gem_lady_portal\\rig.aoc";
                             const string waypoint_idle = "Metadata\\Effects\\Environment\\waypoint\\new\\waypoint_idle.aoc";
+
+                            RecordsByPath[rig].ReplaceContents(ggpkPath, disable_rig, content.FreeRoot);
                             RecordsByPath[waypoint_idle].ReplaceContents(ggpkPath, disable_waypoint_idle, content.FreeRoot);
 
                             UpdateDisplayPanel();
@@ -1149,11 +1119,12 @@ namespace VisualGGPK
                     case false:
                         {
                             const string enable_rig = "config/portalSounds/enable_rig.aoc";
-                            const string rig = "Metadata\\Effects\\Environment\\act3\\gem_lady_portal\\rig.aoc";
-                            RecordsByPath[rig].ReplaceContents(ggpkPath, enable_rig, content.FreeRoot);
-
                             const string enable_waypoint_idle = "config/portalSounds/enable_waypoint_idle.aoc";
+
+                            const string rig = "Metadata\\Effects\\Environment\\act3\\gem_lady_portal\\rig.aoc";
                             const string waypoint_idle = "Metadata\\Effects\\Environment\\waypoint\\new\\waypoint_idle.aoc";
+
+                            RecordsByPath[rig].ReplaceContents(ggpkPath, enable_rig, content.FreeRoot);
                             RecordsByPath[waypoint_idle].ReplaceContents(ggpkPath, enable_waypoint_idle, content.FreeRoot);
 
                             UpdateDisplayPanel();
@@ -1182,15 +1153,15 @@ namespace VisualGGPK
                     case true:
                         {
                             const string disable_circle = "config/skillEffects/herald/ice/explode/disable_circle.pet";
-                            const string circle = "Metadata\\Particles\\herald\\ice\\explode\\circle.pet";
-                            RecordsByPath[circle].ReplaceContents(ggpkPath, disable_circle, content.FreeRoot);
-
                             const string disable_cyl = "config/skillEffects/herald/ice/explode/disable_cyl.pet";
-                            const string cyl = "Metadata\\Particles\\herald\\ice\\explode\\cyl.pet";
-                            RecordsByPath[cyl].ReplaceContents(ggpkPath, disable_cyl, content.FreeRoot);
-
                             const string disable_mid = "config/skillEffects/herald/ice/explode/disable_mid.pet";
+
+                            const string circle = "Metadata\\Particles\\herald\\ice\\explode\\circle.pet";
+                            const string cyl = "Metadata\\Particles\\herald\\ice\\explode\\cyl.pet";
                             const string mid = "Metadata\\Particles\\herald\\ice\\explode\\mid.pet";
+
+                            RecordsByPath[circle].ReplaceContents(ggpkPath, disable_circle, content.FreeRoot);
+                            RecordsByPath[cyl].ReplaceContents(ggpkPath, disable_cyl, content.FreeRoot);
                             RecordsByPath[mid].ReplaceContents(ggpkPath, disable_mid, content.FreeRoot);
 
                             UpdateDisplayPanel();
@@ -1200,15 +1171,15 @@ namespace VisualGGPK
                     case false:
                         {
                             const string enable_circle = "config/skillEffects/herald/ice/explode/enable_circle.pet";
-                            const string circle = "Metadata\\Particles\\herald\\ice\\explode\\circle.pet";
-                            RecordsByPath[circle].ReplaceContents(ggpkPath, enable_circle, content.FreeRoot);
-
                             const string enable_cyl = "config/skillEffects/herald/ice/explode/enable_cyl.pet";
-                            const string cyl = "Metadata\\Particles\\herald\\ice\\explode\\cyl.pet";
-                            RecordsByPath[cyl].ReplaceContents(ggpkPath, enable_cyl, content.FreeRoot);
-
                             const string enable_mid = "config/skillEffects/herald/ice/explode//enable_mid.pet";
+
+                            const string circle = "Metadata\\Particles\\herald\\ice\\explode\\circle.pet";
+                            const string cyl = "Metadata\\Particles\\herald\\ice\\explode\\cyl.pet";
                             const string mid = "Metadata\\Particles\\herald\\ice\\explode\\mid.pet";
+
+                            RecordsByPath[circle].ReplaceContents(ggpkPath, enable_circle, content.FreeRoot);
+                            RecordsByPath[cyl].ReplaceContents(ggpkPath, enable_cyl, content.FreeRoot);
                             RecordsByPath[mid].ReplaceContents(ggpkPath, enable_mid, content.FreeRoot);
 
                             UpdateDisplayPanel();
@@ -1236,86 +1207,61 @@ namespace VisualGGPK
                 {
                     case true:
                         {
-                            //const string disable_lightdischarge = "config/skillEffects/dischargeImproved/disable_lightdischarge.sm";
-                            //const string lightdischarge = "Art\\Models\\Effects\\discharge\\light_discharge\\lightdischarge.sm";
-                            //RecordsByPath[lightdischarge].ReplaceContents(ggpkPath, disable_lightdischarge, content.FreeRoot);
-
-
-
-
                             const string disable_fire_actual_line = "config/skillEffects/dischargeImproved/fire/disable_actual_line.pet";
-                            const string fire_actual_line = "Metadata\\Particles\\discharge\\fire\\actual_line.pet";
-                            RecordsByPath[fire_actual_line].ReplaceContents(ggpkPath, disable_fire_actual_line, content.FreeRoot);
-
                             const string disable_botexplode = "config/skillEffects/dischargeImproved/fire/disable_botexplode.pet";
-                            const string botexplode = "Metadata\\Particles\\discharge\\fire\\botexplode.pet";
-                            RecordsByPath[botexplode].ReplaceContents(ggpkPath, disable_botexplode, content.FreeRoot);
-
                             const string disable_cyl = "config/skillEffects/dischargeImproved/fire/disable_cyl.pet";
-                            const string cyl = "Metadata\\Particles\\discharge\\fire\\cyl.pet";
-                            RecordsByPath[cyl].ReplaceContents(ggpkPath, disable_cyl, content.FreeRoot);
-
                             const string disable_line = "config/skillEffects/dischargeImproved/fire/disable_line.pet";
-                            const string line = "Metadata\\Particles\\discharge\\fire\\line.pet";
-                            RecordsByPath[line].ReplaceContents(ggpkPath, disable_line, content.FreeRoot);
-
-
-                            
                             const string disable_ice_botexplode = "config/skillEffects/dischargeImproved/ice/disable_botexplode.pet";
-                            const string ice_botexplode = "Metadata\\Particles\\discharge\\ice\\botexplode.pet";
-                            RecordsByPath[ice_botexplode].ReplaceContents(ggpkPath, disable_ice_botexplode, content.FreeRoot);
-
                             const string disable_ice_botmist = "config/skillEffects/dischargeImproved/ice/disable_botmist.pet";
-                            const string ice_botmist = "Metadata\\Particles\\discharge\\ice\\botmist.pet";
-                            RecordsByPath[ice_botmist].ReplaceContents(ggpkPath, disable_ice_botmist, content.FreeRoot);
-
                             const string disable_ice_line = "config/skillEffects/dischargeImproved/ice/disable_line.pet";
-                            const string ice_line = "Metadata\\Particles\\discharge\\ice\\line.pet";
-                            RecordsByPath[ice_line].ReplaceContents(ggpkPath, disable_ice_line, content.FreeRoot);
-
                             const string disable_ice_lineactual = "config/skillEffects/dischargeImproved/ice/disable_lineactual.pet";
-                            const string ice_lineactual = "Metadata\\Particles\\discharge\\ice\\lineactual.pet";
-                            RecordsByPath[ice_lineactual].ReplaceContents(ggpkPath, disable_ice_lineactual, content.FreeRoot);
-                            
-
-
                             const string disable_light_botexplode = "config/skillEffects/dischargeImproved/light/disable_botexplode.pet";
-                            const string light_botexplode = "Metadata\\Particles\\discharge\\light\\botexplode.pet";
-                            RecordsByPath[light_botexplode].ReplaceContents(ggpkPath, disable_light_botexplode, content.FreeRoot);
-
                             const string disable_light_cyl = "config/skillEffects/dischargeImproved/light/disable_cyl.pet";
-                            const string light_cyl = "Metadata\\Particles\\discharge\\light\\cyl.pet";
-                            RecordsByPath[light_cyl].ReplaceContents(ggpkPath, disable_light_cyl, content.FreeRoot);
-
                             const string disable_light_light_linger = "config/skillEffects/dischargeImproved/light/disable_light_linger.pet";
-                            const string light_light_linger = "Metadata\\Particles\\discharge\\light\\light_linger.pet";
-                            RecordsByPath[light_light_linger].ReplaceContents(ggpkPath, disable_light_light_linger, content.FreeRoot);
-
                             const string disable_light_line = "config/skillEffects/dischargeImproved/light/disable_line.pet";
-                            const string light_line = "Metadata\\Particles\\discharge\\light\\line.pet";
-                            RecordsByPath[light_line].ReplaceContents(ggpkPath, disable_light_line, content.FreeRoot);
-
-
-
                             const string disable_fire_discharge = "config/skillEffects/dischargeImproved/disable_fire_discharge.aoc";
-                            const string fire_discharge = "Metadata\\Effects\\Spells\\discharge\\fire_discharge.aoc";
-                            RecordsByPath[fire_discharge].ReplaceContents(ggpkPath, disable_fire_discharge, content.FreeRoot);
                             const string disable_fire_discharge_NoSound = "config/skillEffects/dischargeImproved/disable_fire_discharge_NoSound.aoc";
-                            const string fire_discharge_NoSound = "Metadata\\Effects\\Spells\\discharge\\fire_discharge_NoSound.aoc";
-                            RecordsByPath[fire_discharge_NoSound].ReplaceContents(ggpkPath, disable_fire_discharge_NoSound, content.FreeRoot);
-
                             const string disable_light_discharge = "config/skillEffects/dischargeImproved/disable_light_discharge.aoc";
-                            const string light_discharge = "Metadata\\Effects\\Spells\\discharge\\light_discharge.aoc";
-                            RecordsByPath[light_discharge].ReplaceContents(ggpkPath, disable_light_discharge, content.FreeRoot);
                             const string disable_light_discharge_NoSound = "config/skillEffects/dischargeImproved/disable_light_discharge_NoSound.aoc";
-                            const string light_discharge_NoSound = "Metadata\\Effects\\Spells\\discharge\\light_discharge_NoSound.aoc";
-                            RecordsByPath[light_discharge_NoSound].ReplaceContents(ggpkPath, disable_light_discharge_NoSound, content.FreeRoot);
-
                             const string disable_ice_discharge = "config/skillEffects/dischargeImproved/disable_ice_discharge.aoc";
-                            const string ice_discharge = "Metadata\\Effects\\Spells\\discharge\\ice_discharge.aoc";
-                            RecordsByPath[ice_discharge].ReplaceContents(ggpkPath, disable_ice_discharge, content.FreeRoot);
                             const string disable_ice_discharge_NoSound = "config/skillEffects/dischargeImproved/disable_ice_discharge_NoSound.aoc";
+
+                            const string fire_actual_line = "Metadata\\Particles\\discharge\\fire\\actual_line.pet";
+                            const string botexplode = "Metadata\\Particles\\discharge\\fire\\botexplode.pet";
+                            const string cyl = "Metadata\\Particles\\discharge\\fire\\cyl.pet";
+                            const string line = "Metadata\\Particles\\discharge\\fire\\line.pet";
+                            const string ice_botexplode = "Metadata\\Particles\\discharge\\ice\\botexplode.pet";
+                            const string ice_botmist = "Metadata\\Particles\\discharge\\ice\\botmist.pet";
+                            const string ice_line = "Metadata\\Particles\\discharge\\ice\\line.pet";
+                            const string ice_lineactual = "Metadata\\Particles\\discharge\\ice\\lineactual.pet";
+                            const string light_botexplode = "Metadata\\Particles\\discharge\\light\\botexplode.pet";
+                            const string light_cyl = "Metadata\\Particles\\discharge\\light\\cyl.pet";
+                            const string light_light_linger = "Metadata\\Particles\\discharge\\light\\light_linger.pet";
+                            const string light_line = "Metadata\\Particles\\discharge\\light\\line.pet";
+                            const string fire_discharge = "Metadata\\Effects\\Spells\\discharge\\fire_discharge.aoc";
+                            const string fire_discharge_NoSound = "Metadata\\Effects\\Spells\\discharge\\fire_discharge_NoSound.aoc";
+                            const string light_discharge = "Metadata\\Effects\\Spells\\discharge\\light_discharge.aoc";
+                            const string light_discharge_NoSound = "Metadata\\Effects\\Spells\\discharge\\light_discharge_NoSound.aoc";
+                            const string ice_discharge = "Metadata\\Effects\\Spells\\discharge\\ice_discharge.aoc";
                             const string ice_discharge_NoSound = "Metadata\\Effects\\Spells\\discharge\\ice_discharge_NoSound.aoc";
+
+                            RecordsByPath[fire_actual_line].ReplaceContents(ggpkPath, disable_fire_actual_line, content.FreeRoot);
+                            RecordsByPath[botexplode].ReplaceContents(ggpkPath, disable_botexplode, content.FreeRoot);
+                            RecordsByPath[cyl].ReplaceContents(ggpkPath, disable_cyl, content.FreeRoot);
+                            RecordsByPath[line].ReplaceContents(ggpkPath, disable_line, content.FreeRoot);
+                            RecordsByPath[ice_botexplode].ReplaceContents(ggpkPath, disable_ice_botexplode, content.FreeRoot);
+                            RecordsByPath[ice_botmist].ReplaceContents(ggpkPath, disable_ice_botmist, content.FreeRoot);
+                            RecordsByPath[ice_line].ReplaceContents(ggpkPath, disable_ice_line, content.FreeRoot);
+                            RecordsByPath[ice_lineactual].ReplaceContents(ggpkPath, disable_ice_lineactual, content.FreeRoot);
+                            RecordsByPath[light_botexplode].ReplaceContents(ggpkPath, disable_light_botexplode, content.FreeRoot);
+                            RecordsByPath[light_cyl].ReplaceContents(ggpkPath, disable_light_cyl, content.FreeRoot);
+                            RecordsByPath[light_light_linger].ReplaceContents(ggpkPath, disable_light_light_linger, content.FreeRoot);
+                            RecordsByPath[light_line].ReplaceContents(ggpkPath, disable_light_line, content.FreeRoot);
+                            RecordsByPath[fire_discharge].ReplaceContents(ggpkPath, disable_fire_discharge, content.FreeRoot);
+                            RecordsByPath[fire_discharge_NoSound].ReplaceContents(ggpkPath, disable_fire_discharge_NoSound, content.FreeRoot);
+                            RecordsByPath[light_discharge].ReplaceContents(ggpkPath, disable_light_discharge, content.FreeRoot);
+                            RecordsByPath[light_discharge_NoSound].ReplaceContents(ggpkPath, disable_light_discharge_NoSound, content.FreeRoot);
+                            RecordsByPath[ice_discharge].ReplaceContents(ggpkPath, disable_ice_discharge, content.FreeRoot);
                             RecordsByPath[ice_discharge_NoSound].ReplaceContents(ggpkPath, disable_ice_discharge_NoSound, content.FreeRoot);
 
                             UpdateDisplayPanel();
@@ -1324,64 +1270,62 @@ namespace VisualGGPK
 
                     case false:
                         {
-                            //const string enable_lightdischarge = "config/skillEffects/dischargeImproved/enable_lightdischarge.sm";
-                            //const string lightdischarge = "Art\\Models\\Effects\\discharge\\light_discharge\\lightdischarge.sm";
-                            //RecordsByPath[lightdischarge].ReplaceContents(ggpkPath, enable_lightdischarge, content.FreeRoot);
-
-
-
-
                             const string enable_fire_actual_line = "config/skillEffects/dischargeImproved/fire/enable_actual_line.pet";
-                            const string fire_actual_line = "Metadata\\Particles\\discharge\\fire\\actual_line.pet";
-                            RecordsByPath[fire_actual_line].ReplaceContents(ggpkPath, enable_fire_actual_line, content.FreeRoot);
-
                             const string enable_fire_botexplode = "config/skillEffects/dischargeImproved/fire/enable_botexplode.pet";
-                            const string fire_botexplode = "Metadata\\Particles\\discharge\\fire\\botexplode.pet";
-                            RecordsByPath[fire_botexplode].ReplaceContents(ggpkPath, enable_fire_botexplode, content.FreeRoot);
-
                             const string enable_fire_cyl = "config/skillEffects/dischargeImproved/fire/enable_cyl.pet";
-                            const string fire_cyl = "Metadata\\Particles\\discharge\\fire\\cyl.pet";
-                            RecordsByPath[fire_cyl].ReplaceContents(ggpkPath, enable_fire_cyl, content.FreeRoot);
-
                             const string enable_fire_line = "config/skillEffects/dischargeImproved/fire/enable_line.pet";
-                            const string fire_line = "Metadata\\Particles\\discharge\\fire\\line.pet";
-                            RecordsByPath[fire_line].ReplaceContents(ggpkPath, enable_fire_line, content.FreeRoot);
-
-
-
                             const string enable_ice_botexplode = "config/skillEffects/dischargeImproved/ice/enable_botexplode.pet";
-                            const string ice_botexplode = "Metadata\\Particles\\discharge\\ice\\botexplode.pet";
-                            RecordsByPath[ice_botexplode].ReplaceContents(ggpkPath, enable_ice_botexplode, content.FreeRoot);
-
                             const string enable_ice_botmist = "config/skillEffects/dischargeImproved/ice/enable_botmist.pet";
-                            const string ice_botmist = "Metadata\\Particles\\discharge\\ice\\botmist.pet";
-                            RecordsByPath[ice_botmist].ReplaceContents(ggpkPath, enable_ice_botmist, content.FreeRoot);
-
                             const string enable_ice_line = "config/skillEffects/dischargeImproved/ice/enable_line.pet";
-                            const string ice_line = "Metadata\\Particles\\discharge\\ice\\line.pet";
-                            RecordsByPath[ice_line].ReplaceContents(ggpkPath, enable_ice_line, content.FreeRoot);
-
                             const string enable_ice_lineactual = "config/skillEffects/dischargeImproved/ice/enable_lineactual.pet";
-                            const string ice_lineactual = "Metadata\\Particles\\discharge\\ice\\lineactual.pet";
-                            RecordsByPath[ice_lineactual].ReplaceContents(ggpkPath, enable_ice_lineactual, content.FreeRoot);
-
-
-
                             const string enable_light_botexplode = "config/skillEffects/dischargeImproved/light/enable_botexplode.pet";
-                            const string light_botexplode = "Metadata\\Particles\\discharge\\light\\botexplode.pet";
-                            RecordsByPath[light_botexplode].ReplaceContents(ggpkPath, enable_light_botexplode, content.FreeRoot);
-
                             const string enable_light_cyl = "config/skillEffects/dischargeImproved/light/enable_cyl.pet";
-                            const string light_cyl = "Metadata\\Particles\\discharge\\light\\cyl.pet";
-                            RecordsByPath[light_cyl].ReplaceContents(ggpkPath, enable_light_cyl, content.FreeRoot);
-
                             const string enable_light_light_linger = "config/skillEffects/dischargeImproved/light/enable_light_linger.pet";
-                            const string light_light_linger = "Metadata\\Particles\\discharge\\light\\light_linger.pet";
-                            RecordsByPath[light_light_linger].ReplaceContents(ggpkPath, enable_light_light_linger, content.FreeRoot);
-
                             const string enable_light_line = "config/skillEffects/dischargeImproved/light/enable_line.pet";
+                            const string enable_fire_discharge = "config/skillEffects/dischargeImproved/enable_fire_discharge.aoc";
+                            const string enable_fire_discharge_NoSound = "config/skillEffects/dischargeImproved/enable_fire_discharge_NoSound.aoc";
+                            const string enable_light_discharge = "config/skillEffects/dischargeImproved/enable_light_discharge.aoc";
+                            const string enable_light_discharge_NoSound = "config/skillEffects/dischargeImproved/enable_light_discharge_NoSound.aoc";
+                            const string enable_ice_discharge = "config/skillEffects/dischargeImproved/enable_ice_discharge.aoc";
+                            const string enable_ice_discharge_NoSound = "config/skillEffects/dischargeImproved/enable_ice_discharge_NoSound.aoc";
+
+                            const string fire_actual_line = "Metadata\\Particles\\discharge\\fire\\actual_line.pet";
+                            const string fire_botexplode = "Metadata\\Particles\\discharge\\fire\\botexplode.pet";
+                            const string fire_cyl = "Metadata\\Particles\\discharge\\fire\\cyl.pet";
+                            const string fire_line = "Metadata\\Particles\\discharge\\fire\\line.pet";
+                            const string ice_botexplode = "Metadata\\Particles\\discharge\\ice\\botexplode.pet";
+                            const string ice_botmist = "Metadata\\Particles\\discharge\\ice\\botmist.pet";
+                            const string ice_line = "Metadata\\Particles\\discharge\\ice\\line.pet";
+                            const string ice_lineactual = "Metadata\\Particles\\discharge\\ice\\lineactual.pet";
+                            const string light_botexplode = "Metadata\\Particles\\discharge\\light\\botexplode.pet";
+                            const string light_cyl = "Metadata\\Particles\\discharge\\light\\cyl.pet";
+                            const string light_light_linger = "Metadata\\Particles\\discharge\\light\\light_linger.pet";
                             const string light_line = "Metadata\\Particles\\discharge\\light\\line.pet";
+                            const string fire_discharge = "Metadata\\Effects\\Spells\\discharge\\fire_discharge.aoc";
+                            const string fire_discharge_NoSound = "Metadata\\Effects\\Spells\\discharge\\fire_discharge_NoSound.aoc";
+                            const string light_discharge = "Metadata\\Effects\\Spells\\discharge\\light_discharge.aoc";
+                            const string light_discharge_NoSound = "Metadata\\Effects\\Spells\\discharge\\light_discharge_NoSound.aoc";
+                            const string ice_discharge = "Metadata\\Effects\\Spells\\discharge\\ice_discharge.aoc";
+                            const string ice_discharge_NoSound = "Metadata\\Effects\\Spells\\discharge\\ice_discharge_NoSound.aoc";
+
+                            RecordsByPath[fire_actual_line].ReplaceContents(ggpkPath, enable_fire_actual_line, content.FreeRoot);
+                            RecordsByPath[fire_botexplode].ReplaceContents(ggpkPath, enable_fire_botexplode, content.FreeRoot);
+                            RecordsByPath[fire_cyl].ReplaceContents(ggpkPath, enable_fire_cyl, content.FreeRoot);
+                            RecordsByPath[fire_line].ReplaceContents(ggpkPath, enable_fire_line, content.FreeRoot);
+                            RecordsByPath[ice_botexplode].ReplaceContents(ggpkPath, enable_ice_botexplode, content.FreeRoot);
+                            RecordsByPath[ice_botmist].ReplaceContents(ggpkPath, enable_ice_botmist, content.FreeRoot);
+                            RecordsByPath[ice_line].ReplaceContents(ggpkPath, enable_ice_line, content.FreeRoot);
+                            RecordsByPath[ice_lineactual].ReplaceContents(ggpkPath, enable_ice_lineactual, content.FreeRoot);
+                            RecordsByPath[light_botexplode].ReplaceContents(ggpkPath, enable_light_botexplode, content.FreeRoot);
+                            RecordsByPath[light_cyl].ReplaceContents(ggpkPath, enable_light_cyl, content.FreeRoot);
+                            RecordsByPath[light_light_linger].ReplaceContents(ggpkPath, enable_light_light_linger, content.FreeRoot);
                             RecordsByPath[light_line].ReplaceContents(ggpkPath, enable_light_line, content.FreeRoot);
+                            RecordsByPath[fire_discharge].ReplaceContents(ggpkPath, enable_fire_discharge, content.FreeRoot);
+                            RecordsByPath[fire_discharge_NoSound].ReplaceContents(ggpkPath, enable_fire_discharge_NoSound, content.FreeRoot);
+                            RecordsByPath[light_discharge].ReplaceContents(ggpkPath, enable_light_discharge, content.FreeRoot);
+                            RecordsByPath[light_discharge_NoSound].ReplaceContents(ggpkPath, enable_light_discharge_NoSound, content.FreeRoot);
+                            RecordsByPath[ice_discharge].ReplaceContents(ggpkPath, enable_ice_discharge, content.FreeRoot);
+                            RecordsByPath[ice_discharge_NoSound].ReplaceContents(ggpkPath, enable_ice_discharge_NoSound, content.FreeRoot);
 
                             UpdateDisplayPanel();
                         }
@@ -1408,86 +1352,61 @@ namespace VisualGGPK
                 {
                     case true:
                         {
-                            //const string disable_lightdischarge = "config/skillEffects/dischargeDisabled/disable_lightdischarge.sm";
-                            //const string lightdischarge = "Art\\Models\\Effects\\discharge\\light_discharge\\lightdischarge.sm";
-                            //RecordsByPath[lightdischarge].ReplaceContents(ggpkPath, disable_lightdischarge, content.FreeRoot);
-
-
-
-
                             const string disable_fire_actual_line = "config/skillEffects/dischargeDisabled/fire/disable_actual_line.pet";
-                            const string fire_actual_line = "Metadata\\Particles\\discharge\\fire\\actual_line.pet";
-                            RecordsByPath[fire_actual_line].ReplaceContents(ggpkPath, disable_fire_actual_line, content.FreeRoot);
-
                             const string disable_botexplode = "config/skillEffects/dischargeDisabled/fire/disable_botexplode.pet";
-                            const string botexplode = "Metadata\\Particles\\discharge\\fire\\botexplode.pet";
-                            RecordsByPath[botexplode].ReplaceContents(ggpkPath, disable_botexplode, content.FreeRoot);
-
                             const string disable_cyl = "config/skillEffects/dischargeDisabled/fire/disable_cyl.pet";
-                            const string cyl = "Metadata\\Particles\\discharge\\fire\\cyl.pet";
-                            RecordsByPath[cyl].ReplaceContents(ggpkPath, disable_cyl, content.FreeRoot);
-
                             const string disable_line = "config/skillEffects/dischargeDisabled/fire/disable_line.pet";
-                            const string line = "Metadata\\Particles\\discharge\\fire\\line.pet";
-                            RecordsByPath[line].ReplaceContents(ggpkPath, disable_line, content.FreeRoot);
-
-
-
                             const string disable_ice_botexplode = "config/skillEffects/dischargeDisabled/ice/disable_botexplode.pet";
-                            const string ice_botexplode = "Metadata\\Particles\\discharge\\ice\\botexplode.pet";
-                            RecordsByPath[ice_botexplode].ReplaceContents(ggpkPath, disable_ice_botexplode, content.FreeRoot);
-
                             const string disable_ice_botmist = "config/skillEffects/dischargeDisabled/ice/disable_botmist.pet";
-                            const string ice_botmist = "Metadata\\Particles\\discharge\\ice\\botmist.pet";
-                            RecordsByPath[ice_botmist].ReplaceContents(ggpkPath, disable_ice_botmist, content.FreeRoot);
-
                             const string disable_ice_line = "config/skillEffects/dischargeDisabled/ice/disable_line.pet";
-                            const string ice_line = "Metadata\\Particles\\discharge\\ice\\line.pet";
-                            RecordsByPath[ice_line].ReplaceContents(ggpkPath, disable_ice_line, content.FreeRoot);
-
                             const string disable_ice_lineactual = "config/skillEffects/dischargeDisabled/ice/disable_lineactual.pet";
-                            const string ice_lineactual = "Metadata\\Particles\\discharge\\ice\\lineactual.pet";
-                            RecordsByPath[ice_lineactual].ReplaceContents(ggpkPath, disable_ice_lineactual, content.FreeRoot);
-
-
-
                             const string disable_light_botexplode = "config/skillEffects/dischargeDisabled/light/disable_botexplode.pet";
-                            const string light_botexplode = "Metadata\\Particles\\discharge\\light\\botexplode.pet";
-                            RecordsByPath[light_botexplode].ReplaceContents(ggpkPath, disable_light_botexplode, content.FreeRoot);
-
                             const string disable_light_cyl = "config/skillEffects/dischargeDisabled/light/disable_cyl.pet";
-                            const string light_cyl = "Metadata\\Particles\\discharge\\light\\cyl.pet";
-                            RecordsByPath[light_cyl].ReplaceContents(ggpkPath, disable_light_cyl, content.FreeRoot);
-
                             const string disable_light_light_linger = "config/skillEffects/dischargeDisabled/light/disable_light_linger.pet";
-                            const string light_light_linger = "Metadata\\Particles\\discharge\\light\\light_linger.pet";
-                            RecordsByPath[light_light_linger].ReplaceContents(ggpkPath, disable_light_light_linger, content.FreeRoot);
-
                             const string disable_light_line = "config/skillEffects/dischargeDisabled/light/disable_line.pet";
-                            const string light_line = "Metadata\\Particles\\discharge\\light\\line.pet";
-                            RecordsByPath[light_line].ReplaceContents(ggpkPath, disable_light_line, content.FreeRoot);
-
-
-
                             const string disable_fire_discharge = "config/skillEffects/dischargeDisabled/disable_fire_discharge.aoc";
-                            const string fire_discharge = "Metadata\\Effects\\Spells\\discharge\\fire_discharge.aoc";
-                            RecordsByPath[fire_discharge].ReplaceContents(ggpkPath, disable_fire_discharge, content.FreeRoot);
                             const string disable_fire_discharge_NoSound = "config/skillEffects/dischargeDisabled/disable_fire_discharge_NoSound.aoc";
-                            const string fire_discharge_NoSound = "Metadata\\Effects\\Spells\\discharge\\fire_discharge_NoSound.aoc";
-                            RecordsByPath[fire_discharge_NoSound].ReplaceContents(ggpkPath, disable_fire_discharge_NoSound, content.FreeRoot);
-
                             const string disable_light_discharge = "config/skillEffects/dischargeDisabled/disable_light_discharge.aoc";
-                            const string light_discharge = "Metadata\\Effects\\Spells\\discharge\\light_discharge.aoc";
-                            RecordsByPath[light_discharge].ReplaceContents(ggpkPath, disable_light_discharge, content.FreeRoot);
                             const string disable_light_discharge_NoSound = "config/skillEffects/dischargeDisabled/disable_light_discharge_NoSound.aoc";
-                            const string light_discharge_NoSound = "Metadata\\Effects\\Spells\\discharge\\light_discharge_NoSound.aoc";
-                            RecordsByPath[light_discharge_NoSound].ReplaceContents(ggpkPath, disable_light_discharge_NoSound, content.FreeRoot);
-
                             const string disable_ice_discharge = "config/skillEffects/dischargeDisabled/disable_ice_discharge.aoc";
-                            const string ice_discharge = "Metadata\\Effects\\Spells\\discharge\\ice_discharge.aoc";
-                            RecordsByPath[ice_discharge].ReplaceContents(ggpkPath, disable_ice_discharge, content.FreeRoot);
                             const string disable_ice_discharge_NoSound = "config/skillEffects/dischargeDisabled/disable_ice_discharge_NoSound.aoc";
+
+                            const string fire_actual_line = "Metadata\\Particles\\discharge\\fire\\actual_line.pet";
+                            const string botexplode = "Metadata\\Particles\\discharge\\fire\\botexplode.pet";
+                            const string cyl = "Metadata\\Particles\\discharge\\fire\\cyl.pet";
+                            const string line = "Metadata\\Particles\\discharge\\fire\\line.pet";
+                            const string ice_botexplode = "Metadata\\Particles\\discharge\\ice\\botexplode.pet";
+                            const string ice_botmist = "Metadata\\Particles\\discharge\\ice\\botmist.pet";
+                            const string ice_line = "Metadata\\Particles\\discharge\\ice\\line.pet";
+                            const string ice_lineactual = "Metadata\\Particles\\discharge\\ice\\lineactual.pet";
+                            const string light_botexplode = "Metadata\\Particles\\discharge\\light\\botexplode.pet";
+                            const string light_cyl = "Metadata\\Particles\\discharge\\light\\cyl.pet";
+                            const string light_light_linger = "Metadata\\Particles\\discharge\\light\\light_linger.pet";
+                            const string light_line = "Metadata\\Particles\\discharge\\light\\line.pet";
+                            const string fire_discharge = "Metadata\\Effects\\Spells\\discharge\\fire_discharge.aoc";
+                            const string fire_discharge_NoSound = "Metadata\\Effects\\Spells\\discharge\\fire_discharge_NoSound.aoc";
+                            const string light_discharge = "Metadata\\Effects\\Spells\\discharge\\light_discharge.aoc";
+                            const string light_discharge_NoSound = "Metadata\\Effects\\Spells\\discharge\\light_discharge_NoSound.aoc";
+                            const string ice_discharge = "Metadata\\Effects\\Spells\\discharge\\ice_discharge.aoc";
                             const string ice_discharge_NoSound = "Metadata\\Effects\\Spells\\discharge\\ice_discharge_NoSound.aoc";
+
+                            RecordsByPath[fire_actual_line].ReplaceContents(ggpkPath, disable_fire_actual_line, content.FreeRoot);
+                            RecordsByPath[botexplode].ReplaceContents(ggpkPath, disable_botexplode, content.FreeRoot);
+                            RecordsByPath[cyl].ReplaceContents(ggpkPath, disable_cyl, content.FreeRoot);
+                            RecordsByPath[line].ReplaceContents(ggpkPath, disable_line, content.FreeRoot);
+                            RecordsByPath[ice_botexplode].ReplaceContents(ggpkPath, disable_ice_botexplode, content.FreeRoot);
+                            RecordsByPath[ice_botmist].ReplaceContents(ggpkPath, disable_ice_botmist, content.FreeRoot);
+                            RecordsByPath[ice_line].ReplaceContents(ggpkPath, disable_ice_line, content.FreeRoot);
+                            RecordsByPath[ice_lineactual].ReplaceContents(ggpkPath, disable_ice_lineactual, content.FreeRoot);
+                            RecordsByPath[light_botexplode].ReplaceContents(ggpkPath, disable_light_botexplode, content.FreeRoot);
+                            RecordsByPath[light_cyl].ReplaceContents(ggpkPath, disable_light_cyl, content.FreeRoot);
+                            RecordsByPath[light_light_linger].ReplaceContents(ggpkPath, disable_light_light_linger, content.FreeRoot);
+                            RecordsByPath[light_line].ReplaceContents(ggpkPath, disable_light_line, content.FreeRoot);
+                            RecordsByPath[fire_discharge].ReplaceContents(ggpkPath, disable_fire_discharge, content.FreeRoot);
+                            RecordsByPath[fire_discharge_NoSound].ReplaceContents(ggpkPath, disable_fire_discharge_NoSound, content.FreeRoot);
+                            RecordsByPath[light_discharge].ReplaceContents(ggpkPath, disable_light_discharge, content.FreeRoot);
+                            RecordsByPath[light_discharge_NoSound].ReplaceContents(ggpkPath, disable_light_discharge_NoSound, content.FreeRoot);
+                            RecordsByPath[ice_discharge].ReplaceContents(ggpkPath, disable_ice_discharge, content.FreeRoot);
                             RecordsByPath[ice_discharge_NoSound].ReplaceContents(ggpkPath, disable_ice_discharge_NoSound, content.FreeRoot);
 
                             UpdateDisplayPanel();
@@ -1496,64 +1415,62 @@ namespace VisualGGPK
 
                     case false:
                         {
-                            //const string enable_lightdischarge = "config/skillEffects/dischargeDisabled/enable_lightdischarge.sm";
-                            //const string lightdischarge = "Art\\Models\\Effects\\discharge\\light_discharge\\lightdischarge.sm";
-                            //RecordsByPath[lightdischarge].ReplaceContents(ggpkPath, enable_lightdischarge, content.FreeRoot);
-
-
-
-
                             const string enable_fire_actual_line = "config/skillEffects/dischargeDisabled/fire/enable_actual_line.pet";
-                            const string fire_actual_line = "Metadata\\Particles\\discharge\\fire\\actual_line.pet";
-                            RecordsByPath[fire_actual_line].ReplaceContents(ggpkPath, enable_fire_actual_line, content.FreeRoot);
-
                             const string enable_fire_botexplode = "config/skillEffects/dischargeDisabled/fire/enable_botexplode.pet";
-                            const string fire_botexplode = "Metadata\\Particles\\discharge\\fire\\botexplode.pet";
-                            RecordsByPath[fire_botexplode].ReplaceContents(ggpkPath, enable_fire_botexplode, content.FreeRoot);
-
                             const string enable_fire_cyl = "config/skillEffects/dischargeDisabled/fire/enable_cyl.pet";
-                            const string fire_cyl = "Metadata\\Particles\\discharge\\fire\\cyl.pet";
-                            RecordsByPath[fire_cyl].ReplaceContents(ggpkPath, enable_fire_cyl, content.FreeRoot);
-
                             const string enable_fire_line = "config/skillEffects/dischargeDisabled/fire/enable_line.pet";
-                            const string fire_line = "Metadata\\Particles\\discharge\\fire\\line.pet";
-                            RecordsByPath[fire_line].ReplaceContents(ggpkPath, enable_fire_line, content.FreeRoot);
-
-
-
                             const string enable_ice_botexplode = "config/skillEffects/dischargeDisabled/ice/enable_botexplode.pet";
-                            const string ice_botexplode = "Metadata\\Particles\\discharge\\ice\\botexplode.pet";
-                            RecordsByPath[ice_botexplode].ReplaceContents(ggpkPath, enable_ice_botexplode, content.FreeRoot);
-
                             const string enable_ice_botmist = "config/skillEffects/dischargeDisabled/ice/enable_botmist.pet";
-                            const string ice_botmist = "Metadata\\Particles\\discharge\\ice\\botmist.pet";
-                            RecordsByPath[ice_botmist].ReplaceContents(ggpkPath, enable_ice_botmist, content.FreeRoot);
-
                             const string enable_ice_line = "config/skillEffects/dischargeDisabled/ice/enable_line.pet";
-                            const string ice_line = "Metadata\\Particles\\discharge\\ice\\line.pet";
-                            RecordsByPath[ice_line].ReplaceContents(ggpkPath, enable_ice_line, content.FreeRoot);
-
                             const string enable_ice_lineactual = "config/skillEffects/dischargeDisabled/ice/enable_lineactual.pet";
-                            const string ice_lineactual = "Metadata\\Particles\\discharge\\ice\\lineactual.pet";
-                            RecordsByPath[ice_lineactual].ReplaceContents(ggpkPath, enable_ice_lineactual, content.FreeRoot);
-
-
-
                             const string enable_light_botexplode = "config/skillEffects/dischargeDisabled/light/enable_botexplode.pet";
-                            const string light_botexplode = "Metadata\\Particles\\discharge\\light\\botexplode.pet";
-                            RecordsByPath[light_botexplode].ReplaceContents(ggpkPath, enable_light_botexplode, content.FreeRoot);
-
                             const string enable_light_cyl = "config/skillEffects/dischargeDisabled/light/enable_cyl.pet";
-                            const string light_cyl = "Metadata\\Particles\\discharge\\light\\cyl.pet";
-                            RecordsByPath[light_cyl].ReplaceContents(ggpkPath, enable_light_cyl, content.FreeRoot);
-
                             const string enable_light_light_linger = "config/skillEffects/dischargeDisabled/light/enable_light_linger.pet";
-                            const string light_light_linger = "Metadata\\Particles\\discharge\\light\\light_linger.pet";
-                            RecordsByPath[light_light_linger].ReplaceContents(ggpkPath, enable_light_light_linger, content.FreeRoot);
-
                             const string enable_light_line = "config/skillEffects/dischargeDisabled/light/enable_line.pet";
+                            const string enable_fire_discharge = "config/skillEffects/dischargeDisabled/enable_fire_discharge.aoc";
+                            const string enable_fire_discharge_NoSound = "config/skillEffects/dischargeDisabled/enable_fire_discharge_NoSound.aoc";
+                            const string enable_light_discharge = "config/skillEffects/dischargeDisabled/enable_light_discharge.aoc";
+                            const string enable_light_discharge_NoSound = "config/skillEffects/dischargeDisabled/enable_light_discharge_NoSound.aoc";
+                            const string enable_ice_discharge = "config/skillEffects/dischargeDisabled/enable_ice_discharge.aoc";
+                            const string enable_ice_discharge_NoSound = "config/skillEffects/dischargeDisabled/enable_ice_discharge_NoSound.aoc";
+
+                            const string fire_actual_line = "Metadata\\Particles\\discharge\\fire\\actual_line.pet";
+                            const string fire_botexplode = "Metadata\\Particles\\discharge\\fire\\botexplode.pet";
+                            const string fire_cyl = "Metadata\\Particles\\discharge\\fire\\cyl.pet";
+                            const string fire_line = "Metadata\\Particles\\discharge\\fire\\line.pet";
+                            const string ice_botexplode = "Metadata\\Particles\\discharge\\ice\\botexplode.pet";
+                            const string ice_botmist = "Metadata\\Particles\\discharge\\ice\\botmist.pet";
+                            const string ice_line = "Metadata\\Particles\\discharge\\ice\\line.pet";
+                            const string ice_lineactual = "Metadata\\Particles\\discharge\\ice\\lineactual.pet";
+                            const string light_botexplode = "Metadata\\Particles\\discharge\\light\\botexplode.pet";
+                            const string light_cyl = "Metadata\\Particles\\discharge\\light\\cyl.pet";
+                            const string light_light_linger = "Metadata\\Particles\\discharge\\light\\light_linger.pet";
                             const string light_line = "Metadata\\Particles\\discharge\\light\\line.pet";
+                            const string fire_discharge = "Metadata\\Effects\\Spells\\discharge\\fire_discharge.aoc";
+                            const string fire_discharge_NoSound = "Metadata\\Effects\\Spells\\discharge\\fire_discharge_NoSound.aoc";
+                            const string light_discharge = "Metadata\\Effects\\Spells\\discharge\\light_discharge.aoc";
+                            const string light_discharge_NoSound = "Metadata\\Effects\\Spells\\discharge\\light_discharge_NoSound.aoc";
+                            const string ice_discharge = "Metadata\\Effects\\Spells\\discharge\\ice_discharge.aoc";
+                            const string ice_discharge_NoSound = "Metadata\\Effects\\Spells\\discharge\\ice_discharge_NoSound.aoc";
+
+                            RecordsByPath[fire_actual_line].ReplaceContents(ggpkPath, enable_fire_actual_line, content.FreeRoot);
+                            RecordsByPath[fire_botexplode].ReplaceContents(ggpkPath, enable_fire_botexplode, content.FreeRoot);
+                            RecordsByPath[fire_cyl].ReplaceContents(ggpkPath, enable_fire_cyl, content.FreeRoot);
+                            RecordsByPath[fire_line].ReplaceContents(ggpkPath, enable_fire_line, content.FreeRoot);
+                            RecordsByPath[ice_botexplode].ReplaceContents(ggpkPath, enable_ice_botexplode, content.FreeRoot);
+                            RecordsByPath[ice_botmist].ReplaceContents(ggpkPath, enable_ice_botmist, content.FreeRoot);
+                            RecordsByPath[ice_line].ReplaceContents(ggpkPath, enable_ice_line, content.FreeRoot);
+                            RecordsByPath[ice_lineactual].ReplaceContents(ggpkPath, enable_ice_lineactual, content.FreeRoot);
+                            RecordsByPath[light_botexplode].ReplaceContents(ggpkPath, enable_light_botexplode, content.FreeRoot);
+                            RecordsByPath[light_cyl].ReplaceContents(ggpkPath, enable_light_cyl, content.FreeRoot);
+                            RecordsByPath[light_light_linger].ReplaceContents(ggpkPath, enable_light_light_linger, content.FreeRoot);
                             RecordsByPath[light_line].ReplaceContents(ggpkPath, enable_light_line, content.FreeRoot);
+                            RecordsByPath[fire_discharge].ReplaceContents(ggpkPath, enable_fire_discharge, content.FreeRoot);
+                            RecordsByPath[fire_discharge_NoSound].ReplaceContents(ggpkPath, enable_fire_discharge_NoSound, content.FreeRoot);
+                            RecordsByPath[light_discharge].ReplaceContents(ggpkPath, enable_light_discharge, content.FreeRoot);
+                            RecordsByPath[light_discharge_NoSound].ReplaceContents(ggpkPath, enable_light_discharge_NoSound, content.FreeRoot);
+                            RecordsByPath[ice_discharge].ReplaceContents(ggpkPath, enable_ice_discharge, content.FreeRoot);
+                            RecordsByPath[ice_discharge_NoSound].ReplaceContents(ggpkPath, enable_ice_discharge_NoSound, content.FreeRoot);
 
                             UpdateDisplayPanel();
                         }
@@ -1565,6 +1482,7 @@ namespace VisualGGPK
                 MessageBox.Show(string.Format(Settings.Strings["ReplaceItem_Failed"], ex.Message), Settings.Strings["Error_Caption"], MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
         private void treeView1_MouseDoubleClick_1(object sender, MouseButtonEventArgs e)
         {
             TreeView source = sender as TreeView;

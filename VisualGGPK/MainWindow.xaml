@@ -49,52 +49,52 @@
                 <DropShadowEffect RenderingBias="Quality" Opacity="0.5" Direction="-175" />
             </Grid.Effect>
             <StackPanel Margin="5,47,0,0">
-                <CheckBox x:Name="rainParticles" Content=" - disable rain effects" HorizontalAlignment="Left" Checked="RainParticles" Unchecked="RainParticles" IsChecked="False" Background="#FFE8E8E8" Margin="0,0,0,3" FontSize="13.333">
+                <CheckBox x:Name="rainParticles" Content=" - disable rain effects" HorizontalAlignment="Left" Checked="RainParticles" Unchecked="RainParticles" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="corruptedArea" Content=" - disable corrupted area" HorizontalAlignment="Left" Checked="CorruptedArea" Unchecked="CorruptedArea" IsChecked="False" Background="#FFE8E8E8" Margin="0,0,0,3" FontSize="13.333">
+                <CheckBox x:Name="corruptedArea" Content=" - disable corrupted area" HorizontalAlignment="Left" Checked="CorruptedArea" Unchecked="CorruptedArea" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="groundEffects" Content=" - disable ground effects" HorizontalAlignment="Left" Checked="GroundEffects" Unchecked="GroundEffects" IsChecked="False" Background="#FFE8E8E8" Margin="0,0,0,15" FontSize="13.333">
+                <CheckBox x:Name="groundEffects" Content=" - disable ground effects" HorizontalAlignment="Left" Checked="GroundEffects" Unchecked="GroundEffects" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,15" FontSize="13.333">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="monsterSounds" Content=" - disable monsters sound" HorizontalAlignment="Left" Checked="MonsterSounds" Unchecked="MonsterSounds" IsChecked="False" Background="#FFE8E8E8" Margin="0,0,0,3" FontSize="13.333">
+                <CheckBox x:Name="monsterSounds" Content=" - disable monsters sound" HorizontalAlignment="Left" Checked="MonsterSounds" Unchecked="MonsterSounds" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="charSounds" Content=" - disable chars sound" HorizontalAlignment="Left" Checked="CharSounds" Unchecked="CharSounds" IsChecked="False" Background="#FFE8E8E8" Margin="0,0,0,3" FontSize="13.333">
+                <CheckBox x:Name="charSounds" Content=" - disable chars sound" HorizontalAlignment="Left" Checked="CharSounds" Unchecked="CharSounds" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="portalSounds" Content=" - disable portals sound" HorizontalAlignment="Left" Checked="PortalSounds" Unchecked="PortalSounds" IsChecked="False" Background="#FFE8E8E8" Margin="0,0,0,3" FontSize="13.333">
+                <CheckBox x:Name="portalSounds" Content=" - disable portals sound" HorizontalAlignment="Left" Checked="PortalSounds" Unchecked="PortalSounds" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="chargeSounds" Content=" - disable charges sound" HorizontalAlignment="Left" Checked="ChargeSounds" Unchecked="ChargeSounds" IsChecked="False" Background="#FFE8E8E8" Margin="0,0,0,15" FontSize="13.333">
+                <CheckBox x:Name="chargeSounds" Content=" - disable charges sound" HorizontalAlignment="Left" Checked="ChargeSounds" Unchecked="ChargeSounds" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,15" FontSize="13.333">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="heraldOfIce" Content=" - herald of ice improved" HorizontalAlignment="Left" Checked="HeraldOfIce" Unchecked="HeraldOfIce" IsChecked="False" Background="#FFE8E8E8" Margin="0,0,0,3" FontSize="13.333">
+                <CheckBox x:Name="heraldOfIce" Content=" - herald of ice improved" HorizontalAlignment="Left" Checked="HeraldOfIce" Unchecked="HeraldOfIce" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="dischargeDisabled" Content=" - discharge with 0 effects" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="DischargeDisabled" Unchecked="DischargeDisabled" IsChecked="False" Background="#FFE8E8E8" Margin="0,0,0,3" FontSize="13.333">
+                <CheckBox x:Name="dischargeDisabled" Content=" - discharge with 0 effects" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="DischargeDisabled" Unchecked="DischargeDisabled" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="dischargeImproved" Content=" - discharge improved" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="DischargeImproved" Unchecked="DischargeImproved" IsChecked="False" Background="#FFE8E8E8" FontSize="13.333">
+                <CheckBox x:Name="dischargeImproved" Content=" - discharge improved" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="DischargeImproved" Unchecked="DischargeImproved" IsChecked="False" Background="#FFE8E8E8" FontSize="13.333" Margin="2,0,0,0">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
