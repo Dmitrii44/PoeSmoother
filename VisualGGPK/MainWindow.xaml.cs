@@ -633,6 +633,19 @@ namespace VisualGGPK
             CorruptedArea();
         }
 
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            rainParticles.IsChecked = false;
+            groundEffects.IsChecked = false;
+            corruptedArea.IsChecked = false;
+            monsterSounds.IsChecked = false;
+            portalSounds.IsChecked = false;
+            charSounds.IsChecked = false;
+            chargeSounds.IsChecked = false;
+            heraldOfIce.IsChecked = false;
+            dischargeDisabled.IsChecked = false;
+            dischargeImproved.IsChecked = false;
+        }
         private void RainParticles()
         {
             if (content.IsReadOnly)
@@ -660,8 +673,7 @@ namespace VisualGGPK
                             RecordsByPath[rainsparse].ReplaceContents(ggpkPath, disable_rainsparse, content.FreeRoot);
 
                             UpdateDisplayPanel();
-                        }
-                        break;
+                        } break;
 
                     case false:
                         {

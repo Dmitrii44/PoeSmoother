@@ -49,57 +49,62 @@
                 <DropShadowEffect RenderingBias="Quality" Opacity="0.5" Direction="-175" />
             </Grid.Effect>
             <StackPanel Margin="5,47,0,0">
-                <CheckBox x:Name="rainParticles" Content=" - disable rain effects" HorizontalAlignment="Left" Checked="RainParticles" Unchecked="RainParticles" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333">
+                <CheckBox x:Name="rainParticles" Content=" - all rain effects disabled" HorizontalAlignment="Left" Checked="RainParticles" Unchecked="RainParticles" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333" ToolTip="comeplitely removes rain from game">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="corruptedArea" Content=" - disable corrupted area" HorizontalAlignment="Left" Checked="CorruptedArea" Unchecked="CorruptedArea" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333">
+                <CheckBox x:Name="corruptedArea" Content=" - corrupted areas effects off " HorizontalAlignment="Left" Checked="CorruptedArea" Unchecked="CorruptedArea" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333" ToolTip="removes air particles, ground fog, ground smoke, fps improved">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="groundEffects" Content=" - disable ground effects" HorizontalAlignment="Left" Checked="GroundEffects" Unchecked="GroundEffects" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,15" FontSize="13.333">
+                <CheckBox x:Name="groundEffects" Content=" - lower ground effects" HorizontalAlignment="Left" Checked="GroundEffects" Unchecked="GroundEffects" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,15" FontSize="13.333" ToolTip="still visible and only removes smoke and laggy particle effects">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="monsterSounds" Content=" - disable monsters sound" HorizontalAlignment="Left" Checked="MonsterSounds" Unchecked="MonsterSounds" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333">
+                <CheckBox x:Name="monsterSounds" Content=" - spectre/golems sound off" HorizontalAlignment="Left" Checked="MonsterSounds" Unchecked="MonsterSounds" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333" ToolTip="no more sounds from this two type of monsters when they are idle or just moving around">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="charSounds" Content=" - disable chars sound" HorizontalAlignment="Left" Checked="CharSounds" Unchecked="CharSounds" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333">
+                <CheckBox x:Name="charSounds" Content=" - char actions sound off" HorizontalAlignment="Left" Checked="CharSounds" Unchecked="CharSounds" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333" ToolTip="disables vocal sounds made by chars with any action , attack/cast , skill used">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="portalSounds" Content=" - disable portals sound" HorizontalAlignment="Left" Checked="PortalSounds" Unchecked="PortalSounds" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333">
+                <CheckBox x:Name="portalSounds" Content=" - hideout portals sound off" HorizontalAlignment="Left" Checked="PortalSounds" Unchecked="PortalSounds" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333" ToolTip="no more portals &amp; waypoint sounds in hideout">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="chargeSounds" Content=" - disable charges sound" HorizontalAlignment="Left" Checked="ChargeSounds" Unchecked="ChargeSounds" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,15" FontSize="13.333">
+                <CheckBox x:Name="chargeSounds" Content=" - all charges sound off" HorizontalAlignment="Left" Checked="ChargeSounds" Unchecked="ChargeSounds" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,15" FontSize="13.333" ToolTip="removes the sound made by charges when they go on/off, usefull for some unique items and some builds">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="heraldOfIce" Content=" - herald of ice improved" HorizontalAlignment="Left" Checked="HeraldOfIce" Unchecked="HeraldOfIce" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333">
+                <CheckBox x:Name="heraldOfIce" Content=" - herald of ice improved" HorizontalAlignment="Left" Checked="HeraldOfIce" Unchecked="HeraldOfIce" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333" ToolTip="removes the laggy effects caused by mass explosions">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="dischargeDisabled" Content=" - discharge with 0 effects" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="DischargeDisabled" Unchecked="DischargeDisabled" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333">
+                <CheckBox x:Name="dischargeDisabled" Content=" - discharge with 0 effects" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="DischargeDisabled" Unchecked="DischargeDisabled" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333" ToolTip="discharge skill with 0 effects, for non-dischargers">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="dischargeImproved" Content=" - discharge improved" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="DischargeImproved" Unchecked="DischargeImproved" IsChecked="False" Background="#FFE8E8E8" FontSize="13.333" Margin="2,0,0,0">
+                <CheckBox x:Name="dischargeImproved" Content=" - discharge improved" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="DischargeImproved" Unchecked="DischargeImproved" IsChecked="False" Background="#FFE8E8E8" FontSize="13.333" Margin="2,0,0,0" ToolTip="removes some of the skill effects like the swirls and poison clouds,fps improved">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <TextBlock x:Name="textBlock1" Height="52" Margin="0,50,5,0" TextWrapping="Wrap" Text=" * Any help with new findings or to improve the tool code , is very much appreciated... :)" RenderTransformOrigin="0.5,0.495" FontStyle="Italic"/>
+                <Button x:Name="button" Content="reset all" Height="20" Width="50" Background="#FFDDDDDD" OpacityMask="Black" ToolTip="resets all to original state" Click="button_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,20,20,0">
+                    <Button.Effect>
+                        <DropShadowEffect ShadowDepth="2"/>
+                    </Button.Effect>
+                </Button>
+                <TextBlock x:Name="textBlock1" Height="52" Margin="0,30,5,0" TextWrapping="Wrap" Text=" * Any help with new findings or to improve the tool code , is very much appreciated... :)" RenderTransformOrigin="0.5,0.495" FontStyle="Italic"/>
             </StackPanel>
             <TextBlock x:Name="textBlock" Height="22" Margin="5,10,10,0" TextWrapping="Wrap" Text="Predefined effects" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold">
                 <TextBlock.Effect>

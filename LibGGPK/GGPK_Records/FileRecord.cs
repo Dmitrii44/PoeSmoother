@@ -291,7 +291,7 @@ namespace LibGGPK
 			{".ui", DataFormat.Unicode}, // User Interface
 			{".xls", DataFormat.Unknown},
 			{".xlsx", DataFormat.Unknown},
-			{".xml", DataFormat.Unicode},
+			{".xml", DataFormat.Unicode}
 		};
 		#endregion
 
