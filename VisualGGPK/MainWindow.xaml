@@ -104,7 +104,7 @@
                         <DropShadowEffect ShadowDepth="2"/>
                     </Button.Effect>
                 </Button>
-                <TextBlock x:Name="textBlock1" Height="52" Margin="0,30,5,0" TextWrapping="Wrap" Text=" * Any help with new findings or to improve the tool code , is very much appreciated... :)" RenderTransformOrigin="0.5,0.495" FontStyle="Italic"/>
+                <TextBlock x:Name="textBlock1" Height="52" Margin="0,20,5,0" TextWrapping="Wrap" Text=" * Any help with new findings or to improve the tool code , is very much appreciated... :)" RenderTransformOrigin="0.5,0.495" FontStyle="Italic"/>
             </StackPanel>
             <TextBlock x:Name="textBlock" Height="22" Margin="5,10,10,0" TextWrapping="Wrap" Text="Predefined effects" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold">
                 <TextBlock.Effect>
