@@ -4,7 +4,7 @@
 		xmlns:Properties="clr-namespace:VisualGGPK.Properties"
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
 		x:Class="VisualGGPK.MainWindow"
-		Title="VisualGGPK" Loaded="Window_Loaded" AllowDrop="True" Drop="Window_Drop_1" PreviewDrop="Window_PreviewDrop_1" Closing="Window_Closing_1" Width="1100" Height="400">
+		Title="PoeSmoother" Loaded="Window_Loaded" AllowDrop="True" Drop="Window_Drop_1" PreviewDrop="Window_PreviewDrop_1" Closing="Window_Closing_1" Width="1100" Height="400">
 
 
     <Grid Background="#FFCDCBCB">
@@ -49,7 +49,7 @@
                 <DropShadowEffect RenderingBias="Quality" Opacity="0.5" Direction="-175" />
             </Grid.Effect>
             <StackPanel Margin="5,47,0,0">
-                <CheckBox x:Name="rainParticles" Content=" - all rain effects disabled" HorizontalAlignment="Left" Checked="RainParticles" Unchecked="RainParticles" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333" ToolTip="comeplitely removes rain from game">
+                <CheckBox x:Name="rainParticles" Content=" - all rain effects disabled" HorizontalAlignment="Left" Checked="RainParticles" Unchecked="RainParticles" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333" ToolTip="completely removes rain from game">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
@@ -59,7 +59,12 @@
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="groundEffects" Content=" - lower ground effects" HorizontalAlignment="Left" Checked="GroundEffects" Unchecked="GroundEffects" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,15" FontSize="13.333" ToolTip="still visible and only removes smoke and laggy particle effects">
+                <CheckBox x:Name="groundEffects" Content=" - lower ground effects" HorizontalAlignment="Left" Checked="GroundEffects" Unchecked="GroundEffects" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333" ToolTip="still visible and only removes smoke and laggy particle effects">
+                    <CheckBox.Effect>
+                        <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
+                    </CheckBox.Effect>
+                </CheckBox>
+                <CheckBox x:Name="extraGore" Content=" - disable extra gore" HorizontalAlignment="Left" Checked="ExtraGore" Unchecked="ExtraGore" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,15" FontSize="13.333" ToolTip="removes extra gore from all uniques">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
@@ -94,17 +99,17 @@
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="dischargeImproved" Content=" - discharge improved" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="DischargeImproved" Unchecked="DischargeImproved" IsChecked="False" Background="#FFE8E8E8" FontSize="13.333" Margin="2,0,0,0" ToolTip="removes some of the skill effects like the swirls and poison clouds,fps improved">
+                <CheckBox x:Name="dischargeImproved" Content=" - discharge improved" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="DischargeImproved" Unchecked="DischargeImproved" IsChecked="False" Background="#FFE8E8E8" FontSize="13.333" Margin="2,0,0,-5" ToolTip="removes some of the skill effects like the swirls and poison clouds,fps improved">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <Button x:Name="button" Content="reset all" Height="20" Width="50" Background="#FFDDDDDD" OpacityMask="Black" ToolTip="resets all to original state" Click="button_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,20,20,0">
+                <Button x:Name="resetAll" Content="reset all" Height="20" Width="50" Background="#FFDDDDDD" OpacityMask="Black" ToolTip="resets all to original state" Click="button_Click" Margin="0,15,10,10" FontStyle="Italic" HorizontalAlignment="Right">
                     <Button.Effect>
-                        <DropShadowEffect ShadowDepth="2"/>
+                        <DropShadowEffect ShadowDepth="1" BlurRadius="2"/>
                     </Button.Effect>
                 </Button>
-                <TextBlock x:Name="textBlock1" Height="52" Margin="0,20,5,0" TextWrapping="Wrap" Text=" * Any help with new findings or to improve the tool code , is very much appreciated... :)" RenderTransformOrigin="0.5,0.495" FontStyle="Italic"/>
+                <TextBlock x:Name="textBlock1" Height="38" Margin="2,0" TextWrapping="Wrap" Text=" * Any help with new findings or to improve the tool code , is very much appreciated... :)" RenderTransformOrigin="0.5,0.495" FontStyle="Italic"/>
             </StackPanel>
             <TextBlock x:Name="textBlock" Height="22" Margin="5,10,10,0" TextWrapping="Wrap" Text="Predefined effects" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold">
                 <TextBlock.Effect>

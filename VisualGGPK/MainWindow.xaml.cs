@@ -633,10 +633,16 @@ namespace VisualGGPK
             CorruptedArea();
         }
 
+        private void ExtraGore(object sender, RoutedEventArgs e)
+        {
+            ExtraGore();
+        }
+
         private void button_Click(object sender, RoutedEventArgs e)
         {
             rainParticles.IsChecked = false;
             groundEffects.IsChecked = false;
+            extraGore.IsChecked = false;
             corruptedArea.IsChecked = false;
             monsterSounds.IsChecked = false;
             portalSounds.IsChecked = false;
@@ -646,6 +652,7 @@ namespace VisualGGPK
             dischargeDisabled.IsChecked = false;
             dischargeImproved.IsChecked = false;
         }
+
         private void RainParticles()
         {
             if (content.IsReadOnly)
@@ -673,7 +680,8 @@ namespace VisualGGPK
                             RecordsByPath[rainsparse].ReplaceContents(ggpkPath, disable_rainsparse, content.FreeRoot);
 
                             UpdateDisplayPanel();
-                        } break;
+                        }
+                        break;
 
                     case false:
                         {
@@ -785,6 +793,295 @@ namespace VisualGGPK
                             RecordsByPath[cloud_mid].ReplaceContents(ggpkPath, enable_cloud_mid, content.FreeRoot);
                             RecordsByPath[cloud_small].ReplaceContents(ggpkPath, enable_cloud_small, content.FreeRoot);
                             RecordsByPath[tar_cyl].ReplaceContents(ggpkPath, enable_tar_cyl, content.FreeRoot);
+
+                            UpdateDisplayPanel();
+                        }
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format(Settings.Strings["ReplaceItem_Failed"], ex.Message), Settings.Strings["Error_Caption"], MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void ExtraGore()
+        {
+            if (content.IsReadOnly)
+            {
+                MessageBox.Show(Settings.Strings["ReplaceItem_Readonly"], Settings.Strings["ReplaceItem_ReadonlyCaption"]);
+                return;
+            }
+
+            try
+            {
+                switch (extraGore.IsChecked)
+                {
+                    case true:
+                        {
+                            const string disable_blood_gibs_01 = "config/extraGore/disable_blood_gibs_01.aoc";
+                            const string disable_blood_gibs_02 = "config/extraGore/disable_blood_gibs_02.aoc";
+                            const string disable_blood_gibs_03 = "config/extraGore/disable_blood_gibs_03.aoc";
+                            const string disable_blood_gibs_04 = "config/extraGore/disable_blood_gibs_04.aoc";
+                            const string disable_blood_gibs_05 = "config/extraGore/disable_blood_gibs_05.aoc";
+                            const string disable_blood_gibs_06 = "config/extraGore/disable_blood_gibs_06.aoc";
+                            const string disable_gibs_yellow_01 = "config/extraGore/disable_gibs_yellow_01.aoc";
+                            const string disable_gibs_yellow_02 = "config/extraGore/disable_gibs_yellow_02.aoc";
+                            const string disable_gibs_yellow_03 = "config/extraGore/disable_gibs_yellow_03.aoc";
+                            const string disable_gibs_yellow_04 = "config/extraGore/disable_gibs_yellow_04.aoc";
+                            const string disable_gibs_yellow_05 = "config/extraGore/disable_gibs_yellow_05.aoc";
+                            const string disable_gibs_yellow_06 = "config/extraGore/disable_gibs_yellow_06.aoc";
+                            const string disable_gibs_zombie_01 = "config/extraGore/disable_gibs_zombie_01.aoc";
+                            const string disable_gibs_zombie_02 = "config/extraGore/disable_gibs_zombie_02.aoc";
+                            const string disable_gibs_zombie_03 = "config/extraGore/disable_gibs_zombie_03.aoc";
+                            const string disable_gibs_zombie_04 = "config/extraGore/disable_gibs_zombie_04.aoc";
+                            const string disable_gibs_zombie_05 = "config/extraGore/disable_gibs_zombie_05.aoc";
+                            const string disable_gibs_zombie_06 = "config/extraGore/disable_gibs_zombie_06.aoc";
+                            const string disable_blood_impact_spider = "config/extraGore/disable_blood_impact_spider.pet";
+                            const string disable_blood_impact_zombie = "config/extraGore/disable_blood_impact_zombie.pet";
+                            const string disable_blood1_impact_spider = "config/extraGore/disable_blood1_impact_spider.pet";
+                            const string disable_blood1_impact_zombie = "config/extraGore/disable_blood1_impact_zombie.pet";
+                            const string disable_blood2_impact_spider = "config/extraGore/disable_blood2_impact_spider.pet";
+                            const string disable_blood2_impact_zombie = "config/extraGore/disable_blood2_impact_zombie.pet";
+                            const string disable_Green = "config/extraGore/disable_Green.pet";
+                            const string disable_Orange = "config/extraGore/disable_Orange.pet";
+                            const string disable_Red = "config/extraGore/disable_Red.pet";
+                            const string disable_critical_strikes_red = "config/extraGore/first_blood/red/disable_critical_strikes_red.pet";
+                            const string disable_red_blood = "config/extraGore/first_blood/red/disable_red_blood.pet";
+                            const string disable_critical_strikes_green = "config/extraGore/first_blood/spider/disable_critical_strikes_green.pet";
+                            const string disable_spider_blood = "config/extraGore/first_blood/spider/disable_spider_blood.pet";
+                            const string disable_critical_strikes_zombie = "config/extraGore/first_blood/zombie/disable_critical_strikes_zombie.pet";
+                            const string disable_zombie_blood = "config/extraGore/first_blood/zombie/disable_zombie_blood.pet";
+                            const string disable_new_critical_strikes_green = "config/extraGore/new/disable_critical_strikes_green.pet";
+                            const string disable_new_critical_strikes_orange = "config/extraGore/new/disable_critical_strikes_orange.pet";
+                            const string disable_new_critical_strikes_red = "config/extraGore/new/disable_critical_strikes_red.pet";
+                            const string disable_new_blood_impact_spider = "config/extraGore/new/green/disable_blood_impact_spider.pet";
+                            const string disable_new_blood1_impact_spider = "config/extraGore/new/green/disable_blood1_impact_spider.pet";
+                            const string disable_new_blood_impact = "config/extraGore/new/red/disable_blood_impact.pet";
+                            const string disable_new_blood1_impact = "config/extraGore/new/red/disable_blood1_impact.pet";
+                            const string disable_new_blood_impact_zombie = "config/extraGore/new/zombie/disable_blood_impact_zombie.pet";
+                            const string disable_new_blood1_impact_zombie = "config/extraGore/new/zombie/disable_blood1_impact_zombie.pet";
+
+                            const string blood_gibs_01 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood_gibs_01.aoc";
+                            const string blood_gibs_02 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood_gibs_02.aoc";
+                            const string blood_gibs_03 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood_gibs_03.aoc";
+                            const string blood_gibs_04 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood_gibs_04.aoc";
+                            const string blood_gibs_05 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood_gibs_05.aoc";
+                            const string blood_gibs_06 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood_gibs_06.aoc";
+                            const string gibs_yellow_01 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_yellow_01.aoc";
+                            const string gibs_yellow_02 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_yellow_02.aoc";
+                            const string gibs_yellow_03 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_yellow_03.aoc";
+                            const string gibs_yellow_04 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_yellow_04.aoc";
+                            const string gibs_yellow_05 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_yellow_05.aoc";
+                            const string gibs_yellow_06 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_yellow_06.aoc";
+                            const string gibs_zombie_01 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_zombie_01.aoc";
+                            const string gibs_zombie_02 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_zombie_02.aoc";
+                            const string gibs_zombie_03 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_zombie_03.aoc";
+                            const string gibs_zombie_04 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_zombie_04.aoc";
+                            const string gibs_zombie_05 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_zombie_05.aoc";
+                            const string gibs_zombie_06 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_zombie_06.aoc";
+                            const string blood_impact_spider = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood_impact_spider.pet";
+                            const string blood_impact_zombie = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood_impact_zombie.pet";
+                            const string blood1_impact_spider = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood1_impact_spider.pet";
+                            const string blood1_impact_zombie = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood1_impact_zombie.pet";
+                            const string blood2_impact_spider = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood2_impact_spider.pet";
+                            const string blood2_impact_zombie = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood2_impact_zombie.pet";
+                            const string Green = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\Green.pet";
+                            const string Orange = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\Orange.pet";
+                            const string Red = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\Red.pet";
+                            const string critical_strikes_red = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\first_blood\\red\\critical_strikes_red.pet";
+                            const string red_blood = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\first_blood\\red\\red_blood.pet";
+                            const string critical_strikes_green = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\first_blood\\spider\\critical_strikes_green.pet";
+                            const string spider_blood = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\first_blood\\spider\\spider_blood.pet";
+                            const string critical_strikes_zombie = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\first_blood\\zombie\\critical_strikes_zombie.pet";
+                            const string zombie_blood = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\first_blood\\zombie\\zombie_blood.pet";
+                            const string new_critical_strikes_green = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\new\\critical_strikes_green.pet";
+                            const string new_critical_strikes_orange = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\new\\critical_strikes_orange.pet";
+                            const string new_critical_strikes_red = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\new\\critical_strikes_red.pet";
+                            const string new_blood_impact_spider = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\new\\green\\blood_impact_spider.pet";
+                            const string new_blood1_impact_spider = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\new\\green\\blood1_impact_spider.pet";
+                            const string new_blood_impact = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\new\\red\\blood_impact.pet";
+                            const string new_blood1_impact = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\new\\red\\blood1_impact.pet";
+                            const string new_blood_impact_zombie = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\new\\zombie\\blood_impact_zombie.pet";
+                            const string new_blood1_impact_zombie = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\new\\zombie\\blood1_impact_zombie.pet";
+
+                            RecordsByPath[blood_gibs_01].ReplaceContents(ggpkPath, disable_blood_gibs_01, content.FreeRoot);
+                            RecordsByPath[blood_gibs_02].ReplaceContents(ggpkPath, disable_blood_gibs_02, content.FreeRoot);
+                            RecordsByPath[blood_gibs_03].ReplaceContents(ggpkPath, disable_blood_gibs_03, content.FreeRoot);
+                            RecordsByPath[blood_gibs_04].ReplaceContents(ggpkPath, disable_blood_gibs_04, content.FreeRoot);
+                            RecordsByPath[blood_gibs_05].ReplaceContents(ggpkPath, disable_blood_gibs_05, content.FreeRoot);
+                            RecordsByPath[blood_gibs_06].ReplaceContents(ggpkPath, disable_blood_gibs_06, content.FreeRoot);
+                            RecordsByPath[gibs_yellow_01].ReplaceContents(ggpkPath, disable_gibs_yellow_01, content.FreeRoot);
+                            RecordsByPath[gibs_yellow_02].ReplaceContents(ggpkPath, disable_gibs_yellow_02, content.FreeRoot);
+                            RecordsByPath[gibs_yellow_03].ReplaceContents(ggpkPath, disable_gibs_yellow_03, content.FreeRoot);
+                            RecordsByPath[gibs_yellow_04].ReplaceContents(ggpkPath, disable_gibs_yellow_04, content.FreeRoot);
+                            RecordsByPath[gibs_yellow_05].ReplaceContents(ggpkPath, disable_gibs_yellow_05, content.FreeRoot);
+                            RecordsByPath[gibs_yellow_06].ReplaceContents(ggpkPath, disable_gibs_yellow_06, content.FreeRoot);
+                            RecordsByPath[gibs_zombie_01].ReplaceContents(ggpkPath, disable_gibs_zombie_01, content.FreeRoot);
+                            RecordsByPath[gibs_zombie_02].ReplaceContents(ggpkPath, disable_gibs_zombie_02, content.FreeRoot);
+                            RecordsByPath[gibs_zombie_03].ReplaceContents(ggpkPath, disable_gibs_zombie_03, content.FreeRoot);
+                            RecordsByPath[gibs_zombie_04].ReplaceContents(ggpkPath, disable_gibs_zombie_04, content.FreeRoot);
+                            RecordsByPath[gibs_zombie_05].ReplaceContents(ggpkPath, disable_gibs_zombie_05, content.FreeRoot);
+                            RecordsByPath[gibs_zombie_06].ReplaceContents(ggpkPath, disable_gibs_zombie_06, content.FreeRoot);
+                            RecordsByPath[blood_impact_spider].ReplaceContents(ggpkPath, disable_blood_impact_spider, content.FreeRoot);
+                            RecordsByPath[blood_impact_zombie].ReplaceContents(ggpkPath, disable_blood_impact_zombie, content.FreeRoot);
+                            RecordsByPath[blood1_impact_spider].ReplaceContents(ggpkPath, disable_blood1_impact_spider, content.FreeRoot);
+                            RecordsByPath[blood1_impact_zombie].ReplaceContents(ggpkPath, disable_blood1_impact_zombie, content.FreeRoot);
+                            RecordsByPath[blood2_impact_spider].ReplaceContents(ggpkPath, disable_blood2_impact_spider, content.FreeRoot);
+                            RecordsByPath[blood2_impact_zombie].ReplaceContents(ggpkPath, disable_blood2_impact_zombie, content.FreeRoot);
+                            RecordsByPath[Green].ReplaceContents(ggpkPath, disable_Green, content.FreeRoot);
+                            RecordsByPath[Orange].ReplaceContents(ggpkPath, disable_Orange, content.FreeRoot);
+                            RecordsByPath[Red].ReplaceContents(ggpkPath, disable_Red, content.FreeRoot);
+                            RecordsByPath[critical_strikes_red].ReplaceContents(ggpkPath, disable_critical_strikes_red, content.FreeRoot);
+                            RecordsByPath[red_blood].ReplaceContents(ggpkPath, disable_red_blood, content.FreeRoot);
+                            RecordsByPath[critical_strikes_green].ReplaceContents(ggpkPath, disable_critical_strikes_green, content.FreeRoot);
+                            RecordsByPath[spider_blood].ReplaceContents(ggpkPath, disable_spider_blood, content.FreeRoot);
+                            RecordsByPath[critical_strikes_zombie].ReplaceContents(ggpkPath, disable_critical_strikes_zombie, content.FreeRoot);
+                            RecordsByPath[zombie_blood].ReplaceContents(ggpkPath, disable_zombie_blood, content.FreeRoot);
+                            RecordsByPath[new_critical_strikes_green].ReplaceContents(ggpkPath, disable_new_critical_strikes_green, content.FreeRoot);
+                            RecordsByPath[new_critical_strikes_orange].ReplaceContents(ggpkPath, disable_new_critical_strikes_orange, content.FreeRoot);
+                            RecordsByPath[new_critical_strikes_red].ReplaceContents(ggpkPath, disable_new_critical_strikes_red, content.FreeRoot);
+                            RecordsByPath[new_blood_impact_spider].ReplaceContents(ggpkPath, disable_new_blood_impact_spider, content.FreeRoot);
+                            RecordsByPath[new_blood1_impact_spider].ReplaceContents(ggpkPath, disable_new_blood1_impact_spider, content.FreeRoot);
+                            RecordsByPath[new_blood_impact].ReplaceContents(ggpkPath, disable_new_blood_impact, content.FreeRoot);
+                            RecordsByPath[new_blood1_impact].ReplaceContents(ggpkPath, disable_new_blood1_impact, content.FreeRoot);
+                            RecordsByPath[new_blood_impact_zombie].ReplaceContents(ggpkPath, disable_new_blood_impact_zombie, content.FreeRoot);
+                            RecordsByPath[new_blood1_impact_zombie].ReplaceContents(ggpkPath, disable_new_blood1_impact_zombie, content.FreeRoot);
+
+                            UpdateDisplayPanel();
+                        }
+                        break;
+
+                    case false:
+                        {
+                            const string enable_blood_gibs_01 = "config/extraGore/enable_blood_gibs_01.aoc";
+                            const string enable_blood_gibs_02 = "config/extraGore/enable_blood_gibs_02.aoc";
+                            const string enable_blood_gibs_03 = "config/extraGore/enable_blood_gibs_03.aoc";
+                            const string enable_blood_gibs_04 = "config/extraGore/enable_blood_gibs_04.aoc";
+                            const string enable_blood_gibs_05 = "config/extraGore/enable_blood_gibs_05.aoc";
+                            const string enable_blood_gibs_06 = "config/extraGore/enable_blood_gibs_06.aoc";
+                            const string enable_gibs_yellow_01 = "config/extraGore/enable_gibs_yellow_01.aoc";
+                            const string enable_gibs_yellow_02 = "config/extraGore/enable_gibs_yellow_02.aoc";
+                            const string enable_gibs_yellow_03 = "config/extraGore/enable_gibs_yellow_03.aoc";
+                            const string enable_gibs_yellow_04 = "config/extraGore/enable_gibs_yellow_04.aoc";
+                            const string enable_gibs_yellow_05 = "config/extraGore/enable_gibs_yellow_05.aoc";
+                            const string enable_gibs_yellow_06 = "config/extraGore/enable_gibs_yellow_06.aoc";
+                            const string enable_gibs_zombie_01 = "config/extraGore/enable_gibs_zombie_01.aoc";
+                            const string enable_gibs_zombie_02 = "config/extraGore/enable_gibs_zombie_02.aoc";
+                            const string enable_gibs_zombie_03 = "config/extraGore/enable_gibs_zombie_03.aoc";
+                            const string enable_gibs_zombie_04 = "config/extraGore/enable_gibs_zombie_04.aoc";
+                            const string enable_gibs_zombie_05 = "config/extraGore/enable_gibs_zombie_05.aoc";
+                            const string enable_gibs_zombie_06 = "config/extraGore/enable_gibs_zombie_06.aoc";
+                            const string enable_blood_impact_spider = "config/extraGore/enable_blood_impact_spider.pet";
+                            const string enable_blood_impact_zombie = "config/extraGore/enable_blood_impact_zombie.pet";
+                            const string enable_blood1_impact_spider = "config/extraGore/enable_blood1_impact_spider.pet";
+                            const string enable_blood1_impact_zombie = "config/extraGore/enable_blood1_impact_zombie.pet";
+                            const string enable_blood2_impact_spider = "config/extraGore/enable_blood2_impact_spider.pet";
+                            const string enable_blood2_impact_zombie = "config/extraGore/enable_blood2_impact_zombie.pet";
+                            const string enable_Green = "config/extraGore/enable_Green.pet";
+                            const string enable_Orange = "config/extraGore/enable_Orange.pet";
+                            const string enable_Red = "config/extraGore/enable_Red.pet";
+                            const string enable_critical_strikes_red = "config/extraGore/first_blood/red/enable_critical_strikes_red.pet";
+                            const string enable_red_blood = "config/extraGore/first_blood/red/enable_red_blood.pet";
+                            const string enable_critical_strikes_green = "config/extraGore/first_blood/spider/enable_critical_strikes_green.pet";
+                            const string enable_spider_blood = "config/extraGore/first_blood/spider/enable_spider_blood.pet";
+                            const string enable_critical_strikes_zombie = "config/extraGore/first_blood/zombie/enable_critical_strikes_zombie.pet";
+                            const string enable_zombie_blood = "config/extraGore/first_blood/zombie/enable_zombie_blood.pet";
+                            const string enable_new_critical_strikes_green = "config/extraGore/new/enable_critical_strikes_green.pet";
+                            const string enable_new_critical_strikes_orange = "config/extraGore/new/enable_critical_strikes_orange.pet";
+                            const string enable_new_critical_strikes_red = "config/extraGore/new/enable_critical_strikes_red.pet";
+                            const string enable_new_blood_impact_spider = "config/extraGore/new/green/enable_blood_impact_spider.pet";
+                            const string enable_new_blood1_impact_spider = "config/extraGore/new/green/enable_blood1_impact_spider.pet";
+                            const string enable_new_blood_impact = "config/extraGore/new/red/enable_blood_impact.pet";
+                            const string enable_new_blood1_impact = "config/extraGore/new/red/enable_blood1_impact.pet";
+                            const string enable_new_blood_impact_zombie = "config/extraGore/new/zombie/enable_blood_impact_zombie.pet";
+                            const string enable_new_blood1_impact_zombie = "config/extraGore/new/zombie/enable_blood1_impact_zombie.pet";
+
+                            const string blood_gibs_01 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood_gibs_01.aoc";
+                            const string blood_gibs_02 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood_gibs_02.aoc";
+                            const string blood_gibs_03 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood_gibs_03.aoc";
+                            const string blood_gibs_04 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood_gibs_04.aoc";
+                            const string blood_gibs_05 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood_gibs_05.aoc";
+                            const string blood_gibs_06 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood_gibs_06.aoc";
+                            const string gibs_yellow_01 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_yellow_01.aoc";
+                            const string gibs_yellow_02 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_yellow_02.aoc";
+                            const string gibs_yellow_03 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_yellow_03.aoc";
+                            const string gibs_yellow_04 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_yellow_04.aoc";
+                            const string gibs_yellow_05 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_yellow_05.aoc";
+                            const string gibs_yellow_06 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_yellow_06.aoc";
+                            const string gibs_zombie_01 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_zombie_01.aoc";
+                            const string gibs_zombie_02 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_zombie_02.aoc";
+                            const string gibs_zombie_03 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_zombie_03.aoc";
+                            const string gibs_zombie_04 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_zombie_04.aoc";
+                            const string gibs_zombie_05 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_zombie_05.aoc";
+                            const string gibs_zombie_06 = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\gibs_zombie_06.aoc";
+                            const string blood_impact_spider = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood_impact_spider.pet";
+                            const string blood_impact_zombie = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood_impact_zombie.pet";
+                            const string blood1_impact_spider = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood1_impact_spider.pet";
+                            const string blood1_impact_zombie = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood1_impact_zombie.pet";
+                            const string blood2_impact_spider = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood2_impact_spider.pet";
+                            const string blood2_impact_zombie = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\blood2_impact_zombie.pet";
+                            const string Green = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\Green.pet";
+                            const string Orange = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\Orange.pet";
+                            const string Red = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\Red.pet";
+                            const string critical_strikes_red = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\first_blood\\red\\critical_strikes_red.pet";
+                            const string red_blood = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\first_blood\\red\\red_blood.pet";
+                            const string critical_strikes_green = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\first_blood\\spider\\critical_strikes_green.pet";
+                            const string spider_blood = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\first_blood\\spider\\spider_blood.pet";
+                            const string critical_strikes_zombie = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\first_blood\\zombie\\critical_strikes_zombie.pet";
+                            const string zombie_blood = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\first_blood\\zombie\\zombie_blood.pet";
+                            const string new_critical_strikes_green = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\new\\critical_strikes_green.pet";
+                            const string new_critical_strikes_orange = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\new\\critical_strikes_orange.pet";
+                            const string new_critical_strikes_red = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\new\\critical_strikes_red.pet";
+                            const string new_blood_impact_spider = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\new\\green\\blood_impact_spider.pet";
+                            const string new_blood1_impact_spider = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\new\\green\\blood1_impact_spider.pet";
+                            const string new_blood_impact = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\new\\red\\blood_impact.pet";
+                            const string new_blood1_impact = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\new\\red\\blood1_impact.pet";
+                            const string new_blood_impact_zombie = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\new\\zombie\\blood_impact_zombie.pet";
+                            const string new_blood1_impact_zombie = "Metadata\\Effects\\Microtransactions\\Misc\\Extra_Blood\\new\\zombie\\blood1_impact_zombie.pet";
+
+                            RecordsByPath[blood_gibs_01].ReplaceContents(ggpkPath, enable_blood_gibs_01, content.FreeRoot);
+                            RecordsByPath[blood_gibs_02].ReplaceContents(ggpkPath, enable_blood_gibs_02, content.FreeRoot);
+                            RecordsByPath[blood_gibs_03].ReplaceContents(ggpkPath, enable_blood_gibs_03, content.FreeRoot);
+                            RecordsByPath[blood_gibs_04].ReplaceContents(ggpkPath, enable_blood_gibs_04, content.FreeRoot);
+                            RecordsByPath[blood_gibs_05].ReplaceContents(ggpkPath, enable_blood_gibs_05, content.FreeRoot);
+                            RecordsByPath[blood_gibs_06].ReplaceContents(ggpkPath, enable_blood_gibs_06, content.FreeRoot);
+                            RecordsByPath[gibs_yellow_01].ReplaceContents(ggpkPath, enable_gibs_yellow_01, content.FreeRoot);
+                            RecordsByPath[gibs_yellow_02].ReplaceContents(ggpkPath, enable_gibs_yellow_02, content.FreeRoot);
+                            RecordsByPath[gibs_yellow_03].ReplaceContents(ggpkPath, enable_gibs_yellow_03, content.FreeRoot);
+                            RecordsByPath[gibs_yellow_04].ReplaceContents(ggpkPath, enable_gibs_yellow_04, content.FreeRoot);
+                            RecordsByPath[gibs_yellow_05].ReplaceContents(ggpkPath, enable_gibs_yellow_05, content.FreeRoot);
+                            RecordsByPath[gibs_yellow_06].ReplaceContents(ggpkPath, enable_gibs_yellow_06, content.FreeRoot);
+                            RecordsByPath[gibs_zombie_01].ReplaceContents(ggpkPath, enable_gibs_zombie_01, content.FreeRoot);
+                            RecordsByPath[gibs_zombie_02].ReplaceContents(ggpkPath, enable_gibs_zombie_02, content.FreeRoot);
+                            RecordsByPath[gibs_zombie_03].ReplaceContents(ggpkPath, enable_gibs_zombie_03, content.FreeRoot);
+                            RecordsByPath[gibs_zombie_04].ReplaceContents(ggpkPath, enable_gibs_zombie_04, content.FreeRoot);
+                            RecordsByPath[gibs_zombie_05].ReplaceContents(ggpkPath, enable_gibs_zombie_05, content.FreeRoot);
+                            RecordsByPath[gibs_zombie_06].ReplaceContents(ggpkPath, enable_gibs_zombie_06, content.FreeRoot);
+                            RecordsByPath[blood_impact_spider].ReplaceContents(ggpkPath, enable_blood_impact_spider, content.FreeRoot);
+                            RecordsByPath[blood_impact_zombie].ReplaceContents(ggpkPath, enable_blood_impact_zombie, content.FreeRoot);
+                            RecordsByPath[blood1_impact_spider].ReplaceContents(ggpkPath, enable_blood1_impact_spider, content.FreeRoot);
+                            RecordsByPath[blood1_impact_zombie].ReplaceContents(ggpkPath, enable_blood1_impact_zombie, content.FreeRoot);
+                            RecordsByPath[blood2_impact_spider].ReplaceContents(ggpkPath, enable_blood2_impact_spider, content.FreeRoot);
+                            RecordsByPath[blood2_impact_zombie].ReplaceContents(ggpkPath, enable_blood2_impact_zombie, content.FreeRoot);
+                            RecordsByPath[Green].ReplaceContents(ggpkPath, enable_Green, content.FreeRoot);
+                            RecordsByPath[Orange].ReplaceContents(ggpkPath, enable_Orange, content.FreeRoot);
+                            RecordsByPath[Red].ReplaceContents(ggpkPath, enable_Red, content.FreeRoot);
+                            RecordsByPath[critical_strikes_red].ReplaceContents(ggpkPath, enable_critical_strikes_red, content.FreeRoot);
+                            RecordsByPath[red_blood].ReplaceContents(ggpkPath, enable_red_blood, content.FreeRoot);
+                            RecordsByPath[critical_strikes_green].ReplaceContents(ggpkPath, enable_critical_strikes_green, content.FreeRoot);
+                            RecordsByPath[spider_blood].ReplaceContents(ggpkPath, enable_spider_blood, content.FreeRoot);
+                            RecordsByPath[critical_strikes_zombie].ReplaceContents(ggpkPath, enable_critical_strikes_zombie, content.FreeRoot);
+                            RecordsByPath[zombie_blood].ReplaceContents(ggpkPath, enable_zombie_blood, content.FreeRoot);
+                            RecordsByPath[new_critical_strikes_green].ReplaceContents(ggpkPath, enable_new_critical_strikes_green, content.FreeRoot);
+                            RecordsByPath[new_critical_strikes_orange].ReplaceContents(ggpkPath, enable_new_critical_strikes_orange, content.FreeRoot);
+                            RecordsByPath[new_critical_strikes_red].ReplaceContents(ggpkPath, enable_new_critical_strikes_red, content.FreeRoot);
+                            RecordsByPath[new_blood_impact_spider].ReplaceContents(ggpkPath, enable_new_blood_impact_spider, content.FreeRoot);
+                            RecordsByPath[new_blood1_impact_spider].ReplaceContents(ggpkPath, enable_new_blood1_impact_spider, content.FreeRoot);
+                            RecordsByPath[new_blood_impact].ReplaceContents(ggpkPath, enable_new_blood_impact, content.FreeRoot);
+                            RecordsByPath[new_blood1_impact].ReplaceContents(ggpkPath, enable_new_blood1_impact, content.FreeRoot);
+                            RecordsByPath[new_blood_impact_zombie].ReplaceContents(ggpkPath, enable_new_blood_impact_zombie, content.FreeRoot);
+                            RecordsByPath[new_blood1_impact_zombie].ReplaceContents(ggpkPath, enable_new_blood1_impact_zombie, content.FreeRoot);
 
                             UpdateDisplayPanel();
                         }
