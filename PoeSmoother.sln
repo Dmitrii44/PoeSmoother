@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualGGPK", "VisualGGPK\VisualGGPK.csproj", "{5DEF5905-D80F-47BD-85DB-7B83B5815247}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoeSmoother", "PoeSmoother\PoeSmoother.csproj", "{5DEF5905-D80F-47BD-85DB-7B83B5815247}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibGGPK", "LibGGPK\LibGGPK.csproj", "{6D97AF87-4B0A-4F43-A209-801CC72ABE75}"
 EndProject
