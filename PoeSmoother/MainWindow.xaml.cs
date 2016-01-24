@@ -643,6 +643,16 @@ namespace PoeSmoother
             FilterSound9();
         }
 
+        private void DeleteDeadBodies(object sender, RoutedEventArgs e)
+        {
+            DeleteDeadBodies();
+        }
+
+        private void RemovePets(object sender, RoutedEventArgs e)
+        {
+            RemovePets();
+        }
+
         private void button_Click(object sender, RoutedEventArgs e)
         {
             rainParticles.IsChecked = false;
@@ -657,6 +667,96 @@ namespace PoeSmoother
             dischargeDisabled.IsChecked = false;
             dischargeImproved.IsChecked = false;
             filterSound9.IsChecked = false;
+            deleteDeadBodies.IsChecked = false;
+            removePets.IsChecked = false;
+        }
+
+        private void RemovePets()
+        {
+            if (content.IsReadOnly)
+            {
+                MessageBox.Show(Settings.Strings["ReplaceItem_Readonly"], Settings.Strings["ReplaceItem_ReadonlyCaption"]);
+                return;
+            }
+
+            try
+            {
+                switch (removePets.IsChecked)
+                {
+                    case true:
+                        {
+                            const string disable_Pet = "config/removePets/disable_Pet.otc";
+                            const string disable_RoamingCritterBase = "config/removePets/disable_RoamingCritterBase.otc";
+
+                            const string Pet = "Metadata\\Pet\\Pet.otc";
+                            const string RoamingCritterBase = "Metadata\\Critters\\RoamingCritterBase.otc";
+
+                            RecordsByPath[Pet].ReplaceContents(ggpkPath, disable_Pet, content.FreeRoot);
+                            RecordsByPath[RoamingCritterBase].ReplaceContents(ggpkPath, disable_RoamingCritterBase, content.FreeRoot);
+
+                            UpdateDisplayPanel();
+                        }
+                        break;
+
+                    case false:
+                        {
+                            const string enable_Pet = "config/removePets/enable_Pet.otc";
+                            const string enable_RoamingCritterBase = "config/removePets/enable_RoamingCritterBase.otc";
+
+                            const string Pet = "Metadata\\Pet\\Pet.otc";
+                            const string RoamingCritterBase = "Metadata\\Critters\\RoamingCritterBase.otc";
+
+                            RecordsByPath[Pet].ReplaceContents(ggpkPath, enable_Pet, content.FreeRoot);
+                            RecordsByPath[RoamingCritterBase].ReplaceContents(ggpkPath, enable_RoamingCritterBase, content.FreeRoot);
+
+                            UpdateDisplayPanel();
+                        }
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format(Settings.Strings["ReplaceItem_Failed"], ex.Message), Settings.Strings["Error_Caption"], MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void DeleteDeadBodies()
+        {
+            if (content.IsReadOnly)
+            {
+                MessageBox.Show(Settings.Strings["ReplaceItem_Readonly"], Settings.Strings["ReplaceItem_ReadonlyCaption"]);
+                return;
+            }
+
+            try
+            {
+                switch (deleteDeadBodies.IsChecked)
+                {
+                    case true:
+                        {
+                            const string disable_Monster = "config/deleteDeadBodies/disable_Monster.otc";
+                            const string Monster = "Metadata\\Monsters\\Monster.otc";
+                            RecordsByPath[Monster].ReplaceContents(ggpkPath, disable_Monster, content.FreeRoot);
+
+                            UpdateDisplayPanel();
+                        }
+                        break;
+
+                    case false:
+                        {
+                            const string enable_Monster = "config/deleteDeadBodies/enable_Monster.otc";
+                            const string Monster = "Metadata\\Monsters\\Monster.otc";
+                            RecordsByPath[Monster].ReplaceContents(ggpkPath, enable_Monster, content.FreeRoot);
+
+                            UpdateDisplayPanel();
+                        }
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format(Settings.Strings["ReplaceItem_Failed"], ex.Message), Settings.Strings["Error_Caption"], MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void FilterSound9()

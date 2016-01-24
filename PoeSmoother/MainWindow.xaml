@@ -48,8 +48,8 @@
             <Grid.Effect>
                 <DropShadowEffect RenderingBias="Quality" Opacity="0.5" Direction="-175" />
             </Grid.Effect>
-            <StackPanel Margin="5,47,0,0">
-                <CheckBox x:Name="rainParticles" Content=" - all rain effects disabled" HorizontalAlignment="Left" Checked="RainParticles" Unchecked="RainParticles" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333" ToolTip="completely removes rain from game">
+            <StackPanel Margin="5,40,0,0">
+                <CheckBox x:Name="rainParticles" Content=" - rain effects disabled" HorizontalAlignment="Left" Checked="RainParticles" Unchecked="RainParticles" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333" ToolTip="completely removes rain from game">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
@@ -64,7 +64,17 @@
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="extraGore" Content=" - disable extra gore" HorizontalAlignment="Left" Checked="ExtraGore" Unchecked="ExtraGore" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,15" FontSize="13.333" ToolTip="removes extra gore from all uniques">
+                <CheckBox x:Name="extraGore" Content=" - disable extra gore" HorizontalAlignment="Left" Checked="ExtraGore" Unchecked="ExtraGore" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,3" FontSize="13.333" ToolTip="removes extra gore from all uniques">
+                    <CheckBox.Effect>
+                        <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
+                    </CheckBox.Effect>
+                </CheckBox>
+                <CheckBox x:Name="deleteDeadBodies" Content=" - delete dead bodies on kill" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="DeleteDeadBodies" Unchecked="DeleteDeadBodies" IsChecked="False" Background="#FFE8E8E8" FontSize="13.333" Margin="2,0,0,3" ToolTip="removes all corpses on kill">
+                    <CheckBox.Effect>
+                        <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
+                    </CheckBox.Effect>
+                </CheckBox>
+                <CheckBox x:Name="removePets" Content=" - remove all pets/critters" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RemovePets" Unchecked="RemovePets" IsChecked="False" Background="#FFE8E8E8" FontSize="13.333" Margin="2,0,0,10" ToolTip="removes all users pets and critters">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
@@ -89,7 +99,7 @@
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="filterSound9" Content=" - change filter sound 9" HorizontalAlignment="Left" Checked="FilterSound9" Unchecked="FilterSound9" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,15" FontSize="13.333" ToolTip="change item filter sound nr.9 with another .ogg file">
+                <CheckBox x:Name="filterSound9" Content=" - change filter sound 9" HorizontalAlignment="Left" Checked="FilterSound9" Unchecked="FilterSound9" IsChecked="False" Background="#FFE8E8E8" Margin="2,0,0,10" FontSize="13.333" ToolTip="change item filter sound nr.9 with another .ogg file">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
@@ -104,18 +114,18 @@
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <CheckBox x:Name="dischargeImproved" Content=" - discharge improved" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="DischargeImproved" Unchecked="DischargeImproved" IsChecked="False" Background="#FFE8E8E8" FontSize="13.333" Margin="2,0,0,10" ToolTip="removes some of the skill effects like the swirls and poison clouds, fps improved">
+                <CheckBox x:Name="dischargeImproved" Content=" - discharge improved" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="DischargeImproved" Unchecked="DischargeImproved" IsChecked="False" Background="#FFE8E8E8" FontSize="13.333" Margin="2,0,0,3" ToolTip="removes some of the skill effects like the swirls and poison clouds, fps improved">
                     <CheckBox.Effect>
                         <DropShadowEffect Opacity="0.5" ShadowDepth="1" />
                     </CheckBox.Effect>
                 </CheckBox>
-                <Button x:Name="resetAll" Content="reset all" Height="20" Width="50" Background="#FFDDDDDD" OpacityMask="Black" ToolTip="resets all to original state" Click="button_Click" Margin="0,15,10,10" FontStyle="Italic" HorizontalAlignment="Right">
+                <Button x:Name="resetAll" Content="reset all" Height="20" Width="50" Background="#FFDDDDDD" OpacityMask="Black" ToolTip="resets all to original state" Click="button_Click" Margin="0,5,5,0" FontStyle="Italic" HorizontalAlignment="Right">
                     <Button.Effect>
                         <DropShadowEffect ShadowDepth="1" BlurRadius="2"/>
                     </Button.Effect>
                 </Button>
             </StackPanel>
-            <TextBlock x:Name="textBlock" Height="22" Margin="5,10,10,0" TextWrapping="Wrap" Text="Predefined effects" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold">
+            <TextBlock x:Name="textBlock" Height="22" Margin="5,5,10,0" TextWrapping="Wrap" Text="Predefined effects" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold">
                 <TextBlock.Effect>
                     <DropShadowEffect ShadowDepth="1" BlurRadius="20"/>
                 </TextBlock.Effect>
