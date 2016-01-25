@@ -583,75 +583,20 @@ namespace PoeSmoother
             ReplaceItem(recordToReplace);
         }
 
-        private void RainParticles(object sender, RoutedEventArgs e)
-        {
-            RainParticles();
-        }
-
-        private void MonsterSounds(object sender, RoutedEventArgs e)
-        {
-            MonsterSounds();
-        }
-
-        private void CharSounds(object sender, RoutedEventArgs e)
-        {
-            CharSounds();
-        }
-
-        private void ChargeSounds(object sender, RoutedEventArgs e)
-        {
-            ChargeSounds();
-        }
-
-        private void PortalSounds(object sender, RoutedEventArgs e)
-        {
-            PortalSounds();
-        }
-
-        private void HeraldOfIce(object sender, RoutedEventArgs e)
-        {
-            HeraldOfIce();
-        }
-
-        private void DischargeImproved(object sender, RoutedEventArgs e)
-        {
-            DischargeImproved();
-        }
-
-        private void DischargeDisabled(object sender, RoutedEventArgs e)
-        {
-            DischargeDisabled();
-        }
-
-        private void GroundEffects(object sender, RoutedEventArgs e)
-        {
-            GroundEffects();
-        }
-
-        private void CorruptedArea(object sender, RoutedEventArgs e)
-        {
-            CorruptedArea();
-        }
-
-        private void ExtraGore(object sender, RoutedEventArgs e)
-        {
-            ExtraGore();
-        }
-
-        private void FilterSound9(object sender, RoutedEventArgs e)
-        {
-            FilterSound9();
-        }
-
-        private void DeleteDeadBodies(object sender, RoutedEventArgs e)
-        {
-            DeleteDeadBodies();
-        }
-
-        private void RemovePets(object sender, RoutedEventArgs e)
-        {
-            RemovePets();
-        }
+        private void RainParticles(object sender, RoutedEventArgs e) { RainParticles(); }
+        private void MonsterSounds(object sender, RoutedEventArgs e) { MonsterSounds(); }
+        private void CharSounds(object sender, RoutedEventArgs e) { CharSounds(); }
+        private void ChargeSounds(object sender, RoutedEventArgs e) { ChargeSounds(); }
+        private void PortalSounds(object sender, RoutedEventArgs e) { PortalSounds(); }
+        private void HeraldOfIce(object sender, RoutedEventArgs e) { HeraldOfIce(); }
+        private void DischargeImproved(object sender, RoutedEventArgs e) { DischargeImproved(); }
+        private void DischargeDisabled(object sender, RoutedEventArgs e) { DischargeDisabled(); }
+        private void GroundEffects(object sender, RoutedEventArgs e) { GroundEffects(); }
+        private void CorruptedArea(object sender, RoutedEventArgs e) { CorruptedArea(); }
+        private void ExtraGore(object sender, RoutedEventArgs e) { ExtraGore(); }
+        private void FilterSound9(object sender, RoutedEventArgs e) { FilterSound9(); }
+        private void DeleteDeadBodies(object sender, RoutedEventArgs e) { DeleteDeadBodies(); }
+        private void RemovePets(object sender, RoutedEventArgs e) { RemovePets(); }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
