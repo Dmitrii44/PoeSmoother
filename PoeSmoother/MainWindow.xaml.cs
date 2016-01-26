@@ -597,6 +597,7 @@ namespace PoeSmoother
         private void FilterSound9(object sender, RoutedEventArgs e) { FilterSound9(); }
         private void DeleteDeadBodies(object sender, RoutedEventArgs e) { DeleteDeadBodies(); }
         private void RemovePets(object sender, RoutedEventArgs e) { RemovePets(); }
+        private void ZeroParticles(object sender, RoutedEventArgs e) { ZeroParticles(); }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
@@ -614,8 +615,63 @@ namespace PoeSmoother
             filterSound9.IsChecked = false;
             deleteDeadBodies.IsChecked = false;
             removePets.IsChecked = false;
+            zeroParticles.IsChecked = false;
         }
 
+        private void ZeroParticles()
+        {
+            if (content.IsReadOnly)
+            {
+                MessageBox.Show(Settings.Strings["ReplaceItem_Readonly"], Settings.Strings["ReplaceItem_ReadonlyCaption"]);
+                return;
+            }
+
+            const string replaceParticles = "config/replaceParticles/Metadata";
+            string[] replaceFiles = Directory.GetFiles(replaceParticles, "*.*", SearchOption.AllDirectories);
+            var replace = Path.GetFileName(replaceParticles);
+            int replaceDirectoryLength = replace.Length;
+
+            const string restoreParticles = "config/restoreParticles/Metadata";
+            string[] restoreFiles = Directory.GetFiles(restoreParticles, "*.*", SearchOption.AllDirectories);
+            var restore = Path.GetFileName(restoreParticles);
+            int restoreDirectoryLength = restore.Length;
+            
+            try
+            {
+                switch (zeroParticles.IsChecked)
+                {
+                    case true:
+                        {
+                            foreach (var item in replaceFiles)
+                            {
+                                string fileNames = item.Remove(0, replaceParticles.Length - replaceDirectoryLength);
+                                RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
+                            }
+
+                            UpdateDisplayPanel();
+                        }
+                        break;
+
+                    case false:
+                        {
+                            foreach (var item in restoreFiles)
+                            {
+                                string fileNames = item.Remove(0, restoreParticles.Length - restoreDirectoryLength);
+                                RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
+                            }
+
+                            UpdateDisplayPanel();
+                        }
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format(Settings.Strings["ReplaceItem_Failed"], ex.Message), Settings.Strings["Error_Caption"], MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        
         private void RemovePets()
         {
             if (content.IsReadOnly)
@@ -816,33 +872,39 @@ namespace PoeSmoother
                             const string disable_line = "config/groundEffects/evil/disable_line.pet";
                             const string disable_fire_cyl = "config/groundEffects/fire/disable_cyl.pet";
                             const string disable_ice_cyl = "config/groundEffects/ice/disable_cyl.pet";
+                            //const string disable_ice_ice = "config/groundEffects/ice/disable_ice.aoc";
                             const string disable_lightning_cyl = "config/groundEffects/lightning/disable_lightning_cyl.pet";
                             const string disable_cloud_large = "config/groundEffects/poison/disable_cloud_large.pet";
                             const string disable_cloud_mid = "config/groundEffects/poison/disable_cloud_mid.pet";
                             const string disable_cloud_small = "config/groundEffects/poison/disable_cloud_small.pet";
-
                             const string disable_tar_cyl = "config/groundEffects/tar/disable_cyl.pet";
+                            const string disable_tar_rig = "config/groundEffects/tar/disable_rig.aoc";
+
                             const string evil_new_cyl = "Metadata\\Particles\\ground_effects\\evil\\new\\cyl.pet";
                             const string evil_cyl = "Metadata\\Particles\\ground_effects\\evil\\cyl.pet";
                             const string line = "Metadata\\Particles\\ground_effects\\evil\\line.pet";
                             const string fire_cyl = "Metadata\\Particles\\ground_effects\\fire\\cyl.pet";
                             const string ice_cyl = "Metadata\\Particles\\ground_effects\\ice\\cyl.pet";
+                            //const string ice_ice = "Metadata\\Effects\\Spells\\ground_effects\\ice\\ice.aoc";
                             const string lightning_cyl = "Metadata\\Particles\\ground_effects\\lightning\\lightning_cyl.pet";
                             const string cloud_large = "Metadata\\Particles\\ground_effects\\poison\\cloud_large.pet";
                             const string cloud_mid = "Metadata\\Particles\\ground_effects\\poison\\cloud_mid.pet";
                             const string cloud_small = "Metadata\\Particles\\ground_effects\\poison\\cloud_small.pet";
                             const string tar_cyl = "Metadata\\Particles\\ground_effects\\tar\\cyl.pet";
+                            const string tar_rig = "Metadata\\Effects\\Spells\\ground_effects\\tar\\rig.aoc";
 
                             RecordsByPath[evil_new_cyl].ReplaceContents(ggpkPath, disable_evil_new_cyl, content.FreeRoot);
                             RecordsByPath[evil_cyl].ReplaceContents(ggpkPath, disable_evil_cyl, content.FreeRoot);
                             RecordsByPath[line].ReplaceContents(ggpkPath, disable_line, content.FreeRoot);
                             RecordsByPath[fire_cyl].ReplaceContents(ggpkPath, disable_fire_cyl, content.FreeRoot);
                             RecordsByPath[ice_cyl].ReplaceContents(ggpkPath, disable_ice_cyl, content.FreeRoot);
+                            //RecordsByPath[ice_ice].ReplaceContents(ggpkPath, disable_ice_ice, content.FreeRoot);
                             RecordsByPath[lightning_cyl].ReplaceContents(ggpkPath, disable_lightning_cyl, content.FreeRoot);
                             RecordsByPath[cloud_large].ReplaceContents(ggpkPath, disable_cloud_large, content.FreeRoot);
                             RecordsByPath[cloud_mid].ReplaceContents(ggpkPath, disable_cloud_mid, content.FreeRoot);
                             RecordsByPath[cloud_small].ReplaceContents(ggpkPath, disable_cloud_small, content.FreeRoot);
                             RecordsByPath[tar_cyl].ReplaceContents(ggpkPath, disable_tar_cyl, content.FreeRoot);
+                            RecordsByPath[tar_rig].ReplaceContents(ggpkPath, disable_tar_rig, content.FreeRoot);
 
                             UpdateDisplayPanel();
                         }
@@ -855,33 +917,39 @@ namespace PoeSmoother
                             const string enable_line = "config/groundEffects/evil/enable_line.pet";
                             const string enable_fire_cyl = "config/groundEffects/fire/enable_cyl.pet";
                             const string enable_ice_cyl = "config/groundEffects/ice/enable_cyl.pet";
+                            //const string enable_ice_ice = "config/groundEffects/ice/enable_ice.aoc";
                             const string enable_lightning_cyl = "config/groundEffects/lightning/enable_lightning_cyl.pet";
                             const string enable_cloud_large = "config/groundEffects/poison/enable_cloud_large.pet";
                             const string enable_cloud_mid = "config/groundEffects/poison/enable_cloud_mid.pet";
                             const string enable_cloud_small = "config/groundEffects/poison/enable_cloud_small.pet";
                             const string enable_tar_cyl = "config/groundEffects/tar/enable_cyl.pet";
+                            const string enable_tar_rig = "config/groundEffects/tar/enable_rig.aoc";
 
                             const string evil_new_cyl = "Metadata\\Particles\\ground_effects\\evil\\new\\cyl.pet";
                             const string evil_cyl = "Metadata\\Particles\\ground_effects\\evil\\cyl.pet";
                             const string line = "Metadata\\Particles\\ground_effects\\evil\\line.pet";
                             const string fire_cyl = "Metadata\\Particles\\ground_effects\\fire\\cyl.pet";
                             const string ice_cyl = "Metadata\\Particles\\ground_effects\\ice\\cyl.pet";
+                            //const string ice_ice = "Metadata\\Effects\\Spells\\ground_effects\\ice\\ice.aoc";
                             const string lightning_cyl = "Metadata\\Particles\\ground_effects\\lightning\\lightning_cyl.pet";
                             const string cloud_large = "Metadata\\Particles\\ground_effects\\poison\\cloud_large.pet";
                             const string cloud_mid = "Metadata\\Particles\\ground_effects\\poison\\cloud_mid.pet";
                             const string cloud_small = "Metadata\\Particles\\ground_effects\\poison\\cloud_small.pet";
                             const string tar_cyl = "Metadata\\Particles\\ground_effects\\tar\\cyl.pet";
+                            const string tar_rig = "Metadata\\Effects\\Spells\\ground_effects\\tar\\rig.aoc";
 
                             RecordsByPath[evil_new_cyl].ReplaceContents(ggpkPath, enable_evil_new_cyl, content.FreeRoot);
                             RecordsByPath[evil_cyl].ReplaceContents(ggpkPath, enable_evil_cyl, content.FreeRoot);
                             RecordsByPath[line].ReplaceContents(ggpkPath, enable_line, content.FreeRoot);
                             RecordsByPath[fire_cyl].ReplaceContents(ggpkPath, enable_fire_cyl, content.FreeRoot);
                             RecordsByPath[ice_cyl].ReplaceContents(ggpkPath, enable_ice_cyl, content.FreeRoot);
+                            //RecordsByPath[ice_ice].ReplaceContents(ggpkPath, enable_ice_ice, content.FreeRoot);
                             RecordsByPath[lightning_cyl].ReplaceContents(ggpkPath, enable_lightning_cyl, content.FreeRoot);
                             RecordsByPath[cloud_large].ReplaceContents(ggpkPath, enable_cloud_large, content.FreeRoot);
                             RecordsByPath[cloud_mid].ReplaceContents(ggpkPath, enable_cloud_mid, content.FreeRoot);
                             RecordsByPath[cloud_small].ReplaceContents(ggpkPath, enable_cloud_small, content.FreeRoot);
                             RecordsByPath[tar_cyl].ReplaceContents(ggpkPath, enable_tar_cyl, content.FreeRoot);
+                            RecordsByPath[tar_rig].ReplaceContents(ggpkPath, enable_tar_rig, content.FreeRoot);
 
                             UpdateDisplayPanel();
                         }

@@ -22,17 +22,5 @@ namespace PoeSmoother.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool charSounds {
-            get {
-                return ((bool)(this["charSounds"]));
-            }
-            set {
-                this["charSounds"] = value;
-            }
-        }
     }
 }
