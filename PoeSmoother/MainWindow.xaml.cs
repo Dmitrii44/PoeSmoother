@@ -583,7 +583,7 @@ namespace PoeSmoother
             ReplaceItem(recordToReplace);
         }
 
-        private void RainParticles(object sender, RoutedEventArgs e) { RainParticles(); }
+        private void RainParticles(object sender, RoutedEventArgs e) { RainParticles();}
         private void MonsterSounds(object sender, RoutedEventArgs e) { MonsterSounds(); }
         private void CharSounds(object sender, RoutedEventArgs e) { CharSounds(); }
         private void ChargeSounds(object sender, RoutedEventArgs e) { ChargeSounds(); }
@@ -872,7 +872,6 @@ namespace PoeSmoother
                             const string disable_line = "config/groundEffects/evil/disable_line.pet";
                             const string disable_fire_cyl = "config/groundEffects/fire/disable_cyl.pet";
                             const string disable_ice_cyl = "config/groundEffects/ice/disable_cyl.pet";
-                            //const string disable_ice_ice = "config/groundEffects/ice/disable_ice.aoc";
                             const string disable_lightning_cyl = "config/groundEffects/lightning/disable_lightning_cyl.pet";
                             const string disable_cloud_large = "config/groundEffects/poison/disable_cloud_large.pet";
                             const string disable_cloud_mid = "config/groundEffects/poison/disable_cloud_mid.pet";
@@ -885,7 +884,6 @@ namespace PoeSmoother
                             const string line = "Metadata\\Particles\\ground_effects\\evil\\line.pet";
                             const string fire_cyl = "Metadata\\Particles\\ground_effects\\fire\\cyl.pet";
                             const string ice_cyl = "Metadata\\Particles\\ground_effects\\ice\\cyl.pet";
-                            //const string ice_ice = "Metadata\\Effects\\Spells\\ground_effects\\ice\\ice.aoc";
                             const string lightning_cyl = "Metadata\\Particles\\ground_effects\\lightning\\lightning_cyl.pet";
                             const string cloud_large = "Metadata\\Particles\\ground_effects\\poison\\cloud_large.pet";
                             const string cloud_mid = "Metadata\\Particles\\ground_effects\\poison\\cloud_mid.pet";
@@ -898,7 +896,6 @@ namespace PoeSmoother
                             RecordsByPath[line].ReplaceContents(ggpkPath, disable_line, content.FreeRoot);
                             RecordsByPath[fire_cyl].ReplaceContents(ggpkPath, disable_fire_cyl, content.FreeRoot);
                             RecordsByPath[ice_cyl].ReplaceContents(ggpkPath, disable_ice_cyl, content.FreeRoot);
-                            //RecordsByPath[ice_ice].ReplaceContents(ggpkPath, disable_ice_ice, content.FreeRoot);
                             RecordsByPath[lightning_cyl].ReplaceContents(ggpkPath, disable_lightning_cyl, content.FreeRoot);
                             RecordsByPath[cloud_large].ReplaceContents(ggpkPath, disable_cloud_large, content.FreeRoot);
                             RecordsByPath[cloud_mid].ReplaceContents(ggpkPath, disable_cloud_mid, content.FreeRoot);
@@ -917,7 +914,6 @@ namespace PoeSmoother
                             const string enable_line = "config/groundEffects/evil/enable_line.pet";
                             const string enable_fire_cyl = "config/groundEffects/fire/enable_cyl.pet";
                             const string enable_ice_cyl = "config/groundEffects/ice/enable_cyl.pet";
-                            //const string enable_ice_ice = "config/groundEffects/ice/enable_ice.aoc";
                             const string enable_lightning_cyl = "config/groundEffects/lightning/enable_lightning_cyl.pet";
                             const string enable_cloud_large = "config/groundEffects/poison/enable_cloud_large.pet";
                             const string enable_cloud_mid = "config/groundEffects/poison/enable_cloud_mid.pet";
@@ -930,7 +926,6 @@ namespace PoeSmoother
                             const string line = "Metadata\\Particles\\ground_effects\\evil\\line.pet";
                             const string fire_cyl = "Metadata\\Particles\\ground_effects\\fire\\cyl.pet";
                             const string ice_cyl = "Metadata\\Particles\\ground_effects\\ice\\cyl.pet";
-                            //const string ice_ice = "Metadata\\Effects\\Spells\\ground_effects\\ice\\ice.aoc";
                             const string lightning_cyl = "Metadata\\Particles\\ground_effects\\lightning\\lightning_cyl.pet";
                             const string cloud_large = "Metadata\\Particles\\ground_effects\\poison\\cloud_large.pet";
                             const string cloud_mid = "Metadata\\Particles\\ground_effects\\poison\\cloud_mid.pet";
@@ -943,7 +938,6 @@ namespace PoeSmoother
                             RecordsByPath[line].ReplaceContents(ggpkPath, enable_line, content.FreeRoot);
                             RecordsByPath[fire_cyl].ReplaceContents(ggpkPath, enable_fire_cyl, content.FreeRoot);
                             RecordsByPath[ice_cyl].ReplaceContents(ggpkPath, enable_ice_cyl, content.FreeRoot);
-                            //RecordsByPath[ice_ice].ReplaceContents(ggpkPath, enable_ice_ice, content.FreeRoot);
                             RecordsByPath[lightning_cyl].ReplaceContents(ggpkPath, enable_lightning_cyl, content.FreeRoot);
                             RecordsByPath[cloud_large].ReplaceContents(ggpkPath, enable_cloud_large, content.FreeRoot);
                             RecordsByPath[cloud_mid].ReplaceContents(ggpkPath, enable_cloud_mid, content.FreeRoot);

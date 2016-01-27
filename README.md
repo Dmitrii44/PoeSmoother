@@ -2,15 +2,13 @@
 
  * This tool is using VisualGGPK (many thank's to creators) to disable unwanted effects from the game.
  
- - Completely removes rain particles.
+ - Completely removes all particles.
  - Removes particle effects from skills.
  - Lower ground effects particles.
  - Removes sound effects for Spectre, Golems, Chars, Portals, Waypoints.
  - Change ItemFilter default sound 9 with user choice sound.
  - Completely removes Extra Gore from uniques items.
  
- 
- - possibility to add more...
  
   ...working in progress
   
