@@ -46,7 +46,7 @@ namespace LibGGPK
 			RichText,
 			Sound,
 			Dat,
-			TextureDDS,
+			TextureDDS
 		}
 
 		public FileRecord(uint length, BinaryReader br)

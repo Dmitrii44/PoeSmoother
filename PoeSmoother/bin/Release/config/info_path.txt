@@ -45,7 +45,6 @@ endurance charge sounds -> rig_endurance = "Metadata\\Effects\\Spells\\orbs\\rig
 frenzy charge sounds -> rig_frenzy = "Metadata\\Effects\\Spells\\orbs\\rig_frenzy.aoc";
 
 portals sounds -> rig = "Metadata\\Effects\\Environment\\act3\\gem_lady_portal\\rig.aoc";
-
 waypoint sounds -> waypoint_idle = "Metadata\\Effects\\Environment\\waypoint\\new\\waypoint_idle.aoc";
 
 herald of ice explode effects -> circle = "Metadata\\Particles\\herald\\ice\\explode\\circle.pet";
