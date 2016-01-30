@@ -23,8 +23,8 @@
     
     <!-- MouseOverBrush is used for MouseOver in Button, Radio Button, CheckBox -->
     <LinearGradientBrush x:Key="MouseOverBrush" EndPoint="0,1" StartPoint="0,0">
-        <GradientStop Color="#FFF" Offset="0.0"/>
-        <GradientStop Color="#AAA" Offset="1.0"/>
+        <GradientStop Color="#000" Offset="0.0"/>
+        <GradientStop Color="#000" Offset="1.0"/>
     </LinearGradientBrush>
     
     <!-- PressedBrush is used for Pressed in Button, Radio Button, CheckBox -->
@@ -48,7 +48,7 @@
     <SolidColorBrush x:Key="DisabledBorderBrush" Color="#AAA"/>
 
     <!-- Used for background of ScrollViewer, TreeView, ListBox, Expander, TextBox, Tab Control -->
-    <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#FFF"/>
+    <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#000000"/>
     
     <!-- DefaultedBorderBrush is used to show KeyBoardFocus -->
     <LinearGradientBrush x:Key="DefaultedBorderBrush" EndPoint="0,1" StartPoint="0,0">
@@ -235,7 +235,7 @@
     </Style>
     
     <!-- Simple Repeat Button - This is used by Simple ScrollBar for the up and down buttons -->
-    <Style x:Key="SimpleRepeatButton" d:IsControlPart="True" TargetType="{x:Type RepeatButton}" BasedOn="{x:Null}">
+    <Style x:Key="SimpleRepeatButton" TargetType="{x:Type RepeatButton}" BasedOn="{x:Null}">
         <Setter Property="Background" Value="{DynamicResource NormalBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}"/>
         <Setter Property="Template">
@@ -268,7 +268,7 @@
     </Style>
     
     <!-- Simple Thumb - The Thumb is the draggable part of the Scrollbar -->
-    <Style x:Key="SimpleThumbStyle" d:IsControlPart="True" TargetType="{x:Type Thumb}" BasedOn="{x:Null}">
+    <Style x:Key="SimpleThumbStyle" TargetType="{x:Type Thumb}" BasedOn="{x:Null}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Thumb}">
@@ -287,7 +287,7 @@
     </Style>
     
     <!-- Simple ScrollRepeatButton Style - This RepeatButton is used above and below the Thumb in the Scrollbar. They are set to transparent si that they do not show over the scrollbar -->
-    <Style x:Key="SimpleScrollRepeatButtonStyle" d:IsControlPart="True" TargetType="{x:Type RepeatButton}">
+    <Style x:Key="SimpleScrollRepeatButtonStyle" TargetType="{x:Type RepeatButton}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="IsTabStop" Value="false"/>
@@ -434,7 +434,7 @@
     
     <!-- Simple ListBoxItem - This is used for each Item in a ListBox. The item's content is placed in the ContentPresenter -->
     
-    <Style x:Key="SimpleListBoxItem" d:IsControlPart="True" TargetType="{x:Type ListBoxItem}">
+    <Style x:Key="SimpleListBoxItem" TargetType="{x:Type ListBoxItem}">
         <Setter Property="SnapsToDevicePixels" Value="true"/>
         <Setter Property="OverridesDefaultStyle" Value="true"/>
         <Setter Property="Template">
@@ -912,7 +912,7 @@
     </Style>
     
     <!--Simple TabItem -->
-    <Style x:Key="SimpleTabItem" d:IsControlPart="True" TargetType="{x:Type TabItem}">
+    <Style x:Key="SimpleTabItem" TargetType="{x:Type TabItem}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabItem}">
@@ -939,7 +939,7 @@
     </Style>
     
     <!--Simple Simple SliderThumb - The Thumb is the draggable part of a Slider-->
-    <Style x:Key="SimpleSliderThumb" d:IsControlPart="True" TargetType="{x:Type Thumb}">
+    <Style x:Key="SimpleSliderThumb" TargetType="{x:Type Thumb}">
         <Setter Property="SnapsToDevicePixels" Value="true"/>
         <Setter Property="Height" Value="14"/>
         <Setter Property="Width" Value="14"/>
@@ -1048,7 +1048,7 @@
     </Style>
     
     <!--Simple TreeViewItem ToggleButton - + and - button to expand and collapse a TreeViewItem -->
-    <Style x:Key="SimpleTreeViewItemToggleButton" d:IsControlPart="True" TargetType="{x:Type ToggleButton}">
+    <Style x:Key="SimpleTreeViewItemToggleButton" TargetType="{x:Type ToggleButton}">
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>

@@ -599,6 +599,7 @@ namespace PoeSmoother
         private void CustomSounds(object sender, RoutedEventArgs e) { CustomSounds(); }
         private void DeleteDeadBodies(object sender, RoutedEventArgs e) { DeleteDeadBodies(); }
         private void RemovePets(object sender, RoutedEventArgs e) { RemovePets(); }
+        private void GlobeGirls(object sender, RoutedEventArgs e) { GlobeGirls(); }
         private void ZeroParticles(object sender, RoutedEventArgs e) { ZeroParticles(); }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -619,6 +620,7 @@ namespace PoeSmoother
             customSounds.IsChecked = false;
             deleteDeadBodies.IsChecked = false;
             removePets.IsChecked = false;
+            globeGirls.IsChecked = false;
             zeroParticles.IsChecked = false;
         }
 
@@ -828,7 +830,45 @@ namespace PoeSmoother
             }
         }
 
-        
+        private void GlobeGirls()
+        {
+            if (content.IsReadOnly)
+            {
+                MessageBox.Show(Settings.Strings["ReplaceItem_Readonly"], Settings.Strings["ReplaceItem_ReadonlyCaption"]);
+                return;
+            }
+
+            try
+            {
+                switch (globeGirls.IsChecked)
+                {
+                    case true:
+                        {
+                            const string enable_GlobeGirls = "config/uiSettings/globeGirls.dds";
+                            const string GlobeGirls = "Art\\Textures\\Interface\\2D\\2DArt_UIImages_InGame_1.dds";
+                            RecordsByPath[GlobeGirls].ReplaceContents(ggpkPath, enable_GlobeGirls, content.FreeRoot);
+
+                            UpdateDisplayPanel();
+                        }
+                        break;
+
+                    case false:
+                        {
+                            const string disable_GlobeGirls = "config/uiSettings/2DArt_UIImages_InGame_1.dds";
+                            const string GlobeGirls = "Art\\Textures\\Interface\\2D\\2DArt_UIImages_InGame_1.dds";
+                            RecordsByPath[GlobeGirls].ReplaceContents(ggpkPath, disable_GlobeGirls, content.FreeRoot);
+
+                            UpdateDisplayPanel();
+                        }
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format(Settings.Strings["ReplaceItem_Failed"], ex.Message), Settings.Strings["Error_Caption"], MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
         private void RemovePets()
         {
             if (content.IsReadOnly)
@@ -1478,7 +1518,7 @@ namespace PoeSmoother
                             const string FireElementalSummoned = "Metadata\\Monsters\\FireElemental\\FireElementalSummoned.aoc";
                             const string IceElemental = "Metadata\\Monsters\\IceElemental\\IceElemental.aoc";
                             const string IceElementalSummoned = "Metadata\\Monsters\\IceElemental\\IceElementalSummoned.aoc";
-                            const string Revenant = "Metadata\\Monsters\\Revenant\\RevenantBoss.aoc";
+                            const string Revenant = "Metadata\\Monsters\\Revenant\\Revenant.aoc";
                             const string RevenantBoss = "Metadata\\Monsters\\Revenant\\RevenantBoss.aoc";
 
                             RecordsByPath[ChaosElemental].ReplaceContents(ggpkPath, disable_ChaosElemental, content.FreeRoot);
@@ -1511,7 +1551,7 @@ namespace PoeSmoother
                             const string FireElementalSummoned = "Metadata\\Monsters\\FireElemental\\FireElementalSummoned.aoc";
                             const string IceElemental = "Metadata\\Monsters\\IceElemental\\IceElemental.aoc";
                             const string IceElementalSummoned = "Metadata\\Monsters\\IceElemental\\IceElementalSummoned.aoc";
-                            const string Revenant = "Metadata\\Monsters\\Revenant\\RevenantBoss.aoc";
+                            const string Revenant = "Metadata\\Monsters\\Revenant\\Revenant.aoc";
                             const string RevenantBoss = "Metadata\\Monsters\\Revenant\\RevenantBoss.aoc";
 
                             RecordsByPath[ChaosElemental].ReplaceContents(ggpkPath, enable_ChaosElemental, content.FreeRoot);

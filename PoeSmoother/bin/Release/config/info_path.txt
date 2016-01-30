@@ -29,7 +29,7 @@ golem sounds -> FireElementalSummoned = "Metadata\\Monsters\\FireElemental\\Fire
 golem sounds -> IceElemental = "Metadata\\Monsters\\IceElemental\\IceElemental.aoc";
 golem sounds -> IceElementalSummoned = "Metadata\\Monsters\\IceElemental\\IceElementalSummoned.aoc";
 
-spectre sounds -> Revenant = "Metadata\\Monsters\\Revenant\\RevenantBoss.aoc";
+spectre sounds -> Revenant = "Metadata\\Monsters\\Revenant\\Revenant.aoc";
 spectre sounds -> RevenantBoss = "Metadata\\Monsters\\Revenant\\RevenantBoss.aoc";
 
 ranger vocal sounds -> Dex = "Metadata\\Characters\\Dex\\Dex.aoc";
