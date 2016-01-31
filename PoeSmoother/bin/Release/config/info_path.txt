@@ -50,3 +50,6 @@ waypoint sounds -> waypoint_idle = "Metadata\\Effects\\Environment\\waypoint\\ne
 herald of ice explode effects -> circle = "Metadata\\Particles\\herald\\ice\\explode\\circle.pet";
 herald of ice explode effects -> cyl = "Metadata\\Particles\\herald\\ice\\explode\\cyl.pet";
 herald of ice explode effects -> mid = "Metadata\\Particles\\herald\\ice\\explode\\mid.pet";
+
+dead bodies -> Metadata\\Monsters\\Monster.ot
+ui settings -> Art\\Textures\\Interface\\2D\\2DArt_UIImages_InGame_1.dds

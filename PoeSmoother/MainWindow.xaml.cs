@@ -695,7 +695,7 @@ namespace PoeSmoother
 
             try
             {
-                switch (customEffects.IsChecked)
+                switch (customSounds.IsChecked)
                 {
                     case true:
                         {
@@ -745,7 +745,7 @@ namespace PoeSmoother
 
             try
             {
-                switch (customEffects.IsChecked)
+                switch (customSkills.IsChecked)
                 {
                     case true:
                         {
