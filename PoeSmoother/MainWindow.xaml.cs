@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Ionic.Zip;
+using LibGGPK;
+using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,9 +11,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using Ionic.Zip;
-using LibGGPK;
-using Microsoft.Win32;
 using Point = System.Windows.Point;
 
 namespace PoeSmoother
@@ -583,31 +583,103 @@ namespace PoeSmoother
             ReplaceItem(recordToReplace);
         }
 
-        private void RainParticles(object sender, RoutedEventArgs e) { RainParticles();}
-        private void CustomEffects(object sender, RoutedEventArgs e) { CustomEffects(); }
-        private void CustomSkills(object sender, RoutedEventArgs e) { CustomSkills(); }
-        private void MonsterSounds(object sender, RoutedEventArgs e) { MonsterSounds(); }
-        private void CharSounds(object sender, RoutedEventArgs e) { CharSounds(); }
-        private void ChargeSounds(object sender, RoutedEventArgs e) { ChargeSounds(); }
-        private void PortalSounds(object sender, RoutedEventArgs e) { PortalSounds(); }
-        private void HeraldOfIce(object sender, RoutedEventArgs e) { HeraldOfIce(); }
-        private void DischargeImproved(object sender, RoutedEventArgs e) { DischargeImproved(); }
-        private void DischargeDisabled(object sender, RoutedEventArgs e) { DischargeDisabled(); }
-        private void GroundEffects(object sender, RoutedEventArgs e) { GroundEffects(); }
-        private void CorruptedArea(object sender, RoutedEventArgs e) { CorruptedArea(); }
-        private void ExtraGore(object sender, RoutedEventArgs e) { ExtraGore(); }
-        private void CustomSounds(object sender, RoutedEventArgs e) { CustomSounds(); }
-        private void DeleteDeadBodies(object sender, RoutedEventArgs e) { DeleteDeadBodies(); }
-        private void RemovePets(object sender, RoutedEventArgs e) { RemovePets(); }
-        private void GlobeGirls(object sender, RoutedEventArgs e) { GlobeGirls(); }
-        private void ZeroParticles(object sender, RoutedEventArgs e) { ZeroParticles(); }
+        private void CustomEffects(object sender, RoutedEventArgs e)
+        {
+            CustomEffects();
+        }
+
+        private void CustomSounds(object sender, RoutedEventArgs e)
+        {
+            CustomSounds();
+        }
+
+        private void CustomSkills(object sender, RoutedEventArgs e)
+        {
+            CustomSkills();
+        }
+
+        private void RainParticles(object sender, RoutedEventArgs e)
+        {
+            RainParticles();
+        }
+
+        private void MonsterSounds(object sender, RoutedEventArgs e)
+        {
+            MonsterSounds();
+        }
+
+        private void CharSounds(object sender, RoutedEventArgs e)
+        {
+            CharSounds();
+        }
+
+        private void ChargeSounds(object sender, RoutedEventArgs e)
+        {
+            ChargeSounds();
+        }
+
+        private void PortalSounds(object sender, RoutedEventArgs e)
+        {
+            PortalSounds();
+        }
+
+        private void HeraldOfIce(object sender, RoutedEventArgs e)
+        {
+            HeraldOfIce();
+        }
+
+        private void DischargeImproved(object sender, RoutedEventArgs e)
+        {
+            DischargeImproved();
+        }
+
+        private void DischargeDisabled(object sender, RoutedEventArgs e)
+        {
+            DischargeDisabled();
+        }
+
+        private void GroundEffects(object sender, RoutedEventArgs e)
+        {
+            GroundEffects();
+        }
+
+        private void CorruptedArea(object sender, RoutedEventArgs e)
+        {
+            CorruptedArea();
+        }
+
+        private void ExtraGore(object sender, RoutedEventArgs e)
+        {
+            ExtraGore();
+        }
+
+        private void DeleteDeadBodies(object sender, RoutedEventArgs e)
+        {
+            DeleteDeadBodies();
+        }
+
+        private void RemovePets(object sender, RoutedEventArgs e)
+        {
+            RemovePets();
+        }
+
+        private void GlobeGirls(object sender, RoutedEventArgs e)
+        {
+            GlobeGirls();
+        }
+
+        private void ZeroParticles(object sender, RoutedEventArgs e)
+        {
+            ZeroParticles();
+        }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            customEffects.IsChecked = false;
+            customSounds.IsChecked = false;
+            customSkills.IsChecked = false;
             rainParticles.IsChecked = false;
             groundEffects.IsChecked = false;
-            customEffects.IsChecked = false;
-            customSkills.IsChecked = false;
             extraGore.IsChecked = false;
             corruptedArea.IsChecked = false;
             monsterSounds.IsChecked = false;
@@ -617,7 +689,6 @@ namespace PoeSmoother
             heraldOfIce.IsChecked = false;
             dischargeDisabled.IsChecked = false;
             dischargeImproved.IsChecked = false;
-            customSounds.IsChecked = false;
             deleteDeadBodies.IsChecked = false;
             removePets.IsChecked = false;
             globeGirls.IsChecked = false;
@@ -631,47 +702,54 @@ namespace PoeSmoother
                 MessageBox.Show(Settings.Strings["ReplaceItem_Readonly"], Settings.Strings["ReplaceItem_ReadonlyCaption"]);
                 return;
             }
+
             const string DisableCustomEffects = "config/customEffects/enableCustom/Metadata";
-            string[] replace_cgs = Directory.GetFiles(DisableCustomEffects, "*.*", SearchOption.AllDirectories);
-            var replace_cgs_path = Path.GetFileName(DisableCustomEffects);
-            int replace_cgs_dir = replace_cgs_path.Length;
-
             const string RestoreDefaultEffects = "config/customEffects/restoreDefault/Metadata";
-            string[] restore_cgs = Directory.GetFiles(RestoreDefaultEffects, "*.*", SearchOption.AllDirectories);
-            var restore_cgs_path = Path.GetFileName(RestoreDefaultEffects);
-            int restore_cgs_dir = restore_cgs_path.Length;
 
-            try
+            if (Directory.Exists(DisableCustomEffects) && Directory.Exists(RestoreDefaultEffects))
             {
-                switch (customEffects.IsChecked)
+                string[] replace_cgs = Directory.GetFiles(DisableCustomEffects, "*.*", SearchOption.AllDirectories);
+                var replace_cgs_path = Path.GetFileName(DisableCustomEffects);
+                int replace_cgs_dir = replace_cgs_path.Length;
+
+                string[] restore_cgs = Directory.GetFiles(RestoreDefaultEffects, "*.*", SearchOption.AllDirectories);
+                var restore_cgs_path = Path.GetFileName(RestoreDefaultEffects);
+                int restore_cgs_dir = restore_cgs_path.Length;
+
+                try
                 {
-                    case true:
-                        {
-                            foreach (var item in replace_cgs)
+                    switch (customEffects.IsChecked)
+                    {
+                        case true:
                             {
-                                string fileNames = item.Remove(0, DisableCustomEffects.Length - replace_cgs_dir);
-                                RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
-                            }
-                            UpdateDisplayPanel();
-                        }
-                        break;
+                                foreach (var item in replace_cgs)
+                                {
+                                    string fileNames = item.Remove(0, DisableCustomEffects.Length - replace_cgs_dir);
+                                    RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
+                                }
 
-                    case false:
-                        {
-                            foreach (var item in restore_cgs)
-                            {
-                                string fileNames = item.Remove(0, RestoreDefaultEffects.Length - restore_cgs_dir);
-                                RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
+                                UpdateDisplayPanel();
                             }
-                            UpdateDisplayPanel();
-                        }
-                        break;
+                            break;
+
+                        case false:
+                            {
+                                foreach (var item in restore_cgs)
+                                {
+                                    string fileNames = item.Remove(0, RestoreDefaultEffects.Length - restore_cgs_dir);
+                                    RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
+                                }
+
+                                UpdateDisplayPanel();
+                            }
+                            break;
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(string.Format(Settings.Strings["ReplaceItem_Failed"], ex.Message),
-                    Settings.Strings["Error_Caption"], MessageBoxButton.OK, MessageBoxImage.Error);
+                catch (Exception ex)
+                {
+                    MessageBox.Show(string.Format(Settings.Strings["ReplaceItem_Failed"], ex.Message),
+                        Settings.Strings["Error_Caption"], MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 
@@ -684,45 +762,52 @@ namespace PoeSmoother
             }
 
             const string EnableCustomSounds = "config/customSounds/enableCustom/Audio";
-            string[] replace_cgs = Directory.GetFiles(EnableCustomSounds, "*.*", SearchOption.AllDirectories);
-            var replace_cgs_path = Path.GetFileName(EnableCustomSounds);
-            int replace_cgs_dir = replace_cgs_path.Length;
-
             const string RestoreDefaultSounds = "config/customSounds/restoreDefault/Audio";
-            string[] restore_cgs = Directory.GetFiles(RestoreDefaultSounds, "*.*", SearchOption.AllDirectories);
-            var restore_cgs_path = Path.GetFileName(RestoreDefaultSounds);
-            int restore_cgs_dir = restore_cgs_path.Length;
 
-            try
+            if (Directory.Exists(EnableCustomSounds) && Directory.Exists(RestoreDefaultSounds))
             {
-                switch (customSounds.IsChecked)
+                string[] replace_cgs = Directory.GetFiles(EnableCustomSounds, "*.*", SearchOption.AllDirectories);
+                var replace_cgs_path = Path.GetFileName(EnableCustomSounds);
+                int replace_cgs_dir = replace_cgs_path.Length;
+
+                string[] restore_cgs = Directory.GetFiles(RestoreDefaultSounds, "*.*", SearchOption.AllDirectories);
+                var restore_cgs_path = Path.GetFileName(RestoreDefaultSounds);
+                int restore_cgs_dir = restore_cgs_path.Length;
+
+                try
                 {
-                    case true:
-                        {
-                            foreach (var item in replace_cgs)
+                    switch (customEffects.IsChecked)
+                    {
+                        case true:
                             {
-                                string fileNames = item.Remove(0, EnableCustomSounds.Length - replace_cgs_dir);
-                                RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
-                            }
-                            UpdateDisplayPanel();
-                        }
-                        break;
+                                foreach (var item in replace_cgs)
+                                {
+                                    string fileNames = item.Remove(0, EnableCustomSounds.Length - replace_cgs_dir);
+                                    RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
+                                }
 
-                    case false:
-                        {
-                            foreach (var item in restore_cgs)
-                            {
-                                string fileNames = item.Remove(0, RestoreDefaultSounds.Length - restore_cgs_dir);
-                                RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
+                                UpdateDisplayPanel();
                             }
-                            UpdateDisplayPanel();
-                        }
-                        break;
+                            break;
+
+                        case false:
+                            {
+                                foreach (var item in restore_cgs)
+                                {
+                                    string fileNames = item.Remove(0, RestoreDefaultSounds.Length - restore_cgs_dir);
+                                    RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
+                                }
+
+                                UpdateDisplayPanel();
+                            }
+                            break;
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(string.Format(Settings.Strings["ReplaceItem_Failed"], ex.Message), Settings.Strings["Error_Caption"], MessageBoxButton.OK, MessageBoxImage.Error);
+                catch (Exception ex)
+                {
+                    MessageBox.Show(string.Format(Settings.Strings["ReplaceItem_Failed"], ex.Message),
+                        Settings.Strings["Error_Caption"], MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 
@@ -733,50 +818,57 @@ namespace PoeSmoother
                 MessageBox.Show(Settings.Strings["ReplaceItem_Readonly"], Settings.Strings["ReplaceItem_ReadonlyCaption"]);
                 return;
             }
+
             const string EnableCustomSkills = "config/customSkills/enableCustom/Metadata";
-            string[] replace_cgs = Directory.GetFiles(EnableCustomSkills, "*.*", SearchOption.AllDirectories);
-            var replace_cgs_path = Path.GetFileName(EnableCustomSkills);
-            int replace_cgs_dir = replace_cgs_path.Length;
-
             const string RestoreDefaultSkills = "config/customSkills/restoreDefault/Metadata";
-            string[] restore_cgs = Directory.GetFiles(RestoreDefaultSkills, "*.*", SearchOption.AllDirectories);
-            var restore_cgs_path = Path.GetFileName(RestoreDefaultSkills);
-            int restore_cgs_dir = restore_cgs_path.Length;
 
-            try
+            if (Directory.Exists(EnableCustomSkills) && Directory.Exists(RestoreDefaultSkills))
             {
-                switch (customSkills.IsChecked)
-                {
-                    case true:
-                        {
-                            foreach (var item in replace_cgs)
-                            {
-                                string fileNames = item.Remove(0, EnableCustomSkills.Length - replace_cgs_dir);
-                                RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
-                            }
-                            UpdateDisplayPanel();
-                        }
-                        break;
+                string[] replace_cgs = Directory.GetFiles(EnableCustomSkills, "*.*", SearchOption.AllDirectories);
+                var replace_cgs_path = Path.GetFileName(EnableCustomSkills);
+                int replace_cgs_dir = replace_cgs_path.Length;
 
-                    case false:
-                        {
-                            foreach (var item in restore_cgs)
+                string[] restore_cgs = Directory.GetFiles(RestoreDefaultSkills, "*.*", SearchOption.AllDirectories);
+                var restore_cgs_path = Path.GetFileName(RestoreDefaultSkills);
+                int restore_cgs_dir = restore_cgs_path.Length;
+
+                try
+                {
+                    switch (customEffects.IsChecked)
+                    {
+                        case true:
                             {
-                                string fileNames = item.Remove(0, RestoreDefaultSkills.Length - restore_cgs_dir);
-                                RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
+                                foreach (var item in replace_cgs)
+                                {
+                                    string fileNames = item.Remove(0, EnableCustomSkills.Length - replace_cgs_dir);
+                                    RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
+                                }
+
+                                UpdateDisplayPanel();
                             }
-                            UpdateDisplayPanel();
-                        }
-                        break;
+                            break;
+
+                        case false:
+                            {
+                                foreach (var item in restore_cgs)
+                                {
+                                    string fileNames = item.Remove(0, RestoreDefaultSkills.Length - restore_cgs_dir);
+                                    RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
+                                }
+
+                                UpdateDisplayPanel();
+                            }
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(string.Format(Settings.Strings["ReplaceItem_Failed"], ex.Message),
+                        Settings.Strings["Error_Caption"], MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(string.Format(Settings.Strings["ReplaceItem_Failed"], ex.Message),
-                    Settings.Strings["Error_Caption"], MessageBoxButton.OK, MessageBoxImage.Error);
-            }
         }
-
+        
         private void ZeroParticles()
         {
             if (content.IsReadOnly)
@@ -794,7 +886,7 @@ namespace PoeSmoother
             string[] restoreFiles = Directory.GetFiles(restoreParticles, "*.*", SearchOption.AllDirectories);
             var restore = Path.GetFileName(restoreParticles);
             int restoreDirectoryLength = restore.Length;
-            
+
             try
             {
                 switch (zeroParticles.IsChecked)
@@ -1710,7 +1802,7 @@ namespace PoeSmoother
             }
             catch (Exception ex)
             {
-                MessageBox.Show(string.Format(Settings.Strings["ReplaceItem_Failed"], ex.Message), 
+                MessageBox.Show(string.Format(Settings.Strings["ReplaceItem_Failed"], ex.Message),
                     Settings.Strings["Error_Caption"], MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
