@@ -135,17 +135,9 @@ namespace LibGGPK
 		/// <summary>
 		/// Format of data contained in this file
 		/// </summary>
-		public DataFormat FileFormat 
-		{
-			get
-			{
-				if (Name.Equals("GameObjectRegister"))
-					return DataFormat.Unicode;
-				return KnownFileFormats[Path.GetExtension(Name).ToLower()];
-			}
-		}
+		public DataFormat FileFormat => Name.Equals("GameObjectRegister") ? DataFormat.Unicode : KnownFileFormats[Path.GetExtension(Name).ToLower()];
 
-		/// <summary>
+	    /// <summary>
 		/// Gets the absolute directory of this file
 		/// </summary>
 		/// <returns>Absolute directory of this file</returns>

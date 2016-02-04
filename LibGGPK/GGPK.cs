@@ -42,9 +42,8 @@ namespace LibGGPK
 		/// <param name="output">Output function</param>
 		private void ReadRecordOffsets(string pathToGgpk, Action<string> output)
 		{
-			float previousPercentComplete = 0.0f;
-
-			using (FileStream fs = Utils.OpenFile(pathToGgpk, out isReadOnly))
+            float previousPercentComplete = 0.0f;
+            using (FileStream fs = Utils.OpenFile(pathToGgpk, out isReadOnly))
 			{
 				BinaryReader br = new BinaryReader(fs);
 				long streamLength = br.BaseStream.Length;
@@ -59,8 +58,7 @@ namespace LibGGPK
 					if (percentComplete - previousPercentComplete >= 0.10f)
 					{
 					    output?.Invoke($"{100.0*percentComplete:00.00}%{Environment.NewLine}");
-
-					    previousPercentComplete = percentComplete;
+                        previousPercentComplete = percentComplete;
 					}
 				}
 			    output?.Invoke($"{100.0f*br.BaseStream.Position/ br.BaseStream.Length:00.00}%{Environment.NewLine}");

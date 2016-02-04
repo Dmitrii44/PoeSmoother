@@ -65,10 +65,10 @@ namespace LibGGPK
 			Entries = new DirectoryEntry[totalEntries];
 			for (int i = 0; i < totalEntries; i++)
 			{
-				Entries[i] = new DirectoryEntry()
+				Entries[i] = new DirectoryEntry
 				{
 					EntryNameHash = br.ReadUInt32(),
-					Offset = br.ReadInt64(),
+					Offset = br.ReadInt64()
 				};
 			}
 		}

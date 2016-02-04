@@ -583,101 +583,34 @@ namespace PoeSmoother
             ReplaceItem(recordToReplace);
         }
 
-        private void CustomEffects(object sender, RoutedEventArgs e)
-        {
-            CustomEffects();
-        }
-
-        private void CustomSounds(object sender, RoutedEventArgs e)
-        {
-            CustomSounds();
-        }
-
-        private void CustomSkills(object sender, RoutedEventArgs e)
-        {
-            CustomSkills();
-        }
-
-        private void RainParticles(object sender, RoutedEventArgs e)
-        {
-            RainParticles();
-        }
-
-        private void MonsterSounds(object sender, RoutedEventArgs e)
-        {
-            MonsterSounds();
-        }
-
-        private void CharSounds(object sender, RoutedEventArgs e)
-        {
-            CharSounds();
-        }
-
-        private void ChargeSounds(object sender, RoutedEventArgs e)
-        {
-            ChargeSounds();
-        }
-
-        private void PortalSounds(object sender, RoutedEventArgs e)
-        {
-            PortalSounds();
-        }
-
-        private void HeraldOfIce(object sender, RoutedEventArgs e)
-        {
-            HeraldOfIce();
-        }
-
-        private void DischargeImproved(object sender, RoutedEventArgs e)
-        {
-            DischargeImproved();
-        }
-
-        private void DischargeDisabled(object sender, RoutedEventArgs e)
-        {
-            DischargeDisabled();
-        }
-
-        private void GroundEffects(object sender, RoutedEventArgs e)
-        {
-            GroundEffects();
-        }
-
-        private void CorruptedArea(object sender, RoutedEventArgs e)
-        {
-            CorruptedArea();
-        }
-
-        private void ExtraGore(object sender, RoutedEventArgs e)
-        {
-            ExtraGore();
-        }
-
-        private void DeleteDeadBodies(object sender, RoutedEventArgs e)
-        {
-            DeleteDeadBodies();
-        }
-
-        private void RemovePets(object sender, RoutedEventArgs e)
-        {
-            RemovePets();
-        }
-
-        private void GlobeGirls(object sender, RoutedEventArgs e)
-        {
-            GlobeGirls();
-        }
-
-        private void ZeroParticles(object sender, RoutedEventArgs e)
-        {
-            ZeroParticles();
-        }
-
+		private void CustomEffects(object sender, RoutedEventArgs e) { CustomEffects(); }
+		private void CustomSounds(object sender, RoutedEventArgs e) { CustomSounds(); }
+        private void CustomSkills(object sender, RoutedEventArgs e) { CustomSkills(); }
+        private void CustomArt(object sender, RoutedEventArgs e) { CustomArt(); }
+        private void CustomMicro(object sender, RoutedEventArgs e) { CustomMicro(); }
+        private void RainParticles(object sender, RoutedEventArgs e) { RainParticles(); }
+		private void MonsterSounds(object sender, RoutedEventArgs e) { MonsterSounds(); }
+        private void CharSounds(object sender, RoutedEventArgs e) { CharSounds(); }
+        private void ChargeSounds(object sender, RoutedEventArgs e) { ChargeSounds(); }
+        private void PortalSounds(object sender, RoutedEventArgs e) { PortalSounds(); }
+        private void HeraldOfIce(object sender, RoutedEventArgs e) { HeraldOfIce(); }
+        private void DischargeImproved(object sender, RoutedEventArgs e) { DischargeImproved(); }
+        private void DischargeDisabled(object sender, RoutedEventArgs e) { DischargeDisabled(); }
+        private void GroundEffects(object sender, RoutedEventArgs e) { GroundEffects(); }
+        private void CorruptedArea(object sender, RoutedEventArgs e) { CorruptedArea(); }
+        private void ExtraGore(object sender, RoutedEventArgs e) { ExtraGore(); }
+        private void DeleteDeadBodies(object sender, RoutedEventArgs e) { DeleteDeadBodies(); }
+        private void RemovePets(object sender, RoutedEventArgs e) { RemovePets(); }
+        private void GlobeGirls(object sender, RoutedEventArgs e) { GlobeGirls(); }
+        private void ZeroParticles(object sender, RoutedEventArgs e) { ZeroParticles(); }
+		
         private void button_Click(object sender, RoutedEventArgs e)
         {
             customEffects.IsChecked = false;
             customSounds.IsChecked = false;
             customSkills.IsChecked = false;
+            customArt.IsChecked = false;
+            customMicro.IsChecked = false;
             rainParticles.IsChecked = false;
             groundEffects.IsChecked = false;
             extraGore.IsChecked = false;
@@ -726,11 +659,8 @@ namespace PoeSmoother
                                 {
                                     string fileNames = item.Remove(0, DisableCustomEffects.Length - replace_cgs_dir);
                                     RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
-                                }
-
-                                UpdateDisplayPanel();
-                            }
-                            break;
+                                } UpdateDisplayPanel();
+                            } break;
 
                         case false:
                             {
@@ -738,11 +668,8 @@ namespace PoeSmoother
                                 {
                                     string fileNames = item.Remove(0, RestoreDefaultEffects.Length - restore_cgs_dir);
                                     RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
-                                }
-
-                                UpdateDisplayPanel();
-                            }
-                            break;
+                                } UpdateDisplayPanel();
+                            } break;
                     }
                 }
                 catch (Exception ex)
@@ -778,29 +705,19 @@ namespace PoeSmoother
                 {
                     switch (customEffects.IsChecked)
                     {
-                        case true:
-                            {
-                                foreach (var item in replace_cgs)
-                                {
+                        case true: {
+                                foreach (var item in replace_cgs) {
                                     string fileNames = item.Remove(0, EnableCustomSounds.Length - replace_cgs_dir);
                                     RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
-                                }
+                                } UpdateDisplayPanel();
+                            } break;
 
-                                UpdateDisplayPanel();
-                            }
-                            break;
-
-                        case false:
-                            {
-                                foreach (var item in restore_cgs)
-                                {
+                        case false: {
+                                foreach (var item in restore_cgs) {
                                     string fileNames = item.Remove(0, RestoreDefaultSounds.Length - restore_cgs_dir);
                                     RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
-                                }
-
-                                UpdateDisplayPanel();
-                            }
-                            break;
+                                } UpdateDisplayPanel();
+                            } break;
                     }
                 }
                 catch (Exception ex)
@@ -842,11 +759,8 @@ namespace PoeSmoother
                                 {
                                     string fileNames = item.Remove(0, EnableCustomSkills.Length - replace_cgs_dir);
                                     RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
-                                }
-
-                                UpdateDisplayPanel();
-                            }
-                            break;
+                                } UpdateDisplayPanel();
+                            } break;
 
                         case false:
                             {
@@ -854,8 +768,113 @@ namespace PoeSmoother
                                 {
                                     string fileNames = item.Remove(0, RestoreDefaultSkills.Length - restore_cgs_dir);
                                     RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
-                                }
+                                } UpdateDisplayPanel();
+                            } break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(string.Format(Settings.Strings["ReplaceItem_Failed"], ex.Message),
+                        Settings.Strings["Error_Caption"], MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
 
+        private void CustomArt()
+        {
+            if (content.IsReadOnly)
+            {
+                MessageBox.Show(Settings.Strings["ReplaceItem_Readonly"], Settings.Strings["ReplaceItem_ReadonlyCaption"]);
+                return;
+            }
+
+            const string EnableCustomArt = "config/customArt/enableCustom/Art";
+            const string RestoreDefaultArt = "config/customArt/restoreDefault/Art";
+
+            if (Directory.Exists(EnableCustomArt) && Directory.Exists(RestoreDefaultArt))
+            {
+                string[] replace_art = Directory.GetFiles(EnableCustomArt, "*.*", SearchOption.AllDirectories);
+                var replace_art_path = Path.GetFileName(EnableCustomArt);
+                int replace_art_dir = replace_art_path.Length;
+
+                string[] restore_art = Directory.GetFiles(RestoreDefaultArt, "*.*", SearchOption.AllDirectories);
+                var restore_art_path = Path.GetFileName(RestoreDefaultArt);
+                int restore_art_dir = restore_art_path.Length;
+
+                try
+                {
+                    switch (customArt.IsChecked)
+                    {
+                        case true:
+                            {
+                                foreach (var item in replace_art)
+                                {
+                                    string fileNames = item.Remove(0, EnableCustomArt.Length - replace_art_dir);
+                                    RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
+                                } UpdateDisplayPanel();
+                            } break;
+
+                        case false:
+                            {
+                                foreach (var item in restore_art)
+                                {
+                                    string fileNames = item.Remove(0, RestoreDefaultArt.Length - restore_art_dir);
+                                    RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
+                                } UpdateDisplayPanel();
+                            } break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(string.Format(Settings.Strings["ReplaceItem_Failed"], ex.Message),
+                        Settings.Strings["Error_Caption"], MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private void CustomMicro()
+        {
+            if (content.IsReadOnly)
+            {
+                MessageBox.Show(Settings.Strings["ReplaceItem_Readonly"], Settings.Strings["ReplaceItem_ReadonlyCaption"]);
+                return;
+            }
+
+            const string EnableCustomMicro = "config/customMicro/enableCustom/Metadata";
+            const string RestoreDefaultMicro = "config/customMicro/restoreDefault/Metadata";
+
+            if (Directory.Exists(EnableCustomMicro) && Directory.Exists(RestoreDefaultMicro))
+            {
+                string[] replace_micro = Directory.GetFiles(EnableCustomMicro, "*.*", SearchOption.AllDirectories);
+                var replace_micro_path = Path.GetFileName(EnableCustomMicro);
+                int replace_micro_dir = replace_micro_path.Length;
+
+                string[] restore_micro = Directory.GetFiles(RestoreDefaultMicro, "*.*", SearchOption.AllDirectories);
+                var restore_micro_path = Path.GetFileName(RestoreDefaultMicro);
+                int restore_micro_dir = restore_micro_path.Length;
+
+                try
+                {
+                    switch (customMicro.IsChecked)
+                    {
+                        case true:
+                            {
+                                foreach (var item in replace_micro)
+                                {
+                                    string fileNames = item.Remove(0, EnableCustomMicro.Length - replace_micro_dir);
+                                    RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
+                                }
+                                UpdateDisplayPanel();
+                            }
+                            break;
+
+                        case false:
+                            {
+                                foreach (var item in restore_micro)
+                                {
+                                    string fileNames = item.Remove(0, RestoreDefaultMicro.Length - restore_micro_dir);
+                                    RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
+                                }
                                 UpdateDisplayPanel();
                             }
                             break;
@@ -868,7 +887,7 @@ namespace PoeSmoother
                 }
             }
         }
-        
+
         private void ZeroParticles()
         {
             if (content.IsReadOnly)
@@ -877,12 +896,12 @@ namespace PoeSmoother
                 return;
             }
 
-            const string replaceParticles = "config/replaceParticles/Metadata";
-            string[] replaceFiles = Directory.GetFiles(replaceParticles, "*.*", SearchOption.AllDirectories);
-            var replace = Path.GetFileName(replaceParticles);
+            const string removeParticles = "config/removeAllParticles/Metadata";
+            string[] replaceFiles = Directory.GetFiles(removeParticles, "*.*", SearchOption.AllDirectories);
+            var replace = Path.GetFileName(removeParticles);
             int replaceDirectoryLength = replace.Length;
 
-            const string restoreParticles = "config/restoreParticles/Metadata";
+            const string restoreParticles = "config/restoreAllParticles/Metadata";
             string[] restoreFiles = Directory.GetFiles(restoreParticles, "*.*", SearchOption.AllDirectories);
             var restore = Path.GetFileName(restoreParticles);
             int restoreDirectoryLength = restore.Length;
@@ -895,13 +914,10 @@ namespace PoeSmoother
                         {
                             foreach (var item in replaceFiles)
                             {
-                                string fileNames = item.Remove(0, replaceParticles.Length - replaceDirectoryLength);
+                                string fileNames = item.Remove(0, removeParticles.Length - replaceDirectoryLength);
                                 RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
-                            }
-
-                            UpdateDisplayPanel();
-                        }
-                        break;
+                            } UpdateDisplayPanel();
+                        } break;
 
                     case false:
                         {
@@ -909,11 +925,8 @@ namespace PoeSmoother
                             {
                                 string fileNames = item.Remove(0, restoreParticles.Length - restoreDirectoryLength);
                                 RecordsByPath[fileNames].ReplaceContents(ggpkPath, item, content.FreeRoot);
-                            }
-
-                            UpdateDisplayPanel();
-                        }
-                        break;
+                            } UpdateDisplayPanel();
+                        } break;
                 }
             }
             catch (Exception ex)
@@ -939,20 +952,16 @@ namespace PoeSmoother
                             const string enable_GlobeGirls = "config/uiSettings/globeGirls.dds";
                             const string GlobeGirls = "Art\\Textures\\Interface\\2D\\2DArt_UIImages_InGame_1.dds";
                             RecordsByPath[GlobeGirls].ReplaceContents(ggpkPath, enable_GlobeGirls, content.FreeRoot);
-
                             UpdateDisplayPanel();
-                        }
-                        break;
+                        } break;
 
                     case false:
                         {
                             const string disable_GlobeGirls = "config/uiSettings/2DArt_UIImages_InGame_1.dds";
                             const string GlobeGirls = "Art\\Textures\\Interface\\2D\\2DArt_UIImages_InGame_1.dds";
                             RecordsByPath[GlobeGirls].ReplaceContents(ggpkPath, disable_GlobeGirls, content.FreeRoot);
-
                             UpdateDisplayPanel();
-                        }
-                        break;
+                        } break;
                 }
             }
             catch (Exception ex)
