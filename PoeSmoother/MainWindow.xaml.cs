@@ -118,7 +118,7 @@ namespace PoeSmoother
         /// </summary>
         /// <param name="directoryTreeNode">Node to add to tree</param>
         /// <param name="parentControl">TreeViewItem to add children to</param>
-        private void AddDirectoryTreeToControl(DirectoryTreeNode directoryTreeNode, TreeViewItem parentControl)
+        private void AddDirectoryTreeToControl(DirectoryTreeNode directoryTreeNode, ItemsControl parentControl)
         {
             TreeViewItem rootItem = new TreeViewItem { Header = directoryTreeNode };
             if ((directoryTreeNode.ToString() == "ROOT") || (directoryTreeNode.ToString() == "")) rootItem.IsExpanded = true;
