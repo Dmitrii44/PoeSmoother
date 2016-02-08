@@ -1,4 +1,4 @@
-# PoeSmoother - Path of Exile effects remover -> credits to the makers of VisualGGPK
+# PoeSmoother - Path of Exile effects remover...credits to the makers of VisualGGPK
 
 This tool is using VisualGGPK (many thank's to creators) to disable unwanted effects from the game.
 
