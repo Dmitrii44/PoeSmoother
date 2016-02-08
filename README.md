@@ -7,7 +7,7 @@ This tool is using VisualGGPK (many thank's to creators) to disable unwanted eff
 - Removes particle effects from skills.
 - Lower ground effects particles.
 - Removes sound effects for Spectre, Golems, Chars, Portals, Waypoints.
-- Change ItemFilter sounds with any other sound.
+- Change ItemFilter sounds with any other sounds.
 - Completely removes Extra Gore from uniques items.
 - Custom options for all types of effects.
 - Brings back the girls on globes.
