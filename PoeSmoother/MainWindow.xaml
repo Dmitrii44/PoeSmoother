@@ -124,7 +124,11 @@
                             - Use only one option for discharge skill (improved or zero effects), and check the checkbox twice.
                         </TextBlock>
                         <TextBlock TextWrapping="Wrap" FontSize="12" Margin="5" Foreground="#FFDFCF99" FontFamily="Consolas" FontWeight="Normal" TextDecorations="{x:Null}">
-                            - More info later...
+                            - Paths used by customs options:<LineBreak/> 
+                              > custom effects: Metadata/...<LineBreak/> 
+                              > custom sounds: Audio/...<LineBreak/>     
+                              > custom skills: Metadata/...<LineBreak/> 
+                              > custom art: Art/...
                         </TextBlock>
                     </StackPanel>
                 </TabItem>
