@@ -22,7 +22,7 @@ Any helpers/contributors good at programming are very welcomed.
 My limited skills on c#, makes the tool to look like a mess, but it's working as intended :)
 
 
-*** Concerning of being banned by GGG,...disabling effects that are causing my super computer to lag and playing with headaches...i don't think GGG have that low self respect to ban any of VisualGGPK users, and never heard of someone being banned for that anyway (but who knows..nothing is 100% sure). ***
+***Concerning of being banned by GGG,...disabling effects that are causing my super computer to lag and playing with headaches...i don't think GGG have that low self respect to ban any of VisualGGPK users, and never heard of someone being banned for that anyway (but who knows..nothing is 100% sure).***
 
 
 enjoy,
