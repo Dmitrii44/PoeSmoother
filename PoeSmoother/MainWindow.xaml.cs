@@ -703,7 +703,7 @@ namespace PoeSmoother
 
                 try
                 {
-                    switch (customEffects.IsChecked)
+                    switch (customSounds.IsChecked)
                     {
                         case true: {
                                 foreach (var item in replace_cgs) {
@@ -751,7 +751,7 @@ namespace PoeSmoother
 
                 try
                 {
-                    switch (customEffects.IsChecked)
+                    switch (customSkills.IsChecked)
                     {
                         case true:
                             {
@@ -896,12 +896,12 @@ namespace PoeSmoother
                 return;
             }
 
-            const string removeParticles = "config/removeAllParticles/Metadata";
+            const string removeParticles = "config/zeroParticles/removeAllParticles/Metadata";
             string[] replaceFiles = Directory.GetFiles(removeParticles, "*.*", SearchOption.AllDirectories);
             var replace = Path.GetFileName(removeParticles);
             int replaceDirectoryLength = replace.Length;
 
-            const string restoreParticles = "config/restoreAllParticles/Metadata";
+            const string restoreParticles = "config/zeroParticles/restoreAllParticles/Metadata";
             string[] restoreFiles = Directory.GetFiles(restoreParticles, "*.*", SearchOption.AllDirectories);
             var restore = Path.GetFileName(restoreParticles);
             int restoreDirectoryLength = restore.Length;
